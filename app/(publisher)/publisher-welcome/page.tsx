@@ -1,3 +1,8 @@
 export default function PublisherWelcome() {
-  return <>this is Main Publishing Company Welcome Page</>;
+  return (
+    <>
+      <h1>this is the Main Publishing Company Welcome Page</h1>
+      <p>this content is available by private access</p>
+    </>
+  );
 }

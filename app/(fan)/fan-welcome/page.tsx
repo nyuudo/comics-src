@@ -1,3 +1,8 @@
 export default function FanWelcome() {
-  return <>this is Main Fan Welcome Page</>;
+  return (
+    <>
+      <h1>this is Main Fan Welcome Page</h1>
+      <p>this content is available by private access</p>
+    </>
+  );
 }

@@ -1,3 +1,7 @@
 export default function Catalog() {
-  return <>this is the Main CATALOG Page</>;
+  return (
+    <>
+      <h1>this is the Main CATALOG Page</h1>
+    </>
+  );
 }

@@ -1,3 +1,3 @@
 export default function Fan() {
-  return <>this is Main Fan Page</>;
+  return <>this is the Main Fan Page</>;
 }

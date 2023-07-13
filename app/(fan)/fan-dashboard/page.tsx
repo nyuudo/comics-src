@@ -1,3 +1,8 @@
 export default function FanDashboard() {
-  return <>this is Main Fan Dashboard Page</>;
+  return (
+    <>
+      <h1>this is Main Fan Dashborad Page</h1>
+      <p>this content is available by private access</p>
+    </>
+  );
 }
