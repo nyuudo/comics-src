@@ -1,7 +1,9 @@
 export default function Sample() {
   return (
     <>
-      <div>this is just a SAMPLE Page form the CATALOG</div>
+      <h1 className="flex flex-col items-center justify-between">
+        this is just a SAMPLE Page form the CATALOG
+      </h1>
     </>
   );
 }

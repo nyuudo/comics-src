@@ -1,0 +1,20 @@
+[
+  {
+    "id": "CSRCWC-0001",
+    "title": "Over-Reacting with useEffect",
+    "author": "El Bug",
+    "genre": ["sci-fi", "fantasy", "society"],
+    "year": "2023",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0001.webp"
+  },
+  {
+    "id": "CSRCWC-0002",
+    "title": "I'm not Your Type",
+    "author": "Tom Type Script",
+    "genre": ["sci-fi", "horror", "society"],
+    "year": "2018",
+    "publisher": "Insolvent Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0002.webp"
+  }
+]

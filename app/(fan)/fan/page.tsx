@@ -1,3 +1,7 @@
 export default function Fan() {
-  return <>this is the Main Fan Page</>;
+  return (
+    <h1 className="flex flex-col items-center justify-between">
+      this is the Main Fan Page
+    </h1>
+  );
 }

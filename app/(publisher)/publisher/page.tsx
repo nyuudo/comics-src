@@ -1,3 +1,7 @@
 export default function Publisher() {
-  return <>this is Main Publishing Company Page</>;
+  return (
+    <h1 className="flex flex-col items-center justify-between">
+      this is Main Publishing Company Page
+    </h1>
+  );
 }

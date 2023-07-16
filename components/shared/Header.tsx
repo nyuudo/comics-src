@@ -3,10 +3,17 @@ import Image from "next/image";
 import SearchBar from "./SearchBar";
 import SignUpButton from "./buttons/SignUpButton";
 import LogInButton from "./buttons/LogInButton";
+/* import { useDispatch } from "react-redux";
+import { openModal } from "@/store/modalSlice"; */
 
 export default function Header() {
+  /*   const dispatch = useDispatch();
+  const handleOpenModal = () => {
+    dispatch(openModal());
+  }; */
+
   return (
-    <header className="flex p-8">
+    <header className="w-[1024px] h-24 bg-[rgba(0,164,222,1)] flex flex-row items-center justify-between flex-nowrap px-[60px];">
       <Link href="/">
         <Image
           src="/assets/icons/branding.svg"
@@ -16,9 +23,11 @@ export default function Header() {
         ></Image>
       </Link>
       <p>This is a shared Header component</p>
-      <SearchBar />
-      <SignUpButton />
-      <LogInButton />
+      <div className="relative w-[434px] h-24 flex flex-row items-center justify-between self-center">
+        <SearchBar />
+        <SignUpButton />
+        <LogInButton />
+      </div>
     </header>
   );
 }

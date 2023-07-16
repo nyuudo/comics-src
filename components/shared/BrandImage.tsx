@@ -1,14 +1,7 @@
 "use client";
 
-import { useRive } from "@rive-app/react-canvas";
+import RiveComponent from "@rive-app/react-canvas";
 
-export const BrandImage = () => {
-  const { rive, RiveComponent } = useRive({
-    src: "/assets/rive/logotipo.riv",
-    artboard: "Logo",
-    stateMachines: "State Machine 1",
-    autoplay: true,
-  });
-
-  return <RiveComponent />;
-};
+export const BrandImage = () => (
+  <RiveComponent src="https://cdn.rive.app/animations/vehicles.riv" />
+);
