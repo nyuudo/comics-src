@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import SearchBar from "./SearchBar";
+//import SearchBar from "./SearchBar";
 import SignUpButton from "./buttons/SignUpButton";
 import LogInButton from "./buttons/LogInButton";
 /* import { useDispatch } from "react-redux";
@@ -24,7 +24,6 @@ export default function Header() {
       </Link>
       <p>This is a shared Header component</p>
       <div className="relative w-[434px] h-24 flex flex-row items-center justify-between self-center">
-        <SearchBar />
         <SignUpButton />
         <LogInButton />
       </div>

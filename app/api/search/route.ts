@@ -7,5 +7,5 @@ export async function GET(req: Request) {
   const comicsSourceData = comics_source.filter((comic) =>
     comic.title.toLowerCase().includes(title?.toLowerCase() ?? "")
   );
-  return NextResponse.json(comicsSourceData);
+  return NextResponse.json(comicsSourceData.slice(0, 10));
 }

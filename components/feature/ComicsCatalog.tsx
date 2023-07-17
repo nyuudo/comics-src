@@ -5,13 +5,13 @@ const ComicsCatalog = ({ comics }: { comics: ComicSrcWebComic[] }) => {
     <table>
       <thead>
         <tr>
-          <th>Title</th>
+          <th>Comic Title</th>
         </tr>
       </thead>
       <tbody>
         {comics.map((comic) => (
           <tr key={comic.title}>
-            <td>{comic.title}</td>
+            <td className="text-blue-500">{comic.title}</td>
           </tr>
         ))}
       </tbody>

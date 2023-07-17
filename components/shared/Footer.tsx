@@ -12,7 +12,7 @@ export default function Footer() {
         <Link href="/publisher">Publisher</Link>
         <Link href="/fan">Fan</Link>
       </div>
-      <span className="text">©2023 COMIC src by @nyuudo</span>
+      <span className="text">©2023 COMICS src by @nyuudo</span>
     </footer>
   );
 }

@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-
-// types Comics Search (pendiente)
-// types SearchState (update with the info from the definitive types)
+import { ComicSrcWebComic } from "@/types";
 
 export interface SearchState {
   search: string;
-  startupComics: string[];
+  startupComics: ComicSrcWebComic[];
 }
 
 const initialState: SearchState = {
@@ -21,7 +19,7 @@ const searchSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-    setStartupComics: (state, action: PayloadAction<string[]>) => {
+    setStartupComics: (state, action: PayloadAction<ComicSrcWebComic[]>) => {
       state.startupComics = action.payload;
     },
   },

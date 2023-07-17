@@ -16,5 +16,113 @@
     "year": "2018",
     "publisher": "Insolvent Comics",
     "coverImage": "./assets/images/cover-csrcwc-0002.webp"
+  },
+  {
+    "id": "CSRCWC-0003",
+    "title": "The Script",
+    "author": "Joe Nose Nada",
+    "genre": ["society", "fantasy"],
+    "year": "2023",
+    "publisher": "Fullstack Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0003.webp"
+  },
+  {
+    "id": "CSRCWC-0004",
+    "title": "Half-Fullstack Underdeveloped",
+    "author": "ParseFloatMan",
+    "genre": ["sci-fi", "society"],
+    "year": "2016",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0004.webp"
+  },
+  {
+    "id": "CSRCWC-0005",
+    "title": "It's a Bootstrap!",
+    "author": "Gil Hub",
+    "genre": ["sci-fi", "fantasy", "society"],
+    "year": "2013",
+    "publisher": "Insolvent Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0005.webp"
+  },
+  {
+    "id": "CSRCWC-0006",
+    "title": "Fetching the Unfetchable",
+    "author": "El Bug",
+    "genre": ["sci-fi", "fantasy", "society"],
+    "year": "2001",
+    "publisher": "Fullstack Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0006.webp"
+  },
+  {
+    "id": "CSRCWC-0007",
+    "title": "Console Error of the Soul",
+    "author": "El Bug",
+    "genre": ["sci-fi", "society"],
+    "year": "2023",
+    "publisher": "Fullstack Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0007.webp"
+  },
+  {
+    "id": "CSRCWC-0008",
+    "title": "Cruel Asynchronous Promises",
+    "author": "El Bug",
+    "genre": ["sci-fi", "fantasy", "society"],
+    "year": "2018",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0008.webp"
+  },
+  {
+    "id": "CSRCWC-0009",
+    "title": "Random Key Numbers",
+    "author": "El Bug",
+    "genre": ["sci-fi", "fantasy"],
+    "year": "2022",
+    "publisher": "Insolvent Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0009.webp"
+  },
+  {
+    "id": "CSRCWC-0010",
+    "title": "Cascade Style Shit",
+    "author": "El Bug",
+    "genre": ["horror", "society"],
+    "year": "2023",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0010.webp"
+  },
+  {
+    "id": "CSRCWC-0011",
+    "title": "Don't Commit Suicide",
+    "author": "Sprinter",
+    "genre": ["sci-fi", "fantasy", "society"],
+    "year": "2021",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0011.webp"
+  },
+  {
+    "id": "CSRCWC-0012",
+    "title": "Get what You Post",
+    "author": "PowerUser",
+    "genre": ["horror", "society"],
+    "year": "2013",
+    "publisher": "Independent Comix",
+    "coverImage": "./assets/images/cover-csrcwc-0012.webp"
+  },
+  {
+    "id": "CSRCWC-0013",
+    "title": "Vanilla flavoured Code",
+    "author": "Junior",
+    "genre": ["sci-fi", "society"],
+    "year": "2023",
+    "publisher": "Fullstack Comics",
+    "coverImage": "./assets/images/cover-csrcwc-0013.webp"
+  },
+  {
+    "id": "CSRCWC-0014",
+    "title": "Vulnerabilities Everywhere",
+    "author": "El Bug",
+    "genre": ["sci-fi", "society"],
+    "year": "2022",
+    "publisher": "Fullstack Comics",
+    "coverImage": "./assets/images/cover-csrcwc-00014.webp"
   }
 ]

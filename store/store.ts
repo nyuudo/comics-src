@@ -6,7 +6,9 @@ const rootReducer = combineReducers({
   search: searchReducer,
   // if more slices are needed
 });
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
 });
-export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
