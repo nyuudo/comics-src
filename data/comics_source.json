@@ -1,7 +1,7 @@
 [
   {
     "id": "CSRCWC-0001",
-    "title": "Over-Reacting with useEffect",
+    "title": "Título Cómic 0001",
     "author": "El Bug",
     "genre": ["sci-fi", "fantasy", "society"],
     "year": "2023",
@@ -10,7 +10,7 @@
   },
   {
     "id": "CSRCWC-0002",
-    "title": "I'm not Your Type",
+    "title": "Título Cómic 0002",
     "author": "Tom Type Script",
     "genre": ["sci-fi", "horror", "society"],
     "year": "2018",
@@ -19,7 +19,7 @@
   },
   {
     "id": "CSRCWC-0003",
-    "title": "The Script",
+    "title": "Título Cómic 0003",
     "author": "Joe Nose Nada",
     "genre": ["society", "fantasy"],
     "year": "2023",
@@ -28,7 +28,7 @@
   },
   {
     "id": "CSRCWC-0004",
-    "title": "Half-Fullstack Underdeveloped",
+    "title": "Título Cómic 0004",
     "author": "ParseFloatMan",
     "genre": ["sci-fi", "society"],
     "year": "2016",
@@ -37,7 +37,7 @@
   },
   {
     "id": "CSRCWC-0005",
-    "title": "It's a Bootstrap!",
+    "title": "Título Cómic 0005",
     "author": "Gil Hub",
     "genre": ["sci-fi", "fantasy", "society"],
     "year": "2013",
@@ -46,7 +46,7 @@
   },
   {
     "id": "CSRCWC-0006",
-    "title": "Fetching the Unfetchable",
+    "title": "Título Cómic 0006",
     "author": "El Bug",
     "genre": ["sci-fi", "fantasy", "society"],
     "year": "2001",
@@ -55,7 +55,7 @@
   },
   {
     "id": "CSRCWC-0007",
-    "title": "Console Error of the Soul",
+    "title": "Título Cómic 0007",
     "author": "El Bug",
     "genre": ["sci-fi", "society"],
     "year": "2023",
@@ -64,7 +64,7 @@
   },
   {
     "id": "CSRCWC-0008",
-    "title": "Cruel Asynchronous Promises",
+    "title": "Título Cómic 0008",
     "author": "El Bug",
     "genre": ["sci-fi", "fantasy", "society"],
     "year": "2018",
@@ -73,7 +73,7 @@
   },
   {
     "id": "CSRCWC-0009",
-    "title": "Random Key Numbers",
+    "title": "Título Cómic 0009",
     "author": "El Bug",
     "genre": ["sci-fi", "fantasy"],
     "year": "2022",
@@ -82,7 +82,7 @@
   },
   {
     "id": "CSRCWC-0010",
-    "title": "Cascade Style Shit",
+    "title": "Título Cómic 0010",
     "author": "El Bug",
     "genre": ["horror", "society"],
     "year": "2023",
@@ -91,7 +91,7 @@
   },
   {
     "id": "CSRCWC-0011",
-    "title": "Don't Commit Suicide",
+    "title": "Título Cómic 0011",
     "author": "Sprinter",
     "genre": ["sci-fi", "fantasy", "society"],
     "year": "2021",
@@ -100,7 +100,7 @@
   },
   {
     "id": "CSRCWC-0012",
-    "title": "Get what You Post",
+    "title": "Título Cómic 0012",
     "author": "PowerUser",
     "genre": ["horror", "society"],
     "year": "2013",
@@ -109,7 +109,7 @@
   },
   {
     "id": "CSRCWC-0013",
-    "title": "Vanilla flavoured Code",
+    "title": "Título Cómic 0013",
     "author": "Junior",
     "genre": ["sci-fi", "society"],
     "year": "2023",
@@ -118,7 +118,7 @@
   },
   {
     "id": "CSRCWC-0014",
-    "title": "Vulnerabilities Everywhere",
+    "title": "Título Cómic 0014",
     "author": "El Bug",
     "genre": ["sci-fi", "society"],
     "year": "2022",

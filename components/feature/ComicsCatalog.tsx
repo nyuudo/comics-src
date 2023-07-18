@@ -2,16 +2,11 @@ import { ComicSrcWebComic } from "@/types";
 
 const ComicsCatalog = ({ comics }: { comics: ComicSrcWebComic[] }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Comic Title</th>
-        </tr>
-      </thead>
+    <table className="flex">
       <tbody>
         {comics.map((comic) => (
           <tr key={comic.title}>
-            <td className="text-blue-500">{comic.title}</td>
+            <td className="text-csrcblue">{comic.title}</td>
           </tr>
         ))}
       </tbody>
