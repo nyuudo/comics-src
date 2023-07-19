@@ -6,16 +6,15 @@ import type { TypedUseSelectorHook } from "react-redux";
 import { useEffect } from "react";
 import { RootState, AppDispatch } from "@/store/store";
 import { setSearch } from "@/store/searchSlice";
-import { comicsSrcApi } from "@/store/comicsSrcApi";
-import { ComicSrcWebComic } from "@/types";
-//import ComicsCatalog from "../feature/ComicsCatalog";
+//import { comicsSrcApi } from "@/store/comicsSrcApi";
+//import { ComicSrcWebComic } from "@/types";
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 const SearchBar = () => {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.search);
-  const startupComics = useAppSelector((state) => state.search.startupComics);
+  /*   const startupComics = useAppSelector((state) => state.search.startupComics);
   const data = useAppSelector(
     (state) =>
       state.comicsSrcApi.queries[`search("${search}")`]
@@ -24,7 +23,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     dispatch(comicsSrcApi.endpoints.search.initiate(search));
-  }, [dispatch, search]);
+  }, [dispatch, search]); */
 
   return (
     <div>

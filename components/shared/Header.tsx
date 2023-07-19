@@ -1,18 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Providers from "../feature/Provider";
 import SearchBar from "./SearchBar";
 import SignUpButton from "./buttons/SignUpButton";
 import LogInButton from "./buttons/LogInButton";
-/* import { useDispatch } from "react-redux";
-import { openModal } from "@/store/modalSlice"; */
+import Providers from "../feature/Provider";
 
 export default function Header() {
-  /*   const dispatch = useDispatch();
-  const handleOpenModal = () => {
-    dispatch(openModal());
-  }; */
-
   return (
     <header className="container flex items-center justify-between sm:px-3 bg-csrcblue h-[96px]">
       <div className="flex">

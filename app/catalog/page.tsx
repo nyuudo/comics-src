@@ -15,6 +15,7 @@ export default async function Catalog() {
       <h1>this is the Main CATALOG Page</h1>
       <h3 className="text-red-500">This is a Public Area</h3>
       <Providers>
+        <SearchBar />
         <ComicsCatalog comics={data} />
       </Providers>
     </main>

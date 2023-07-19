@@ -5,7 +5,7 @@ export default function Denied() {
     <main className="flex justify-center gap-4 bg-red-500 p-4 h-[520px]">
       <h1>ACCESS DENIED</h1>
       <h3 className="text-white">
-        You do not have the requiered acces to view this page
+        You do not have the requiered access to view this page
       </h3>
       <Link href="/">RETURN to HOME</Link>
     </main>
