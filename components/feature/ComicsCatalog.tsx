@@ -6,7 +6,7 @@ const ComicsCatalog = ({ comics }: { comics: ComicSrcWebComic[] }) => {
       <tbody>
         {comics.map((comic) => (
           <tr key={comic.title}>
-            <td className="text-csrcblue">{comic.title}</td>
+            <td className="text-csrcdark">{comic.title}</td>
           </tr>
         ))}
       </tbody>

@@ -1,10 +1,8 @@
-import SearchBar from "@/components/shared/SearchBar";
-import Providers from "@/components/feature/Provider";
-//import Preloader from "@/components/feature/Preloader";
-
 import { store } from "@/store/store";
 import { setStartupComics } from "@/store/searchSlice";
-import ComicsCatalog from "@/components/feature/ComicsCatalog";
+import SearchBar from "@/components/shared/SearchBar";
+import Providers from "@/store/Provider";
+import PreLoadComics from "@/components/feature/PreLoadComics";
 export default async function Catalog() {
   const req = await fetch("http://localhost:3000/api/search");
   const data = await req.json();
@@ -14,9 +12,9 @@ export default async function Catalog() {
     <main className="flex justify-center gap-4 bg-csrclight p-4 h-[520px]">
       <h1>this is the Main CATALOG Page</h1>
       <h3 className="text-red-500">This is a Public Area</h3>
+      <PreLoadComics comics={data} />
       <Providers>
         <SearchBar />
-        <ComicsCatalog comics={data} />
       </Providers>
     </main>
   );

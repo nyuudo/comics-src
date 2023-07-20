@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import SearchBar from "./SearchBar";
 import SignUpButton from "./buttons/SignUpButton";
 import LogInButton from "./buttons/LogInButton";
-import Providers from "../feature/Provider";
 
 export default function Header() {
   return (
@@ -19,9 +17,6 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex justify-between gap-2">
-        <Providers>
-          <SearchBar />
-        </Providers>
         <div className="flex justify-between gap-2">
           <SignUpButton />
           <LogInButton />

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Assistant } from "next/font/google";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
-import Providers from "@/components/feature/Provider";
+import Providers from "@/store/Provider";
 
 const assistant = Assistant({ subsets: ["latin"] });
 

@@ -8,7 +8,7 @@ export const comicsSrcApi = createApi({
   tagTypes: ["comics"],
   endpoints: (builder) => ({
     search: builder.query<ComicSrcWebComic[], string>({
-      query: (q) => `search?name=${q}`,
+      query: (q) => `search?title=${q}`,
       providesTags: (result, error, search) => [{ type: "comics", search }],
     }),
   }),
