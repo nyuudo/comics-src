@@ -11,7 +11,11 @@ export default function Footer() {
         <Link href="/publisher">Publisher</Link>
         <Link href="/fan">Fan</Link>
       </div>
-      <span className="text-csrclight">©2023 COMICS src by @nyuudo</span>
+      <p className="text-csrclight">
+        ©2023 COMICS/
+        <span className="text-sm uppercase tracking-tighter">SRC</span> by
+        @nyuudo
+      </p>
     </footer>
   );
 }

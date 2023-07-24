@@ -8,7 +8,7 @@ import Providers from "@/store/Provider";
 const assistant = Assistant({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "COMICS src",
+  title: "COMICS/src",
   description:
     "Discover new comics and directly support the artist who make it",
 };
@@ -21,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={assistant.className}>
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
