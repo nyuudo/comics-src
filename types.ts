@@ -7,3 +7,14 @@ export type ComicSrcWebComic = {
   publisher: string;
   coverImage: string;
 };
+
+export type SearchState = {
+  search: string;
+  author?: string;
+  publisher?: string;
+  startupComics: ComicSrcWebComic[];
+};
+
+export type ModalState = {
+  isModalOpen: boolean;
+};

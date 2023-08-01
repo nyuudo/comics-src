@@ -10,11 +10,14 @@ export default function Footer() {
         <Link href="/author">Author</Link>
         <Link href="/publisher">Publisher</Link>
         <Link href="/fan">Fan</Link>
+        <Link href="/login">Login</Link>
       </div>
-      <p className="text-csrclight">
+      <p className="text-xs text-csrclight">
         ©2023 COMICS/
-        <span className="text-sm uppercase tracking-tighter">SRC</span> by
-        @nyuudo
+        <span className="text-[0.5rem] inline-block align-text-top">
+          SRC
+        </span>{" "}
+        by @nyuudo
       </p>
     </footer>
   );

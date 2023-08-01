@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { ComicSrcWebComic } from "@/types";
-
-export interface SearchState {
-  search: string;
-  startupComics: ComicSrcWebComic[];
-}
+import { ComicSrcWebComic, SearchState } from "@/types";
 
 const initialState: SearchState = {
   search: "",

@@ -4,7 +4,7 @@ type ModalForSignInProps = {
   onClose: () => void;
 };
 
-const ModalForSignIn: React.FC<ModalForSignInProps> = ({ onClose }) => {
+const ModalForSignIn = (onClose: ModalForSignInProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <form className="bg-csrcdark rounded;">

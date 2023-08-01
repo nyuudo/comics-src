@@ -6,19 +6,16 @@ import SignUpButton from "./buttons/SignUpButton";
 import LogInButton from "./buttons/LogInButton";
 import ModalForSignIn from "../feature/ModalForSignIn";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal, closeModal } from "@/store/modalSlice";
+import { closeModal } from "@/store/modalSlice";
 import { RootState } from "@/store/store";
 
 export default function Header() {
   const isModalOpen = useSelector(
     (state: RootState) => state.modal.isModalOpen
   );
+  const dispatch = useDispatch();
   const handleCloseModal = () => {
     dispatch(closeModal());
-  };
-  const dispatch = useDispatch();
-  const handleOpenModal = () => {
-    dispatch(openModal());
   };
 
   return (
@@ -37,7 +34,6 @@ export default function Header() {
         </div>
         <div className="flex justify-between gap-2">
           <div className="flex justify-between gap-2">
-            <button onClick={handleOpenModal}>Open Modal</button>
             <SignUpButton />
             <LogInButton />
           </div>

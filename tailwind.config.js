@@ -13,6 +13,9 @@ module.exports = {
         csrclight: "#def6ff",
         csrcdark: "#003041",
       },
+      backgroundImage: {
+        search_area: "url('/assets/images/comics-src-search-area.svg')",
+      },
     },
   },
   plugins: [],

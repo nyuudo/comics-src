@@ -29,7 +29,8 @@ const SearchBar = () => {
   return (
     <div>
       <input
-        type="text"
+        type="search"
+        className="w-[17.3125rem] h-9 px-2 bg-search_area bg-no-repeat"
         value={search}
         onChange={(e) => dispatch(setSearch(e.target.value))}
       />

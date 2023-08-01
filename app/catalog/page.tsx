@@ -1,7 +1,6 @@
 import { store } from "@/store/store";
 import { setStartupComics } from "@/store/searchSlice";
 import SearchBar from "@/components/shared/SearchBar";
-//import Providers from "@/store/Provider";
 import PreLoadComics from "@/components/feature/PreLoadComics";
 export default async function Catalog() {
   const req = await fetch("http://localhost:3000/api/search");
