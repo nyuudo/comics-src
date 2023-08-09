@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { store } from "@/store/store";
 import { setStartupComics } from "@/store/searchSlice";
 import SearchBar from "@/components/shared/SearchBar";

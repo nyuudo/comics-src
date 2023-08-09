@@ -1,4 +1,4 @@
-import { ComicSrcWebComic } from "@/types";
+import { ComicSrcWebComic } from "@/types/comics-src-types";
 
 const ComicsCatalog = ({ comics }: { comics: ComicSrcWebComic[] }) => {
   return (

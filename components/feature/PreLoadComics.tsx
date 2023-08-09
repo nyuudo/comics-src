@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { store } from "@/store/store";
 import { setStartupComics } from "@/store/searchSlice";
-import { ComicSrcWebComic } from "@/types";
+import { ComicSrcWebComic } from "@/types/comics-src-types";
 
 function PreLoadComics({ comics }: { comics: ComicSrcWebComic[] }) {
   const loaded = useRef(false);

@@ -9,8 +9,10 @@ export const Logo = () => {
   });
 
   return (
-    <div style={{ width: "185px", height: "32px" }}>
-      <RiveComponent />
-    </div>
+    <a href="/">
+      <div style={{ width: "185px", height: "32px" }}>
+        <RiveComponent />
+      </div>
+    </a>
   );
 };

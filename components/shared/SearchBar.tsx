@@ -7,7 +7,7 @@ import { setSearch } from "@/store/searchSlice";
 import { comicsSrcApi } from "@/store/comicsSrcApi";
 
 import ComicsCatalog from "../feature/ComicsCatalog";
-import { ComicSrcWebComic } from "@/types";
+import { ComicSrcWebComic } from "@/types/comics-src-types";
 import { useEffect } from "react";
 
 export const useAppDispatch: () => AppDispatch = useDispatch;

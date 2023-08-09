@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
 
-import { ComicSrcWebComic } from "@/types";
+import { ComicSrcWebComic } from "@/types/comics-src-types";
 
 export const comicsSrcApi = createApi({
   reducerPath: "comicsSrcApi",

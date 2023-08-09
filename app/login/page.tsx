@@ -1,4 +1,24 @@
-"use client";
+import AuthForm from "@/components/feature/AuthForm";
+export default function LogIn() {
+  return (
+    <div className="row">
+      <div className="col-6">
+        <h1 className="header">LogIn</h1>
+        <p className="text-xs">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
+          tempore obcaecati, sit dolore non, maiores distinctio unde eligendi
+          eaque libero corporis alias placeat sunt rem! Itaque ducimus enim ex
+          exercitationem?.
+        </p>
+      </div>
+      <div className="col-6 auth-widget">
+        <AuthForm />
+      </div>
+    </div>
+  );
+}
+
+/* "use client";
 
 import { useState } from "react";
 
@@ -34,3 +54,4 @@ const LogIn = () => {
 };
 
 export default LogIn;
+ */
