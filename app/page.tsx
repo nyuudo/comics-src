@@ -1,4 +1,4 @@
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex justify-center gap-4 bg-csrclight p-4 h-[520px]">
       <h1>HERO HOME</h1>

@@ -8,7 +8,10 @@ import Providers from "@/store/Provider";
 const assistant = Assistant({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "COMICS/src",
+  title: {
+    template: "COMICS/src | %s",
+    default: "COMICS/src",
+  },
   description:
     "Discover new comics and directly support the artist who make it",
 };

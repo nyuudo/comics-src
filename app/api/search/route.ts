@@ -1,14 +1,17 @@
 import { NextResponse } from "next/server";
-import comics_source from "@/data/comics_source.json";
+import client from "@/database/client";
 
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
-    const title = searchParams.get("title") as string;
-    const comicsSourceData = comics_source.filter((comic) =>
-      comic.title.toLowerCase().includes(title?.toLowerCase() ?? "")
+    const product_title = searchParams.get("product_title");
+    const { data } = await client.from("Publishers Product").select();
+    const comics = data?.filter((comic) =>
+      comic.product_title
+        .toLowerCase()
+        .includes(product_title?.toLowerCase() ?? "")
     );
-    return NextResponse.json(comicsSourceData.slice(0, 10));
+    return NextResponse.json(comics?.slice(0, 10));
   } catch (error) {
     console.error(error);
     return NextResponse.error();

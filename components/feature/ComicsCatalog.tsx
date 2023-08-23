@@ -1,12 +1,11 @@
-import { ComicSrcWebComic } from "@/types/comics-src-types";
-
-const ComicsCatalog = ({ comics }: { comics: ComicSrcWebComic[] }) => {
+import type { PublishersProducts } from "@/types/comics-src-types";
+const ComicsCatalog = ({ comics }: { comics: PublishersProducts[] }) => {
   return (
     <table className="flex">
       <tbody>
         {comics.map((comic) => (
-          <tr key={comic.title}>
-            <td className="text-csrcdark">{comic.title}</td>
+          <tr key={comic.product_id}>
+            <td className="text-csrcdark">{comic.product_title}</td>
           </tr>
         ))}
       </tbody>

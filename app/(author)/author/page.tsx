@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Author",
+};
 export default function Author() {
   return (
     <main className="flex justify-center gap-4 bg-csrclight p-4 h-[520px]">

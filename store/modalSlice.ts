@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ModalState } from "@/types/comics-src-types";
+import type { ModalState } from "@/types/comics-src-types";
 
 const initialState: ModalState = {
   isModalOpen: false,

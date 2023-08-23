@@ -1,3 +1,3 @@
 export default function Aside() {
-  return <>This is a shared Aside component</>;
+  return <aside>This is a shared Aside component</aside>;
 }

@@ -13,3 +13,20 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.redirect(new URL("/account", req.url));
 }
+
+/*   //Get user's role from authentication method
+  const userRole = getUserRole(); fetch user's role
+
+  let accountPage = "/account"; // Default account page
+
+  // Conditionally set account page based on the user's role
+  if (userRole === "author") {
+    accountPage = "/author-account";
+  } else if (userRole === "fan") {
+    accountPage = "/fan-account";
+  } else if (userRole === "publisher") {
+    accountPage = "/publisher-account";
+  }
+
+  return NextResponse.redirect(new URL(accountPage, req.url));
+} */

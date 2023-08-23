@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         csrcyelow: "#fff998",
         csrcblue: "#00a4de",
@@ -14,6 +17,7 @@ module.exports = {
         csrcdark: "#003041",
       },
       backgroundImage: {
+        search: "url('/assets/icons/comics-src-search.svg')",
         search_area: "url('/assets/images/comics-src-search-area.svg')",
       },
     },

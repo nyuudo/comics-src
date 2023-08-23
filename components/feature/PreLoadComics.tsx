@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import { store } from "@/store/store";
 import { setStartupComics } from "@/store/searchSlice";
-import { ComicSrcWebComic } from "@/types/comics-src-types";
+import type { PublishersProducts } from "@/types/comics-src-types";
 
-function PreLoadComics({ comics }: { comics: ComicSrcWebComic[] }) {
+function PreLoadComics({ comics }: { comics: PublishersProducts[] }) {
   const loaded = useRef(false);
   if (!loaded.current) {
     store.dispatch(setStartupComics(comics));

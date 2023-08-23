@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
 
   // if user is signed in and the current path is / redirect the user to /account
   if (user && req.nextUrl.pathname === "/") {
-    return NextResponse.redirect(new URL("/account", req.url));
+    return NextResponse.redirect(new URL("/author-account", req.url));
   }
 
   // if user is not signed in and the current path is not / redirect the user to /
@@ -28,51 +28,42 @@ export const config = {
   matcher: ["/", "/account"],
 };
 
-/* OLD VERSION with NextAuth
+/* export async function middleware(req: NextRequest, ev: HTTPEvent) {
+  const res = NextResponse.next();
+  const supabase = createMiddlewareClient({ req, res });
 
-import { NextResponse } from "next/server";
-import { withAuth, NextRequestWithAuth } from "next-auth/middleware";
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-export default withAuth(
-  function middleware(request: NextRequestWithAuth) {
-    // check if the Author is logged in
-    if (
-      request.nextUrl.pathname.startsWith("/author") &&
-      request.nextauth.token?.role !== "author"
-    ) {
-      return NextResponse.rewrite(new URL("/denied", request.url));
+  // if user is signed in and the current path is / redirect the user to the appropriate account page based on their role
+  if (user && req.nextUrl.pathname === "/") {
+    // Get the user's role from your authentication method
+    const userRole = getUserRole(); // Replace with your own logic to fetch the user's role
+
+    let accountPage = "/account"; // Default account page
+
+    // Conditionally set the account page based on the user's role
+    if (userRole === "author") {
+      accountPage = "/author-account";
+    } else if (userRole === "fan") {
+      accountPage = "/fan-account";
+    } else if (userRole === "publisher") {
+      accountPage = "/publisher-account";
     }
-    // check if the Fan is logged in
-    if (
-      request.nextUrl.pathname.startsWith("/fan") &&
-      request.nextauth.token?.role !== "fan"
-    ) {
-      return NextResponse.rewrite(new URL("/denied", request.url));
-    }
-    // check if the Publisher is logged in
-    if (
-      request.nextUrl.pathname.startsWith("/publisher") &&
-      request.nextauth.token?.role !== "publisher"
-    ) {
-      return NextResponse.rewrite(new URL("/denied", request.url));
-    }
-  },
-  {
-    callbacks: {
-      authorized: ({ token }) => !!token,
-    },
+
+    return NextResponse.redirect(new URL(accountPage, req.url));
   }
-);
 
-// pages forbbiden to users not logged in
+  // if user is not signed in and the current path is not / redirect the user to /
+  if (!user && req.nextUrl.pathname !== "/") {
+    return NextResponse.redirect(new URL("/", req.url));
+  }
+
+  return res;
+}
+
 export const config = {
-  matcher: [
-    "/author-welcome",
-    "/author-dashboard",
-    "/fan-welcome",
-    "/fan-dashboard",
-    "/publisher-welcome",
-    "/publisher-dashboard",
-  ],
+  matcher: ["/", "/author-account", "/fan-account", "/publisher-account"],
 };
  */

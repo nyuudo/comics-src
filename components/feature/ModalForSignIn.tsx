@@ -7,7 +7,7 @@ type ModalForSignInProps = {
 const ModalForSignIn = (onClose: ModalForSignInProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <form className="bg-csrcdark rounded;">
+      <form className="bg-csrcdark/50 rounded;">
         <h1 className="text-white">
           Sign up for a COMICS/src Account (Author, Fan or Publisher)
         </h1>

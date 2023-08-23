@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { ComicSrcWebComic, SearchState } from "@/types/comics-src-types";
+import type { SearchState, PublishersProducts } from "@/types/comics-src-types";
 
 const initialState: SearchState = {
   search: "",
   startupComics: [],
+  showSearchResults: false,
 };
 
 const searchSlice = createSlice({
@@ -13,12 +14,17 @@ const searchSlice = createSlice({
   reducers: {
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+      state.showSearchResults = true;
     },
-    setStartupComics: (state, action: PayloadAction<ComicSrcWebComic[]>) => {
+    setStartupComics: (state, action: PayloadAction<PublishersProducts[]>) => {
       state.startupComics = action.payload;
+    },
+    setShowSearchResults: (state, action: PayloadAction<boolean>) => {
+      state.showSearchResults = action.payload;
     },
   },
 });
 
-export const { setSearch, setStartupComics } = searchSlice.actions;
+export const { setSearch, setStartupComics, setShowSearchResults } =
+  searchSlice.actions;
 export default searchSlice.reducer;

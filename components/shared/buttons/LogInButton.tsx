@@ -1,6 +1,10 @@
 import Link from "next/link";
 export default function LogInButton() {
-  return <Link href="/login">LOG IN</Link>;
+  return (
+    <Link className="font-bold" href="/login">
+      LOG IN
+    </Link>
+  );
 }
 
 /* 

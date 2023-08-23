@@ -1,7 +1,11 @@
 import AuthForm from "@/components/feature/AuthForm";
+
+export const metadata = {
+  title: "LogIn",
+};
 export default function LogIn() {
   return (
-    <div className="row">
+    <div className="w-[17.3125rem] row">
       <div className="col-6">
         <h1 className="header">LogIn</h1>
         <p className="text-xs">

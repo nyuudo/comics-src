@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Denied",
+};
 export default function Denied() {
   return (
     <main className="flex justify-center gap-4 bg-red-500 p-4 h-[520px]">
