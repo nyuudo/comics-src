@@ -3,14 +3,15 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import type { Database } from "@/types/database";
+import type { Author } from "@/types/comics-src-types";
 
-export default function AuthForm() {
+export default function AuthSignUp() {
   const supabase = createClientComponentClient<Database>();
 
   return (
     <Auth
       supabaseClient={supabase}
-      /* view="magic_link" */
+      view="magic_link"
       appearance={{
         theme: ThemeSupa,
         variables: {
@@ -29,11 +30,11 @@ export default function AuthForm() {
               inputBorderHover: "#667378",
               inputBorderFocus: "#003041",
               inputText: "#003041",
-              inputLabelText: "#00a4de",
-              inputPlaceholder: "#667378",
+              inputLabelText: "#00a3dea",
+              inputPlaceholder: "#786666",
               messageText: "#edeff0",
-              messageTextDanger: "#f53b57", // red
-              anchorTextColor: "#edeff0",
+              messageTextDanger: "#f53b57",
+              anchorTextColor: "#00a4de",
               anchorTextHoverColor: "#003041",
             },
             fonts: {
@@ -42,11 +43,14 @@ export default function AuthForm() {
               inputFontFamily: `__Assistant_bf4261, sans-serif`,
               labelFontFamily: `__Assistant_bf4261, sans-serif`,
             },
+            fontSizes: {
+              baseBodySize: "14px",
+            },
           },
         },
       }}
       theme="default"
-      showLinks={false}
+      showLinks={true}
       providers={[]}
       redirectTo="http://localhost:3000/auth/callback"
     />

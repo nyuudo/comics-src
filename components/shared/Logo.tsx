@@ -4,7 +4,7 @@ import { useRive } from "@rive-app/react-canvas";
 
 export const Logo = () => {
   const { RiveComponent } = useRive({
-    src: "/assets/images/branding.riv",
+    src: "/assets/icons/comics-src.riv",
     autoplay: true,
   });
 

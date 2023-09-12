@@ -11,11 +11,11 @@ export async function GET(req: NextRequest) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  return NextResponse.redirect(new URL("/account", req.url));
+  return NextResponse.redirect(new URL("/author-account", req.url));
 }
 
 /*   //Get user's role from authentication method
-  const userRole = getUserRole(); fetch user's role
+  const userRole = getUserRole(); fetch user's role 
 
   let accountPage = "/account"; // Default account page
 

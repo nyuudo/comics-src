@@ -8,7 +8,10 @@ export default function SignUpButton() {
   };
 
   return (
-    <button className="font-bold" onClick={handleOpenModal}>
+    <button
+      className="font-bold text-csrcdark transition duration-300 delay-150 hover:delay-150 hover:text-csrcyellow"
+      onClick={handleOpenModal}
+    >
       SIGN UP
     </button>
   );

@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import type { Database } from "@/types/database";
+//import type { Author } from "@/types/comics-src-types";
 import {
   Session,
   createClientComponentClient,
@@ -11,8 +12,6 @@ export default function AccountForm({ session }: { session: Session | null }) {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
-  //const [website, setWebsite] = useState<string | null>(null);
-  //const [avatar_url, setAvatarUrl] = useState<string | null>(null);
   const user = session?.user;
 
   const getProfile = useCallback(async () => {
@@ -32,8 +31,6 @@ export default function AccountForm({ session }: { session: Session | null }) {
       if (data) {
         setEmail(data.author_email);
         setUsername(data.author_username);
-        //setWebsite(data.website);
-        //setAvatarUrl(data.avatar_url);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -48,23 +45,16 @@ export default function AccountForm({ session }: { session: Session | null }) {
 
   async function updateProfile({
     username,
-  }: //website,
-  //avatar_url,
-  {
+  }: {
     username: string | null;
     fullname: string | null;
-    //website: string | null;
-    //avatar_url: string | null;
   }) {
     try {
       setLoading(true);
 
       let { error } = await supabase.from("profiles").upsert({
         id: user?.id as string,
-        full_name: fullname,
         username,
-        //website,
-        //avatar_url,
         updated_at: new Date().toISOString(),
       });
       if (error) throw error;
@@ -100,22 +90,11 @@ export default function AccountForm({ session }: { session: Session | null }) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      {/* <div>
-        <label htmlFor="website">Website</label>
-        <input
-          id="website"
-          type="url"
-          value={website || ""}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
-      </div> */}
 
       <div>
         <button
           className="button primary block"
-          onClick={() =>
-            updateProfile({ email, username /* , website, avatar_url */ })
-          }
+          onClick={() => updateProfile({ email, username })}
           disabled={loading}
         >
           {loading ? "Loading ..." : "Update"}
