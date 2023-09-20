@@ -4,11 +4,8 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-csrcdark">
-      <div
-        className="flex py-10 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col font-semibold
-      "
-      >
-        <div className="flex gap-6">
+      <div className="flex py-10 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col font-semibold">
+        <div className="flex flex-row gap-6">
           <Link href="/">
             <Image
               src="/assets/icons/comics-src.svg"
@@ -17,29 +14,26 @@ export default function Footer() {
               height={32}
             ></Image>
           </Link>
-          <ul>
-            <li className=" text-csrcyellow  hover:text-csrclight">
-              <Link href="/">Home</Link>
-            </li>
+          <ul className="flex flex-col gap-2 divide-y divide-dotted divide-csrclight/20">
             <li className=" text-csrcyellow  hover:text-csrclight">
               <Link href="/about">About</Link>
             </li>
             <li className=" text-csrcyellow  hover:text-csrclight">
               <Link href="/catalog">Catalog</Link>
             </li>
+            <li className=" text-csrcyellow  hover:text-csrclight">
+              <Link href="/login">Login</Link>
+            </li>
           </ul>
-          <ul>
+          <ul className="flex flex-col gap-2 divide-y divide-dotted divide-csrclight/20">
+            <li className=" text-csrcyellow  hover:text-csrclight">
+              <Link href="/fan">Fan</Link>
+            </li>
             <li className=" text-csrcyellow  hover:text-csrclight">
               <Link href="/author">Author</Link>
             </li>
             <li className=" text-csrcyellow  hover:text-csrclight">
               <Link href="/publisher">Publisher</Link>
-            </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
-              <Link href="/fan">Fan</Link>
-            </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
-              <Link href="/login">Login</Link>
             </li>
           </ul>
         </div>

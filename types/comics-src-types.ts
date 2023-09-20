@@ -17,6 +17,10 @@ export type CatalogProductProps = {
   params: { productId: string };
 };
 
+export type WebComicsProps = {
+  params: { webcomicId: string };
+};
+
 export type SignUpProps = {
   params: { role: string };
 };

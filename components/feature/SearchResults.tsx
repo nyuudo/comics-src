@@ -1,5 +1,4 @@
 import Image from "next/image";
-import getBase64 from "@/lib/getBase62";
 import { useAppSelector } from "../shared/SearchBar";
 import type { PublishersProducts } from "@/types/comics-src-types";
 const SearchResults = () => {
@@ -15,11 +14,12 @@ const SearchResults = () => {
   }
 
   return (
-    <main className="absolute top-20 w-[17.3125rem] flex flex-col items-center justify-center bg-gradient-to-t from-white from-10% via-white via-50% to-csrclight/0 to-95% rounded-b shadow-lg z-20">
+    <main className="absolute top-40 md:top-20 w-[17.3125rem] flex flex-col items-center justify-center bg-csrclight/75 rounded shadow-lg z-20">
       {data.slice(0, 3).map((result) => (
-        <div
+        <a
           className="group flex p-4 hover:bg-gradient-to-t hover:from-csrcblue hover:via-csrcblue hover:via-50%"
           key={result.product_id}
+          href={`/catalog/${result.product_id}`}
         >
           <Image
             src={result.product_cover}
@@ -36,7 +36,7 @@ const SearchResults = () => {
               {result.product_description?.substring(0, 200)}...
             </p>
           </div>
-        </div>
+        </a>
       ))}
     </main>
   );

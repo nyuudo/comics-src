@@ -9,7 +9,6 @@ import { closeModal } from "@/store/modalSlice";
 import { ModalForSignInProps } from "@/types/comics-src-types";
 
 import ModalButton from "./ModalButton";
-import dummy from "@/public/assets/images/comics-src-dummy.svg";
 
 const ModalForSignIn = (onClose: ModalForSignInProps) => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
           </h1>
           <button
             onClick={handleCloseModal}
-            className="bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.9] flex-0"
+            className="bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.8] flex-0 "
           ></button>
         </div>
         <div className="divide-y divide-csrclight/20">
@@ -46,9 +45,11 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
                 streaming of your purchases, showcase your collection, and
                 explore the music of like-minded fans.
               </p>
-              <ModalButton onClick={handleCloseModal}>
-                <Link href="/sign-up/fan">Become a Fan</Link>
-              </ModalButton>
+              <Link href="/sign-up/fan">
+                <ModalButton onClick={handleCloseModal}>
+                  Become a Fan
+                </ModalButton>
+              </Link>
             </article>
           </div>
           <div className="flex items-center py-2 gap-2">
@@ -67,9 +68,11 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
                 pricing. Easy access to real-time stats, comics chart reporting,
                 and more.
               </p>
-              <ModalButton onClick={handleCloseModal}>
-                <Link href="/sign-up/author">Build Your Readers</Link>
-              </ModalButton>
+              <Link href="/sign-up/author">
+                <ModalButton onClick={handleCloseModal}>
+                  Grow Your Audience
+                </ModalButton>
+              </Link>
             </article>
           </div>
           <div className="flex items-center py-2 gap-2">
