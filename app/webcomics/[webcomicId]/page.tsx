@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
 
-export default async function WebComicIssue({ params }: WebComicsProps) {
+export default async function WebComic({ params }: WebComicsProps) {
   const { webcomicId } = params;
   const webComcicId = getWebComicsId(webcomicId);
   const webComics = await webComcicId;
@@ -30,7 +30,7 @@ export default async function WebComicIssue({ params }: WebComicsProps) {
             ))}
           </div>
         ))}
-        <h2 className="text-3xl">Recomended by the Author</h2>
+        <h2 className="text-3xl py-4">Recomended by the Author</h2>
       </section>
     </main>
   );

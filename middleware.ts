@@ -31,5 +31,12 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: restrictedPaths,
+  matcher: [
+    "/fan-account",
+    "/fan-dashboard",
+    "/author-account",
+    "/author-dashboard",
+    "/publisher-account",
+    "/publisher-dashboard",
+  ],
 };
