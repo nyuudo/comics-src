@@ -1,18 +1,15 @@
-"use client";
-
-import { useRive } from "@rive-app/react-canvas";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Logo = () => {
-  const { RiveComponent } = useRive({
-    src: "/assets/icons/comics-src.riv",
-    autoplay: true,
-  });
-
   return (
-    <a href="/">
-      <div style={{ width: "185px", height: "32px" }}>
-        <RiveComponent />
-      </div>
-    </a>
+    <Link href="/">
+      <Image
+        src="/assets/icons/comics-src-home.svg"
+        alt="COMICS SRC Logo"
+        width={185}
+        height={32}
+      ></Image>
+    </Link>
   );
 };
