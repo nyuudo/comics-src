@@ -6,7 +6,7 @@ export default async function WebComicIssue() {
   //flex flex-row gap-8 bg-background_01 bg-no-repeat py-6 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20
   //grid gap-x-8 gap-y-4 grid-cols-3
   return (
-    <section className="grid gap-x-8 gap-y-4 grid-cols-3 bg-background_01 bg-no-repeat py-6 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <section className="grid gap-x-8 gap-y-4 md:grid-cols-3 bg-background_01 bg-no-repeat py-6 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
       {webComicIssue?.map((issue) => (
         <a
           className=""
