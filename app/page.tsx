@@ -27,7 +27,7 @@ export default async function Home() {
           className="absolute bottom-[0px] xs:invisible sm:visible sm:h-[200px] sm:right-[28px] md:h-[350px] md:right-[10px] lg:right-[120px] xl:right-[242px]"
         ></Image>
       </section>
-      <section className="flex flex-col justify-center bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 bg-background_03 bg-right bg-no-repeat">
+      <section className="flex flex-col justify-center bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 sm:bg-background_03 bg-right bg-no-repeat">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:gap-6 md:w-1/2">
             <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl">
@@ -54,7 +54,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col justify-center bg-csrcyellow p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 bg-background_07 bg-left bg-no-repeat">
+      <section className="flex flex-col justify-center bg-csrcyellow p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 sm:bg-background_07 bg-left bg-no-repeat">
         <div className="flex items-center">
           <div className="md:w-1/2 flex flex-col items-end gap-4 md:gap-6 order-2">
             <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl md:w-[590px] text-right">
@@ -80,7 +80,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col justify-center gap-4 bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 bg-background_09 bg-right bg-no-repeat">
+      <section className="flex flex-col justify-center gap-4 bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 sm:bg-background_09 bg-right bg-no-repeat">
         <div className="flex items-center">
           <div className="md:w-1/2 flex flex-col gap-4 md:gap-6">
             <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl md:w-[590px]">

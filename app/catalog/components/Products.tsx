@@ -3,9 +3,10 @@ import getPublishersProduct from "@/lib/getPublishersProduct";
 export default async function Products() {
   const publishersProduct = getPublishersProduct();
   const products = await publishersProduct;
+  const latestProducts = products?.reverse()?.slice(0, products.length - 1);
   return (
     <section className="grid xs:grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4 bg-background_01 bg-no-repeat py-6 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
-      {products?.map((result) => (
+      {latestProducts?.map((result) => (
         <a
           className="flex flex-col gap-4 rounded bg-gradient-to-t from-csrclight to-white/50 p-6 hover:bg-white hover:shadow-md"
           key={result.product_id}

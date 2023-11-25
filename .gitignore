@@ -36,3 +36,6 @@ next-env.d.ts
 
 # evironment variable values
 .env*.local
+
+#vscode
+/.vscode/*
