@@ -19,9 +19,7 @@ const SignUp = ({ params }: SignUpProps) => {
         <h1 className="text-2xl font-semibold">
           Create Account as {params.role.toUpperCase()}
         </h1>
-        <p className="text-csrcdark">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </p>
+        <p className="text-csrcdark">And get into comics once again.</p>
         <AuthSignUp />
       </div>
     </main>

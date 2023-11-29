@@ -1,4 +1,18 @@
 import type { Database } from "./database";
+import { z } from "zod";
+
+export const logInSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords must match",
+    path: ["confirmPassword"],
+  });
+
+export type TSLogInSchema = z.infer<typeof logInSchema>;
 
 export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

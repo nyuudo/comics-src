@@ -32,7 +32,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
   const products = await publishersProductId;
 
   return (
-    <main className="flex flex-col xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 justify-center gap-4 bg-white p-4 selection:bg-csrcblue selection:text-white">
+    <main className="flex flex-col xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-60 justify-center gap-4 bg-white p-4 selection:bg-csrcblue selection:text-white">
       <section>
         {products?.map((result) => (
           <div
@@ -49,8 +49,6 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                 width={160}
                 height={266}
                 className="w-[160px] h-[266px]"
-                //placeholder="blur"
-                //blurDataURL={""}
               ></Image>
               <div className="flex flex-col md:justify-between">
                 <p className="text-csrcdark">{result.product_description}</p>

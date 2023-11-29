@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
-
 import { PublishersProducts } from "@/types/comics-src-types";
+
+const baseUrl = process.env.BASE_URL_API || "http://localhost:3000/api/";
 
 export const comicsSrcApi = createApi({
   reducerPath: "comicsSrcApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api/" }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   tagTypes: ["comics"],
   endpoints: (builder) => ({
     search: builder.query<PublishersProducts[], string>({
@@ -13,5 +14,3 @@ export const comicsSrcApi = createApi({
     }),
   }),
 });
-
-//baseQuery: fetchBaseQuery({ baseUrl: process.env.BASE_URL_API }),

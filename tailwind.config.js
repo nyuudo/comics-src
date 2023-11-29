@@ -15,6 +15,7 @@ module.exports = {
         csrcyellow: "#fff998",
         csrcdark: "#003041",
         csrclight: "#def6ff",
+        csrcdanger: "#ff4757",
       },
       backgroundImage: {
         search: "url('/assets/icons/comics-src-search.svg')",
