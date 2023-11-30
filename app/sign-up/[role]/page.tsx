@@ -1,5 +1,6 @@
 import type { SignUpProps } from "@/types/comics-src-types";
 import AuthSignUp from "@/components/feature/AuthSignUp";
+import Link from "next/link";
 
 export const metadata = {
   title: "Sign-Up",
@@ -19,8 +20,18 @@ const SignUp = ({ params }: SignUpProps) => {
         <h1 className="text-2xl font-semibold">
           Create Account as {params.role.toUpperCase()}
         </h1>
-        <p className="text-csrcdark">And get into comics once again.</p>
+        <p className="text-csrcdark">
+          And discover new comics, directly supporting the artists who make it
+        </p>
         <AuthSignUp />
+        <div className="flex flex-col py-4 gap-3">
+          <Link
+            href="/login"
+            className="underline text-xs text-center text-csrcblue hover:text-csrcdark"
+          >
+            Already have an account? Please, Log-In!
+          </Link>
+        </div>
       </div>
     </main>
   );

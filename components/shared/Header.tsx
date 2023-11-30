@@ -1,6 +1,5 @@
 // NEXTJS imports
 "use client";
-import Link from "next/link";
 import { Logo } from "@/components/shared/Logo";
 
 // Redux Imports

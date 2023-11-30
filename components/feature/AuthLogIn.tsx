@@ -21,12 +21,15 @@ export default function AuthLogIn() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-2">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col py-2 gap-y-2"
+    >
       <input
         {...register("email")}
         type="email"
         placeholder="Email"
-        className="px-4 py-2 rounded"
+        className="px-4 py-2 border rounded"
       />
       {errors.email && (
         <p className="text-csrcdanger">{`${errors.email.message}`}</p>
@@ -36,7 +39,7 @@ export default function AuthLogIn() {
         {...register("password")}
         type="password"
         placeholder="Password"
-        className="px-4 py-2 rounded"
+        className="px-4 py-2 border rounded"
       />
       {errors.password && (
         <p className="text-csrcdanger">{`${errors.password.message}`}</p>
@@ -46,7 +49,7 @@ export default function AuthLogIn() {
         {...register("confirmPassword")}
         type="password"
         placeholder="Confirm password"
-        className="px-4 py-2 rounded"
+        className="px-4 py-2 border rounded"
       />
       {errors.confirmPassword && (
         <p className="text-csrcdanger">{`${errors.confirmPassword.message}`}</p>
@@ -55,7 +58,7 @@ export default function AuthLogIn() {
       <button
         disabled={isSubmitting}
         type="submit"
-        className="text-csrclight font-bold bg-csrcblue disabled:bg-gray-500 py-2 rounded transition duration-300 delay-150 hover:delay-150 hover:bg-csrcdark"
+        className="text-csrclight font-bold bg-csrcblue disabled:bg-csrcdark/50 py-2 rounded transition duration-300 delay-150 hover:delay-150 hover:bg-csrcdark hover:after:hidden after:block after:absolute after:-inset-2 after:top-1 after:left-1 after:bg-mock_offset after:-z-10 after: relative inline-block"
       >
         LOG IN
       </button>
