@@ -17,7 +17,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-40 bg-mock_offset bg-csrclight/10">
+    <div className="fixed inset-0 z-40 bg-mock_offset_01">
       <form className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-csrcblue rounded-md p-4 drop-shadow-lg">
         <div className="flex">
           <h1 className="text-csrcdark text-2xl font-bold text-center flex-1">

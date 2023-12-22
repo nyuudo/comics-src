@@ -22,10 +22,12 @@ export default async function WebComicIssue() {
             alt={issue.webcomic_title}
             width={270}
             height={432}
-            className="mx-auto"
+            className="mx-auto py-4"
           ></Image>
           <p className="text-csrcdark font-bold">{issue.webcomic_author}</p>
-          <p className="text-csrcdark text-sm">{issue.webcomic_description}</p>
+          <p className="text-csrcdark/50 text-sm">
+            {issue.webcomic_description}
+          </p>
           <p className="text-csrcdark font-semibold">{issue.webcomic_year}</p>
         </a>
       ))}

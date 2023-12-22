@@ -30,7 +30,7 @@ export default async function Home() {
       <section className="flex flex-col justify-center bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-60 sm:bg-background_03 bg-right bg-no-repeat">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:gap-6 md:w-3/5">
-            <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl">
+            <h1 className="text-csrcyellow text-2xl sm:text-3xl md:text-5xl">
               Your <span className="font-bold">definitive source</span> for
               independent comics
             </h1>
@@ -57,9 +57,9 @@ export default async function Home() {
       <section className="flex flex-col justify-center bg-csrcyellow p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-60 sm:bg-background_07 bg-left bg-no-repeat">
         <div className="flex items-center">
           <div className="md:w-3/5 flex flex-col items-end gap-4 md:gap-6 order-2">
-            <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl md:w-[590px] text-right">
-              A showcase for your art that{" "}
-              <span className="font-bold">didn&apos;t earn</span> in exposure
+            <h1 className="text-csrcblue text-2xl sm:text-3xl md:text-5xl md:w-[590px] text-right">
+              A showcase for your art that didn&apos;t earn in{" "}
+              <span className="font-bold">exposure</span>
             </h1>
             <p className="text-csrcdark md:w-[434px] text-right text-sm md:text-base">
               As an author create the right marketplace for your works with
@@ -83,13 +83,13 @@ export default async function Home() {
       <section className="flex flex-col justify-center gap-4 bg-csrcblue p-4 h-[325px] md:h-[520px] xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-60 sm:bg-background_09 bg-right bg-no-repeat">
         <div className="flex items-center">
           <div className="md:w-3/5 flex flex-col gap-4 md:gap-6">
-            <h1 className="text-csrcdark text-2xl sm:text-3xl md:text-5xl md:w-[590px]">
-              A <span className="font-bold">specialized</span> niche market
+            <h1 className="text-csrcyellow text-2xl sm:text-3xl md:text-5xl md:w-[590px]">
+              A <span className="font-bold">specialised</span> niche market
               selling point
             </h1>
             <p className="text-csrcdark md:w-[434px] text-sm md:text-base">
-              Stay up to date about your favorite authors and purchase exclusive
-              merchandise, get access to original art and of course, comics!
+              Diversify the scope of your products with customers that are
+              closer to the authors and already willing to support their work.
             </p>
             <Link href="/publisher">
               <Button>Read more</Button>

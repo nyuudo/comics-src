@@ -14,7 +14,7 @@ export default function LogInForm() {
     <main className="flex items-center justify-center py-16">
       <div className="w-[17.3125rem]">
         <h1 className="font-semibold text-2xl">Log-In</h1>
-        <p className="text-csrcdark">Welcome back to Comics/src</p>
+        <p className="text-csrcdark">Welcome back to COMICS/src</p>
         <AuthLogIn />
         <div className="flex flex-col py-4 gap-3">
           <Link

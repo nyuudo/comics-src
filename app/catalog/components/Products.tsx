@@ -1,14 +1,15 @@
 import Image from "next/image";
 import getPublishersProduct from "@/lib/getPublishersProduct";
+
 export default async function Products() {
   const publishersProduct = getPublishersProduct();
   const products = await publishersProduct;
   const latestProducts = products?.reverse()?.slice(0, products.length - 1);
   return (
-    <section className="grid xs:grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4 bg-background_01 bg-no-repeat py-20 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <section className="grid xs:grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4 bg-background_01 bg-no-repeat z-10 py-20 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 relative">
       {latestProducts?.map((result) => (
         <a
-          className="flex flex-col gap-4 rounded bg-gradient-to-t from-csrclight to-white/50 p-6 hover:bg-white hover:shadow-md"
+          className="flex flex-col gap-4 rounded bg-white p-6 hover:bg-gradient-to-t from-csrclight via-white to-white after:hidden hover:after:block after:absolute after:-inset-2 after:top-2 after:left-2 after:bg-mock_offset_02 after:-z-10 relative"
           key={result.product_id}
           href={`/catalog/${result.product_id}`}
         >
@@ -26,7 +27,9 @@ export default async function Products() {
               //blurDataURL={""}
             ></Image>
             <div className="flex flex-col md:justify-between">
-              <p className="text-csrcdark">{result.product_description}</p>
+              <p className="text-csrcdark/50 text-sm">
+                {result.product_description}
+              </p>
               <div className="flex flex-col gap-2">
                 <p className="text-csrcdark text-xs">{result.product_genre}</p>
                 <p className="text-csrcdark text-sm">
