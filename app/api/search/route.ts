@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import client from "@/database/client";
-
+import createClient from "@/database/client";
+import createBrowserClient from "@/database/browser";
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const product_title = searchParams.get("product_title");
-    const { data } = await client.from("Publishers Product").select();
+    const { data } = await createClient.from("Publishers Product").select();
     const comics = data?.filter((comic) =>
       comic.product_title
         .toLowerCase()

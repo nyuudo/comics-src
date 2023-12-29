@@ -45,16 +45,6 @@ export default function AuthLogIn() {
         <p className="text-csrcdanger">{`${errors.password.message}`}</p>
       )}
 
-      <input
-        {...register("confirmPassword")}
-        type="password"
-        placeholder="Confirm password"
-        className="px-4 py-2 bg-csrcyellow/50 border focus:bg-csrclight/50 focus:outline-none focus:border-csrcblue rounded"
-      />
-      {errors.confirmPassword && (
-        <p className="text-csrcdanger">{`${errors.confirmPassword.message}`}</p>
-      )}
-
       <button
         disabled={isSubmitting}
         type="submit"

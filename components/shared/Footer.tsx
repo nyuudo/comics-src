@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
 export default function Footer() {
   return (
     <footer className="bg-csrcdark">
@@ -38,7 +41,7 @@ export default function Footer() {
           </ul>
         </div>
         <p className="text-xs text-csrclight py-4">
-          ©2023 COMICS/
+          ©{currentYear} COMICS/
           <span className="text-[0.5rem] inline-block align-text-top">
             SRC
           </span>{" "}

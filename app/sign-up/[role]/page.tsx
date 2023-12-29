@@ -17,12 +17,9 @@ const SignUp = ({ params }: SignUpProps) => {
   return (
     <main className="flex items-center justify-center py-16">
       <div className="w-[17.3125rem]">
-        <h1 className="text-2xl font-semibold">
+        <h1 className="text-2xl font-semibold text-center">
           Create Account as {params.role.toUpperCase()}
         </h1>
-        <p className="text-csrcdark">
-          And discover new comics, directly supporting the artists who make it
-        </p>
         <AuthSignUp />
         <div className="flex flex-col py-4 gap-3">
           <Link
