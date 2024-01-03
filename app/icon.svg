@@ -1,5 +1,6 @@
 <svg height="256" viewBox="0 0 256 256" width="256" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- ©COMICS/SRC by @nyuudo -->
     <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="128" x2="128" y1="256">
         <stop offset="0" stop-color="#00a4de" />
         <stop offset="1" stop-color="#0091c5" />

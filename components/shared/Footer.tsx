@@ -45,7 +45,7 @@ export default function Footer() {
           <span className="text-[0.5rem] inline-block align-text-top">
             SRC
           </span>{" "}
-          by @nyuudo
+          by <Link href="https://nyuudo.com/">@nyuudo</Link>
         </p>
       </div>
     </footer>
