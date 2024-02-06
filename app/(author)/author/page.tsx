@@ -5,8 +5,8 @@ export const metadata = {
 };
 export default function Author() {
   return (
-    <main className="xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 bg-csrclight p-4">
-      <section className="relative flex flex-row items-center justify-between md:h-[520px]">
+    <main className="xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 bg-csrcyellow">
+      <section className="relative flex justify-center items-center md:h-[520px]">
         <div className="flex flex-col basis-1/2 items-center justify-center after:absolute after:bg-bubble_idea after:bg-cover after:bg-no-repeat after:sm:w-[557px] after:sm:h-[301px] after:md:w-[430px] after:md:h-[384px]">
           <h1 className="text-csrcblue text-center font-semibold text-3xl sm:text-4xl sm:pb-4 md:text-5xl md:w-[590px] md:pb-6 z-10">
             Author
@@ -23,7 +23,7 @@ export default function Author() {
           alt="Author-Page"
           width={374}
           height={348}
-          className="justify-end basis-1/2 w-[374px] h-[348px]"
+          className="basis-1/2 self-end w-[374px] h-[348px]"
         ></Image>
       </section>
     </main>

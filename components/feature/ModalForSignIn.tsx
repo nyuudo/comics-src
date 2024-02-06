@@ -25,7 +25,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
           </h1>
           <button
             onClick={handleCloseModal}
-            className="bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.8] flex-0 "
+            className="bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.9] flex-0 "
           ></button>
         </div>
         <div className="divide-y divide-csrclight/20">
