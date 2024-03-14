@@ -30,6 +30,7 @@ module.exports = {
         mock_offset_01: "url('/assets/images/comics-src-mock-halftone-01.svg')",
         mock_offset_02: "url('/assets/images/comics-src-mock-halftone-02.svg')",
         background_01: "url('/assets/images/comics-src-background-01.svg')",
+        background_02: "url('/assets/images/comics-src-background-02.svg')",
         background_03: "url('/assets/images/comics-src-background-03.svg')",
         background_05: "url('/assets/images/comics-src-background-05.svg')",
         background_07: "url('/assets/images/comics-src-background-07.svg')",

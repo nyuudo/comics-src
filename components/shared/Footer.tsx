@@ -7,8 +7,8 @@ const currentYear = currentDate.getFullYear();
 export default function Footer() {
   return (
     <footer className="bg-csrcdark">
-      <div className="flex py-10 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col font-semibold">
-        <div className="flex flex-row gap-6">
+      <div className="flex py-10 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col font-bold">
+        <div className="flex gap-6">
           <Link href="/">
             <Image
               src="/assets/icons/comics-src.svg"
@@ -40,7 +40,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <p className="text-xs text-csrclight py-4">
+        <p className="text-xs font-normal text-csrclight py-4">
           ©{currentYear} COMICS/
           <span className="text-[0.5rem] inline-block align-text-top">
             SRC

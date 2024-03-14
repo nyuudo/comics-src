@@ -17,7 +17,7 @@ const SignUp = ({ params }: SignUpProps) => {
   return (
     <main className="flex items-center justify-center py-16">
       <div className="w-[17.3125rem]">
-        <h1 className="text-2xl font-semibold text-center">
+        <h1 className="text-2xl font-bold text-center">
           Create Account as {params.role.toUpperCase()}
         </h1>
         <AuthSignUp />

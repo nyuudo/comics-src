@@ -39,7 +39,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-semibold">As a Fan</h3>
+              <h3 className="text-csrcdark font-bold">As a Fan</h3>
               <p className="text-csrclight text-xs py-2">
                 Follow your favorite artists, keep a wishlist, get instant
                 streaming of your purchases, showcase your collection, and
@@ -62,7 +62,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-semibold">As an Author</h3>
+              <h3 className="text-csrcdark font-bold">As an Author</h3>
               <p className="text-csrclight text-xs py-2">
                 Sell directly to your fans with total control over your art and
                 pricing. Easy access to real-time stats, comics chart reporting,
@@ -85,7 +85,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-semibold">As a Publisher</h3>
+              <h3 className="text-csrcdark font-bold">As a Publisher</h3>
               <p className="text-csrclight text-xs py-2">
                 Unified accounting and stats across all your artists, a single
                 fulfillment interface for all your merch, direct payments on a

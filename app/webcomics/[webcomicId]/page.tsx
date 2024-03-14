@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Recommended from "@/app/catalog/components/Recommended";
 
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
@@ -30,8 +31,8 @@ export default async function WebComic({ params }: WebComicsProps) {
             ))}
           </div>
         ))}
-        <h2 className="text-3xl py-4">Recomended by the Author</h2>
       </section>
+      <Recommended />
     </main>
   );
 }

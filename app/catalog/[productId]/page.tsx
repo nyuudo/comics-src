@@ -39,7 +39,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
             className="flex flex-col gap-4 rounded bg-gradient-to-t from-csrclight to-white/50 p-6"
             key={result.product_id}
           >
-            <h1 className="text-2xl md:text-3xl text-csrcblue font-semibold">
+            <h1 className="text-2xl md:text-3xl text-csrcblue font-bold">
               {result.product_title}
             </h1>
             <div className="flex flex-col md:flex-row gap-4">
@@ -48,7 +48,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                 alt={result.product_title}
                 width={160}
                 height={266}
-                className="w-[160px] h-[266px]"
+                className="max-w-[160px] h-auto"
               ></Image>
               <div className="flex flex-col md:justify-between">
                 <p className="text-csrcdark">{result.product_description}</p>

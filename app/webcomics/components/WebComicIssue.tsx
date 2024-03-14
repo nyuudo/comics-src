@@ -4,17 +4,16 @@ export default async function WebComicIssue() {
   const webComics = getWebComics();
   const webComicIssue = await webComics;
   const latestComics = webComicIssue?.reverse();
-  //flex flex-row gap-8 bg-background_01 bg-no-repeat py-6 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20
-  //grid gap-x-8 gap-y-4 grid-cols-3
+
   return (
-    <section className="grid gap-x-8 gap-y-4 md:grid-cols-3 bg-background_01 bg-no-repeat py-20 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <section className="grid gap-x-8 gap-y-4 md:grid-cols-3 bg-background_02 bg-no-repeat bg-bottom bg-auto py-20 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
       {latestComics?.map((issue) => (
         <a
-          className=""
+          className="group transition duration-300 ease-in-out hover:bg-white p-8 rounded"
           key={issue.webcomic_id}
           href={`/webcomics/${issue.webcomic_id}`}
         >
-          <h1 className="text-3xl text-csrcblue font-semibold text-center">
+          <h1 className="text-3xl text-csrcblue font-bold text-center">
             {issue.webcomic_title}
           </h1>
           <Image
@@ -22,13 +21,15 @@ export default async function WebComicIssue() {
             alt={issue.webcomic_title}
             width={270}
             height={432}
-            className="mx-auto py-4"
+            className="mx-auto py-4 group-hover:drop-shadow-md"
           ></Image>
-          <p className="text-csrcdark font-bold">{issue.webcomic_author}</p>
-          <p className="text-csrcdark/50 text-sm">
+          <p className="text-csrcdark font-bold my-4">
+            {issue.webcomic_author}
+          </p>
+          <p className="text-csrcdark/50 text-sm my-4">
             {issue.webcomic_description}
           </p>
-          <p className="text-csrcdark font-semibold">{issue.webcomic_year}</p>
+          <p className="text-csrcdark font-bold">{issue.webcomic_year}</p>
         </a>
       ))}
     </section>

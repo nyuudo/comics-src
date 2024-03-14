@@ -13,7 +13,7 @@ export default function LogInForm() {
   return (
     <main className="flex items-center justify-center py-16">
       <div className="w-[17.3125rem]">
-        <h1 className="font-semibold text-2xl text-center">Log-In</h1>
+        <h1 className="font-bold text-2xl text-center">Log-In</h1>
         <p className="text-csrcdark text-center">Welcome back to COMICS/src</p>
         <AuthLogIn />
         <div className="flex flex-col py-4 gap-3">

@@ -15,10 +15,10 @@ export default function Publisher() {
           className="basis-1/2 self-end w-[272px] h-[366px]"
         ></Image>
         <div className="flex flex-col basis-1/2 items-center justify-center after:absolute after:bg-bubble_square after:bg-cover after:bg-no-repeat after:sm:w-[557px] after:sm:h-[301px] after:md:w-[590px] after:md:h-[226px]">
-          <h1 className="text-csrcblue text-center font-semibold text-3xl sm:text-4xl sm:pb-4 md:text-5xl md:w-[590px] md:pb-6 z-10">
+          <h1 className="text-csrcblue text-center font-bold text-3xl sm:text-4xl sm:pb-4 md:text-5xl md:w-[590px] md:pb-6 z-10">
             Publisher
           </h1>
-          <p className="md:w-[500px] pl-4 z-10">
+          <p className="md:max-w-[500px] pl-4 z-10">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             quae ab illo inventore veritatis et quasi architecto beatae vitae

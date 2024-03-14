@@ -1,11 +1,15 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Assistant } from "next/font/google";
+import { Gabarito } from "next/font/google";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import Providers from "@/store/Provider";
 
-const assistant = Assistant({ subsets: ["latin"] });
+const gabarito = Gabarito({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -22,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={assistant.className}>
+    <html lang="en" className={gabarito.className}>
+      <body>
         <Providers>
           <Header />
           {children}
