@@ -1,6 +1,7 @@
 import type { Database } from "./database";
 import { z } from "zod";
 
+/* User Log in Schema  */
 export const logInSchema = z
   .object({
     email: z.string().email(),
@@ -13,6 +14,8 @@ export const logInSchema = z
   });
 
 export type TSLogInSchema = z.infer<typeof logInSchema>;
+
+/* Button type sharede on Modal */
 
 export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

@@ -1,3 +1,4 @@
+/* To retrieve all webComics with an ID filter */
 import client from "@/database/client";
 
 export default async function getWebComicsId(webcomicId: string) {

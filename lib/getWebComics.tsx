@@ -1,3 +1,4 @@
+/* To retrieve all webComics without filters */
 import client from "@/database/client";
 
 export default async function getWebComics() {

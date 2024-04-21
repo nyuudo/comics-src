@@ -10,7 +10,13 @@ const SearchResults = () => {
   );
 
   if (!data) {
-    return <div className="placeholder-csrcdark">No results found</div>;
+    return (
+      <div className="relative">
+        <div className="absolute left-6 placeholder-csrcdark text-red-800">
+          No results found
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -24,7 +30,7 @@ const SearchResults = () => {
           <Image
             src={result.product_cover}
             alt={result.product_title}
-            className="rounded group-hover:scale-[.98]"
+            className="rounded w-[80px] h-[133px] group-hover:scale-[.98]"
             width={160}
             height={266}
           ></Image>

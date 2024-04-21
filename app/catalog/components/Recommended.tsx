@@ -5,7 +5,7 @@ export default async function Recommended() {
   const products = await publishersProduct;
   const randomProducts = products?.sort(() => Math.random() - 0.5);
   return (
-    <section className="bg-csrcyellow p-8">
+    <section className="bg-csrcyellow">
       <h2 className="text-csrcblue text-3xl font-bold text-center py-4">
         You may also like...
       </h2>

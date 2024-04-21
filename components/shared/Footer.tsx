@@ -6,7 +6,7 @@ const currentYear = currentDate.getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-csrcdark">
+    <footer className=" bg-csrcdark">
       <div className="flex py-10 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col font-bold">
         <div className="flex gap-6">
           <Link href="/">

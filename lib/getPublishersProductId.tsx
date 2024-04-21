@@ -1,3 +1,4 @@
+/* To retrieve all Comics with an ID filter */
 import client from "@/database/client";
 
 export default async function getPublishersProductId(productId: string) {

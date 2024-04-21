@@ -10,29 +10,31 @@ export default async function WebComic({ params }: WebComicsProps) {
   const webComics = await webComcicId;
 
   return (
-    <main className="xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
-      <section className="flex flex-col justify-center items-center">
-        {webComics?.map((issue) => (
-          <div key={issue.webcomic_id}>
-            <Image
-              src={issue.webcomic_cover}
-              alt={issue.webcomic_title}
-              width={800}
-              height={1280}
-            ></Image>
-            {issue.webcomic_images.map((image, index) => (
+    <>
+      <main className="xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+        <section className="flex flex-col justify-center items-center">
+          {webComics?.map((issue) => (
+            <div key={issue.webcomic_id}>
               <Image
-                key={index}
-                src={image}
+                src={issue.webcomic_cover}
                 alt={issue.webcomic_title}
                 width={800}
                 height={1280}
-              />
-            ))}
-          </div>
-        ))}
-      </section>
+              ></Image>
+              {issue.webcomic_images.map((image, index) => (
+                <Image
+                  key={index}
+                  src={image}
+                  alt={issue.webcomic_title}
+                  width={800}
+                  height={1280}
+                />
+              ))}
+            </div>
+          ))}
+        </section>
+      </main>
       <Recommended />
-    </main>
+    </>
   );
 }

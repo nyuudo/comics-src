@@ -1,3 +1,5 @@
+/* This is the search API route */
+
 import { NextResponse } from "next/server";
 import createClient from "@/database/client";
 export async function GET(req: Request) {
