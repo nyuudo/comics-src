@@ -1,9 +1,9 @@
 import Image from "next/image";
-import getPublishersProduct from "@/lib/getPublishersProduct";
+import getWebComics from "@/lib/getWebComics";
 
-export default async function Recommended() {
-  const publishersProduct = getPublishersProduct();
-  const products = await publishersProduct;
+export default async function RecommendedWebComic() {
+  const webComics = getWebComics();
+  const products = await webComics;
   const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 4);
   return (
     <section className="bg-csrcyellow">
@@ -14,12 +14,12 @@ export default async function Recommended() {
         {randomProducts?.map((result) => (
           <a
             className="p-4"
-            key={result.product_id}
-            href={`/catalog/${result.product_id}`}
+            key={result.webcomic_id}
+            href={`/webcomics/${result.webcomic_id}`}
           >
             <Image
-              src={result.product_cover}
-              alt={result.product_title}
+              src={result.webcomic_cover}
+              alt={result.webcomic_title}
               width={80}
               height={133}
               className="transition duration-300 hover:delay-150 hover:drop-shadow-md hover:scale-[0.975]"

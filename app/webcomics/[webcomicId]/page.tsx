@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Recommended from "@/app/catalog/components/Recommended";
+import RecommendedWebComic from "../components/RecommendedWebComic";
 
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
@@ -11,7 +11,7 @@ export default async function WebComic({ params }: WebComicsProps) {
 
   return (
     <>
-      <main className="xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+      <main className="px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
         <section className="flex flex-col justify-center items-center">
           {webComics?.map((issue) => (
             <div key={issue.webcomic_id}>
@@ -34,7 +34,7 @@ export default async function WebComic({ params }: WebComicsProps) {
           ))}
         </section>
       </main>
-      <Recommended />
+      <RecommendedWebComic />
     </>
   );
 }
