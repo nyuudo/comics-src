@@ -56,10 +56,10 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                   <p className="text-csrcdark">{result.product_description}</p>
                   <div className="flex flex-col gap-2">
                     <p className="text-xs text-csrcdark">
-                      {result.product_genre}
+                      {result.genre?.genre_name}
                     </p>
                     <p className="text-sm text-csrcdark">
-                      {result.product_publisher}
+                      {result.publisher?.publisher_name}
                     </p>
                     <p className="text-xs font-bold text-csrcdark">
                       {result.product_year}

@@ -19,9 +19,9 @@ export default function Fan() {
             Fan
           </h1>
           <p className="z-10 w-[248px] text-center md:w-[300px]">
-            Sell directly to your fans with total control over your art and
-            pricing. Easy access to real-time stats, comics chart reporting, and
-            more.
+            Follow your favorite artists, keep a wishlist, get instant access to
+            your purchases, showcase your collection, and explore the comics of
+            like-minded fans.
           </p>
         </div>
       </section>

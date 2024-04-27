@@ -30,7 +30,7 @@ export default async function WebComicIssue() {
               className="mx-auto h-[304px] w-[190px] py-4 group-hover:drop-shadow-md"
             ></Image>
             <p className="my-4 font-bold text-csrcdark group-hover:text-white">
-              {issue.webcomic_author}
+              {issue.author?.author_username}
             </p>
             <p className="my-4 text-sm text-csrcdark/50 group-hover:text-white">
               {issue.webcomic_description}

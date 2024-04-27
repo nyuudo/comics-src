@@ -42,8 +42,8 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               <h3 className="font-bold text-csrcdark">As a Fan</h3>
               <p className="py-2 text-xs text-csrclight">
                 Follow your favorite artists, keep a wishlist, get instant
-                streaming of your purchases, showcase your collection, and
-                explore the music of like-minded fans.
+                access to your purchases, showcase your collection, and explore
+                the comics of like-minded fans.
               </p>
               <Link href="/sign-up/fan">
                 <ModalButton onClick={handleCloseModal}>

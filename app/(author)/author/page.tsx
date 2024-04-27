@@ -12,9 +12,9 @@ export default function Author() {
             Author
           </h1>
           <p className="z-10 w-[200px] text-center md:w-[240px]">
-            Follow your favorite artists, keep a wishlist, get instant streaming
-            of your purchases, showcase your collection, and explore the music
-            of like-minded fans.
+            Sell directly to your fans with total control over your art and
+            pricing. Easy access to real-time stats, comics chart reporting, and
+            more.
           </p>
         </div>
         <Image

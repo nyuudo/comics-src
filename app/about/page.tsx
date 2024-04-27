@@ -12,28 +12,29 @@ export default function About() {
           <h1 className="z-10 text-center text-3xl font-bold text-csrcblue md:max-w-[590px] md:pb-6 md:text-5xl">
             About
           </h1>
-          <p className="z-10 max-w-[590px] break-words">
+          <p className="z-10 max-w-[590px] break-words text-center">
             Comics are one of the most <strong>versatile</strong> and{" "}
             <strong>dynamic</strong> forms of expression in our culture, getting
-            more and more attention every year. Recently comics have become a
-            key factor in the creation of new media.
+            more and more attention every year. Recently classic or new comics
+            have become one of the <strong>key factors</strong> in the creation
+            of original media.
           </p>
-          <p className="z-10 max-w-[590px] break-words">
-            Despite what it seems an endless source of material for culture,
-            society and also markets, what authors receive in compensation, is{" "}
-            <strong>disproportionately</strong> less than their contribution.
-            This project aims to correct that in association with technology.
+          <p className="z-10 max-w-[590px] break-words text-center">
+            Despite what seems to be an inexhaustible source of content for
+            culture, society and also markets, what authors receive as
+            compensation is <strong>disproportionately less</strong> than their
+            contribution. This project aims to correct that in association with
+            technology.
           </p>
-          <p className="z-10 max-w-[590px] break-words">
+          <p className="z-10 max-w-[590px] break-words text-center">
             This is{" "}
             <Link
               href="/catalog"
               className="z-10 py-4 font-bold text-csrcblue hover:text-csrcdark"
             >
               COMICS/src
-            </Link>
-            , the source for comics that will be closer to the author and also
-            to the fan.
+            </Link>{" "}
+            : comics closer to source.
           </p>
         </div>
       </section>
