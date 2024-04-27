@@ -6,13 +6,13 @@ const SearchResults = () => {
   const data = useAppSelector(
     (state) =>
       state.comicsSrcApi.queries[`search("${search}")`]
-        ?.data as PublishersProducts[]
+        ?.data as PublishersProducts[],
   );
 
   if (!data) {
     return (
       <div className="relative">
-        <div className="absolute left-6 placeholder-csrcdark text-red-800">
+        <div className="absolute left-6 text-red-800 placeholder-csrcdark">
           No results found
         </div>
       </div>
@@ -20,7 +20,7 @@ const SearchResults = () => {
   }
 
   return (
-    <main className="absolute top-40 md:top-20 w-[17.3125rem] flex flex-col items-center justify-center bg-csrclight/75 rounded shadow-lg z-20">
+    <main className="absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded bg-csrclight/75 shadow-lg md:top-20">
       {data.slice(0, 3).map((result) => (
         <a
           className="group flex p-4 hover:bg-gradient-to-t hover:from-csrcblue hover:via-csrcblue hover:via-50%"
@@ -30,15 +30,15 @@ const SearchResults = () => {
           <Image
             src={result.product_cover}
             alt={result.product_title}
-            className="rounded w-[80px] h-[133px] group-hover:scale-[.98]"
+            className="h-[133px] w-[80px] rounded group-hover:scale-[.98]"
             width={160}
             height={266}
           ></Image>
-          <div className="pl-3 flex flex-col">
-            <h2 className="text-csrcdark font-bold text-[0.6875rem] leading-5 group-hover:text-csrcblue">
+          <div className="flex flex-col pl-3">
+            <h2 className="text-[0.6875rem] font-bold leading-5 text-csrcdark group-hover:text-csrcblue">
               {result.product_title}
             </h2>
-            <p className="text-csrcblue font-normal text-[0.6875rem] leading-0 group-hover:text-csrclight">
+            <p className="leading-0 text-[0.6875rem] font-normal text-csrcblue group-hover:text-csrclight">
               {result.product_description?.substring(0, 200)}...
             </p>
           </div>

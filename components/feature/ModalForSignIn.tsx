@@ -18,18 +18,18 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
 
   return (
     <div className="fixed inset-0 z-40 bg-mock_offset_01">
-      <form className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-csrcblue rounded-md p-4 drop-shadow-lg">
+      <form className="fixed left-1/2 top-1/2 z-50 w-80 -translate-x-1/2 -translate-y-1/2 rounded-md bg-csrcblue p-4 drop-shadow-lg">
         <div className="flex">
-          <h1 className="text-csrcdark text-2xl font-bold text-center flex-1">
+          <h1 className="flex-1 text-center text-2xl font-bold text-csrcdark">
             Sign-Up
           </h1>
           <button
             onClick={handleCloseModal}
-            className="bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.9] flex-0 "
+            className="flex-0 bg-close_modal bg-no-repeat p-2 transition delay-150 hover:scale-[.9] "
           ></button>
         </div>
         <div className="divide-y divide-csrclight/20">
-          <div className="flex items-center py-2 gap-2">
+          <div className="flex items-center gap-2 py-2">
             <div className="w-1/4">
               <Image
                 src="/assets/images/comics-src-fan.svg"
@@ -39,8 +39,8 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-bold">As a Fan</h3>
-              <p className="text-csrclight text-xs py-2">
+              <h3 className="font-bold text-csrcdark">As a Fan</h3>
+              <p className="py-2 text-xs text-csrclight">
                 Follow your favorite artists, keep a wishlist, get instant
                 streaming of your purchases, showcase your collection, and
                 explore the music of like-minded fans.
@@ -52,7 +52,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               </Link>
             </article>
           </div>
-          <div className="flex items-center py-2 gap-2">
+          <div className="flex items-center gap-2 py-2">
             <div className="w-1/4">
               <Image
                 src="/assets/images/comics-src-author.svg"
@@ -62,8 +62,8 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-bold">As an Author</h3>
-              <p className="text-csrclight text-xs py-2">
+              <h3 className="font-bold text-csrcdark">As an Author</h3>
+              <p className="py-2 text-xs text-csrclight">
                 Sell directly to your fans with total control over your art and
                 pricing. Easy access to real-time stats, comics chart reporting,
                 and more.
@@ -75,7 +75,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               </Link>
             </article>
           </div>
-          <div className="flex items-center py-2 gap-2">
+          <div className="flex items-center gap-2 py-2">
             <div className="w-1/4">
               <Image
                 src="/assets/images/comics-src-publisher.svg"
@@ -85,8 +85,8 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
               ></Image>
             </div>
             <article className="w-3/4">
-              <h3 className="text-csrcdark font-bold">As a Publisher</h3>
-              <p className="text-csrclight text-xs py-2">
+              <h3 className="font-bold text-csrcdark">As a Publisher</h3>
+              <p className="py-2 text-xs text-csrclight">
                 Unified accounting and stats across all your artists, a single
                 fulfillment interface for all your merch, direct payments on a
                 per-release basis, and a whole lot more.

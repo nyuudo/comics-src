@@ -3,7 +3,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       {...props}
-      className="text-csrcblue text-base h-12 w-[14.375rem] bg-bubble_button font-bold transition delay-150 hover:scale-[.98] hover:text-csrcdark pr-2 pb-1"
+      className="h-12 w-[14.375rem] bg-bubble_button pb-1 pr-2 text-base font-bold text-csrcblue transition delay-150 hover:scale-[.98] hover:text-csrcdark"
     ></button>
   );
 };

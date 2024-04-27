@@ -7,10 +7,10 @@ export default async function Recommended() {
   const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 4);
   return (
     <section className="bg-csrcyellow">
-      <h2 className="text-csrcblue text-2xl font-bold text-center py-4">
+      <h2 className="py-4 text-center text-2xl font-bold text-csrcblue">
         You may also like...
       </h2>
-      <div className="flex items-center justify-center gap-12 flex-wrap content-between">
+      <div className="flex flex-wrap content-between items-center justify-center gap-12">
         {randomProducts?.map((result) => (
           <a
             className="p-4"
@@ -22,7 +22,7 @@ export default async function Recommended() {
               alt={result.product_title}
               width={80}
               height={133}
-              className="transition duration-300 hover:delay-150 hover:drop-shadow-md hover:scale-[0.975]"
+              className="transition duration-300 hover:scale-[0.975] hover:drop-shadow-md hover:delay-150"
             ></Image>
           </a>
         ))}

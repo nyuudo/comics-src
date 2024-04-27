@@ -5,7 +5,7 @@ export const metadata = {
 };
 export default function Denied() {
   return (
-    <main className="flex justify-center gap-4 bg-red-500 p-4 h-[520px]">
+    <main className="flex h-[520px] justify-center gap-4 bg-red-500 p-4">
       <h1>ACCESS DENIED</h1>
       <h3 className="text-white">
         You do not have the requiered access to view this page

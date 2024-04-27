@@ -16,7 +16,7 @@ import LogInButton from "./buttons/LogInButton";
 
 export default function Header() {
   const isModalOpen = useSelector(
-    (state: RootState) => state.modal.isModalOpen
+    (state: RootState) => state.modal.isModalOpen,
   );
 
   const dispatch = useDispatch();
@@ -28,15 +28,15 @@ export default function Header() {
   return (
     <>
       {isModalOpen ? <ModalForSignIn onClose={handleCloseModal} /> : null}
-      <header className="top-0 flex xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20 flex-col md:flex-row items-center justify-evenly md:justify-between bg-csrcblue md:h-[96px] xs:h-[162px]">
+      <header className="top-0 flex flex-col items-center justify-evenly bg-csrcblue xs:h-[162px] xs:px-5 sm:px-10 md:h-[96px] md:flex-row md:justify-between md:lg:px-[3.75rem] xl:px-20">
         <div className="flex">
           <Logo />
         </div>
         <div className="flex flex-col md:flex-row md:justify-between md:gap-2">
-          <div className="flex order-2 items-stretch md:items-center justify-center md:justify-between md:gap-4 md:order-1">
+          <div className="order-2 flex items-stretch justify-center md:order-1 md:items-center md:justify-between md:gap-4">
             <SearchBar />
           </div>
-          <div className="flex order-1 items-stretch md:items-center justify-evenly md:justify-between md:gap-4 md:order-2">
+          <div className="order-1 flex items-stretch justify-evenly md:order-2 md:items-center md:justify-between md:gap-4">
             <SignUpButton />
             <LogInButton />
           </div>

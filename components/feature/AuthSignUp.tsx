@@ -29,14 +29,14 @@ export default function AuthSignUp() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col py-2 gap-y-2"
+      className="flex flex-col gap-y-2 py-2"
       role="form"
     >
       <input
         {...register("email")}
         type="email"
         placeholder="Email"
-        className="px-4 py-2 bg-csrcyellow/50 border focus:bg-csrclight/50 focus:outline-none focus:border-csrcblue rounded"
+        className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
       {errors.email && (
         <p className="text-csrcdanger">{`${errors.email.message}`}</p>
@@ -46,7 +46,7 @@ export default function AuthSignUp() {
         {...register("password")}
         type="password"
         placeholder="Password"
-        className="px-4 py-2 bg-csrcyellow/50 border focus:bg-csrclight/50 focus:outline-none focus:border-csrcblue rounded"
+        className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
       {errors.password && (
         <p className="text-csrcdanger">{`${errors.password.message}`}</p>
@@ -56,7 +56,7 @@ export default function AuthSignUp() {
         {...register("confirmPassword")}
         type="password"
         placeholder="Confirm password"
-        className="px-4 py-2 bg-csrcyellow/50 border focus:bg-csrclight/50 focus:outline-none focus:border-csrcblue rounded"
+        className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
       {errors.confirmPassword && (
         <p className="text-csrcdanger">{`${errors.confirmPassword.message}`}</p>
@@ -65,7 +65,7 @@ export default function AuthSignUp() {
       <button
         disabled={isSubmitting}
         type="submit"
-        className="text-csrclight font-bold bg-csrcblue disabled:bg-csrcdark/50 py-2 rounded transition duration-300 delay-150 hover:delay-150 hover:bg-csrcdark hover:after:hidden after:block after:absolute after:-inset-2 after:top-1 after:left-1 after:bg-mock_offset_02 after:-z-10 after: relative inline-block"
+        className="after: relative inline-block rounded bg-csrcblue py-2 font-bold text-csrclight transition delay-150 duration-300 after:absolute after:-inset-2 after:left-1 after:top-1 after:-z-10 after:block after:bg-mock_offset_02 hover:bg-csrcdark hover:delay-150 hover:after:hidden disabled:bg-csrcdark/50"
       >
         SIGN UP
       </button>

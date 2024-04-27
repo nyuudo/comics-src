@@ -25,21 +25,21 @@ const SearchBar = () => {
   }, [dispatch, search]);
 
   const showSearchResults = useSelector(
-    (state: RootState) => state.search.showSearchResults
+    (state: RootState) => state.search.showSearchResults,
   );
 
   return (
     <div className="flex flex-col">
       <form className="relative">
-        <span className="absolute bg-search bg-100% bg-no-repeat h-5 w-5 top-2 animate-pulse animate-twice animate-ease-in-out"></span>
+        <span className="bg-100% absolute top-2 h-5 w-5 animate-pulse bg-search bg-no-repeat animate-twice animate-ease-in-out"></span>
         <input
           type="search"
-          className="w-[17.3125rem] h-9 pl-6 pr-2 rounded-sm placeholder-csrclight text-csrcdark bg-csrcblue/5 focus:outline-none focus:border-csrcblue focus:ring-1 focus:ring-csrcblue caret-csrcyellow"
+          className="h-9 w-[17.3125rem] rounded-sm bg-csrcblue/5 pl-6 pr-2 text-csrcdark placeholder-csrclight caret-csrcyellow focus:border-csrcblue focus:outline-none focus:ring-1 focus:ring-csrcblue"
           placeholder="Search for Comics..."
           value={search}
           onChange={(e) => dispatch(setSearch(e.target.value))}
         />
-        <span className="after:content-[''] after:block after:absolute after:w-full after:h-full after:bg-search_area after:bg-no-repeat after:bg-[100%] after:left-0 after:top-6"></span>
+        <span className="after:absolute after:left-0 after:top-6 after:block after:h-full after:w-full after:bg-search_area after:bg-[100%] after:bg-no-repeat after:content-['']"></span>
       </form>
       {showSearchResults ? <SearchResults /> : null}
     </div>
