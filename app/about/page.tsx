@@ -7,8 +7,8 @@ export const metadata = {
 export default function About() {
   return (
     <main className="bg-csrcyellow px-10 md:lg:px-[3.75rem] xl:px-20">
-      <section className="relative flex h-[325px] min-h-[520px] flex-col items-center justify-center gap-4 xs:px-5 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
-        <div className="flex flex-col items-center justify-center after:absolute after:bottom-1 after:h-[480px] after:w-[335px] after:bg-bubble_small after:bg-cover after:bg-no-repeat after:md:bottom-[30px] after:md:h-[414px] after:md:w-[760px] after:md:bg-bubble_main">
+      <section className="relative flex h-[600px] flex-col items-center justify-center gap-4 xs:px-5 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
+        <div className="flex flex-col items-center justify-center after:absolute after:bottom-2 after:h-[542px] after:w-[356px] after:bg-bubble_small after:bg-cover after:bg-no-repeat after:md:bottom-[30px] after:md:h-[414px] after:md:w-[760px] after:md:bg-bubble_main">
           <h1 className="z-10 text-center text-3xl font-bold text-csrcblue md:max-w-[590px] md:pb-6 md:text-5xl">
             About
           </h1>
