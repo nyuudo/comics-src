@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Fan",
@@ -23,6 +24,12 @@ export default function Fan() {
             your purchases, showcase your collection, and explore the comics of
             like-minded fans.
           </p>
+          <Link
+            className="z-10 font-bold text-csrcblue after:invisible after:inline-block after:h-[32px] after:w-[16.2px] after:pl-2 after:align-middle after:content-link hover:text-csrcdark hover:after:visible"
+            href="/sign-up/fan"
+          >
+            CREATE ACCOUNT
+          </Link>
         </div>
       </section>
     </main>

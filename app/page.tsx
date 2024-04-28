@@ -13,7 +13,7 @@ export default async function Home() {
           </h1>
           <Link
             href="/catalog"
-            className="z-10 pl-12 font-bold text-csrcdark after:invisible after:content-['_⟩'] hover:text-csrcblue hover:after:visible sm:pl-14 md:pl-28"
+            className="z-10 pl-12 text-sm font-bold text-csrcdark after:invisible after:inline-block after:h-[32px] after:w-[16.2px] after:pl-1 after:align-middle after:content-link hover:text-csrcblue hover:after:visible sm:pl-14 md:pl-28 md:text-base"
           >
             CHECK OUR CATALOG
           </Link>

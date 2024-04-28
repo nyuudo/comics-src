@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Author",
@@ -16,6 +17,12 @@ export default function Author() {
             pricing. Easy access to real-time stats, comics chart reporting, and
             more.
           </p>
+          <Link
+            className="z-10 font-bold text-csrcblue after:invisible after:inline-block after:h-[32px] after:w-[16.2px] after:pl-2 after:align-middle after:content-link hover:text-csrcdark hover:after:visible"
+            href="/sign-up/author"
+          >
+            CREATE ACCOUNT
+          </Link>
         </div>
         <Image
           src="/assets/images/comics-src-author-page.svg"

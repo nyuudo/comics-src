@@ -38,6 +38,9 @@ module.exports = {
         background_07: "url('/assets/images/comics-src-background-07.svg')",
         background_09: "url('/assets/images/comics-src-background-09.svg')",
       },
+      content: {
+        link: "url('/assets/icons/comics-src-link.svg')",
+      },
     },
   },
   plugins: [require("tailwindcss-animated")],

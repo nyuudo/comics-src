@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Publisher",
@@ -23,6 +24,12 @@ export default function Publisher() {
             fulfillment interface for all your merch, direct payments on a
             per-release basis, and a whole lot more.
           </p>
+          <Link
+            className="z-10 font-bold text-csrcblue after:invisible after:inline-block after:h-[32px] after:w-[16.2px] after:pl-2 after:align-middle after:content-link hover:text-csrcdark hover:after:visible"
+            href="/sign-up/publisher"
+          >
+            CREATE ACCOUNT
+          </Link>
         </div>
       </section>
     </main>
