@@ -1,46 +1,70 @@
 "use client";
 
 import { signUpWithEmailAndPassword } from "@/lib/authFunctions";
-import { TSLogInSchema, logInSchema } from "@/types/comics-src-types";
+import { TSCreateUserSchema, createUserSchema } from "@/types/comics-src-types";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 export default function AuthSignUp() {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
-  } = useForm<TSLogInSchema>({
-    resolver: zodResolver(logInSchema),
+  } = useForm<TSCreateUserSchema>({
+    resolver: zodResolver(createUserSchema),
   });
 
-  const onSubmit = async (data: TSLogInSchema) => {
-    const result = await signUpWithEmailAndPassword(data);
-    const { error } = JSON.parse(result);
-    if (error) {
-      alert("An error occurred. Please try again.");
-      reset();
-      return;
-    }
-    reset();
+  const onSubmitHandler: SubmitHandler<TSCreateUserSchema> = (values) => {
+    startTransition(async () => {
+      const result = await signUpWithEmailAndPassword({
+        data: values,
+        emailRedirectTo: `${location.origin}/api/callback`,
+      });
+      const { error } = JSON.parse(result);
+      if (error?.message) {
+        toast.error(error.message);
+        console.log("Error message", error.message);
+        reset({ password: "" });
+        return;
+      }
+
+      toast.success("registered successfully");
+      console.log("registered successfully");
+      router.push("/");
+    });
   };
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmitHandler)}
       className="flex flex-col gap-y-2 py-2"
       role="form"
     >
+      <input
+        {...register("name")}
+        type="text"
+        placeholder="Name"
+        className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
+      />
+      {errors.name ? (
+        <p className="text-csrcdanger">{errors.name.message}</p>
+      ) : null}
       <input
         {...register("email")}
         type="email"
         placeholder="Email"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
-      {errors.email && (
-        <p className="text-csrcdanger">{`${errors.email.message}`}</p>
-      )}
+      {errors.email ? (
+        <p className="text-csrcdanger">{errors.email.message}</p>
+      ) : null}
 
       <input
         {...register("password")}
@@ -48,26 +72,26 @@ export default function AuthSignUp() {
         placeholder="Password"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
-      {errors.password && (
-        <p className="text-csrcdanger">{`${errors.password.message}`}</p>
-      )}
+      {errors.password ? (
+        <p className="text-csrcdanger">{errors.password.message}</p>
+      ) : null}
 
       <input
-        {...register("confirmPassword")}
+        {...register("passwordConfirm")}
         type="password"
-        placeholder="Confirm password"
+        placeholder="Confirm Password"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
-      {errors.confirmPassword && (
-        <p className="text-csrcdanger">{`${errors.confirmPassword.message}`}</p>
-      )}
+      {errors.passwordConfirm ? (
+        <p className="text-csrcdanger">{errors.passwordConfirm.message}</p>
+      ) : null}
 
       <button
-        disabled={isSubmitting}
+        disabled={isPending}
         type="submit"
         className="after: relative inline-block rounded bg-csrcblue py-2 font-bold text-csrclight transition delay-150 duration-300 after:absolute after:-inset-2 after:left-1 after:top-1 after:-z-10 after:block after:bg-mock_offset_02 hover:bg-csrcdark hover:delay-150 hover:after:hidden disabled:bg-csrcdark/50"
       >
-        SIGN UP
+        {isPending ? "Signing Up..." : "SIGN UP"}
       </button>
     </form>
   );

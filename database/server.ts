@@ -1,7 +1,10 @@
+// This is a primary function to fetch data (server side) from the database
+"use server";
+
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-export const createClient = () => {
+export default async function createSupabaseServerClient() {
   const cookieStore = cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -18,6 +21,6 @@ export const createClient = () => {
           cookieStore.set({ name, value: "", ...options });
         },
       },
-    }
+    },
   );
-};
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/modalSlice";
 import Link from "next/link";

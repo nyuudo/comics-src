@@ -1,12 +1,13 @@
-import Button from "@/components/shared/buttons/Button";
+import ButtonRight from "@/components/shared/buttons/ButtonRight";
+import ButtonLeft from "@/components/shared/buttons/ButtonLeft";
 import Link from "next/link";
 import Image from "next/image";
 
 export default async function Home() {
   return (
     <main>
-      <section className="relative flex h-[325px] flex-col items-center justify-center gap-4 bg-csrclight bg-background_05 bg-cover bg-center p-4 xs:px-5 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
-        <div className="flex animate-fade flex-col items-start justify-center gap-3 animate-once animate-ease-in-out after:absolute after:bg-bubble_electric after:bg-cover after:bg-no-repeat xs:h-[249px] xs:w-[360px] after:xs:-bottom-0 after:xs:h-[249px] after:xs:w-[360px] sm:h-[302px] sm:w-[436px] after:sm:-bottom-6 after:sm:h-[302px] after:sm:w-[436px] md:h-[526px] md:w-[760px] after:md:-bottom-12 after:md:h-[526px] after:md:w-[760px]">
+      <section className="relative flex h-[325px] flex-col items-center justify-center gap-4 bg-csrclight bg-background_05 bg-cover bg-center p-4 px-5 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
+        <div className="flex h-[249px] w-[360px] animate-fade flex-col items-start justify-center gap-3 animate-once animate-ease-in-out after:absolute after:-bottom-0 after:h-[249px] after:w-[360px] after:bg-bubble_electric after:bg-cover after:bg-no-repeat sm:h-[302px] sm:w-[436px] after:sm:-bottom-6 after:sm:h-[302px] after:sm:w-[436px] md:h-[526px] md:w-[760px] after:md:-bottom-12 after:md:h-[526px] after:md:w-[760px]">
           <h1 className="z-10 w-[300px] pl-12 pt-8 text-[1.5rem] leading-6 text-csrcdark sm:w-[380px] sm:pl-14 sm:text-3xl md:w-[590px] md:pb-8 md:pl-28 md:text-5xl">
             Discover <strong>new comics</strong> and <strong>directly</strong>{" "}
             support the artists who make it
@@ -23,10 +24,10 @@ export default async function Home() {
           alt="Fan-Hero"
           width={280}
           height={350}
-          className="absolute bottom-[0px] xs:invisible sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
+          className="invisible absolute bottom-[0px] sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
         ></Image>
       </section>
-      <section className="flex h-[325px] flex-col justify-center bg-csrcblue bg-right bg-no-repeat p-4 xs:px-5 sm:bg-background_03 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="flex h-[325px] flex-col justify-center bg-csrcblue bg-right bg-no-repeat p-4 px-5 sm:bg-background_03 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-2xl text-csrcyellow sm:text-3xl md:text-5xl">
@@ -38,7 +39,7 @@ export default async function Home() {
               comics!
             </p>
             <Link href="/fan">
-              <Button>Read more</Button>
+              <ButtonRight>Read more</ButtonRight>
             </Link>
           </div>
           <div className="flex justify-center md:w-2/5">
@@ -52,7 +53,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex h-[325px] flex-col justify-center bg-csrcyellow bg-left bg-no-repeat p-4 xs:px-5 sm:bg-background_07 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="flex h-[325px] flex-col justify-center bg-csrcyellow bg-left bg-no-repeat p-4 px-5 sm:bg-background_07 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="order-2 flex flex-col items-end gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-right text-2xl text-csrcblue sm:text-3xl md:w-[590px] md:text-5xl">
@@ -64,7 +65,7 @@ export default async function Home() {
               total control over your art, merchandise and pricing.
             </p>
             <Link href="/author">
-              <Button>Read more</Button>
+              <ButtonLeft>Read more</ButtonLeft>
             </Link>
           </div>
           <div className="order-1 flex justify-center md:w-2/5">
@@ -78,7 +79,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex h-[325px] flex-col justify-center gap-4 bg-csrcblue bg-right bg-no-repeat p-4 xs:px-5 sm:bg-background_09 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="flex h-[325px] flex-col justify-center gap-4 bg-csrcblue bg-right bg-no-repeat p-4 px-5 sm:bg-background_09 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-2xl text-csrcyellow sm:text-3xl md:max-w-[530px] md:text-5xl">
@@ -89,7 +90,7 @@ export default async function Home() {
               closer to the authors and already willing to support their work.
             </p>
             <Link href="/publisher">
-              <Button>Read more</Button>
+              <ButtonRight>Read more</ButtonRight>
             </Link>
           </div>
           <div className="flex justify-center md:w-2/5">

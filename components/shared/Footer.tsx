@@ -40,12 +40,10 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <p className="py-4 text-xs font-normal text-csrclight">
+        <p className="py-4 text-xs font-normal leading-3 text-csrclight">
           ©{currentYear} COMICS/
-          <span className="inline-block align-text-top text-[0.5rem]">
-            SRC
-          </span>{" "}
-          by <Link href="https://nyuudo.com/">@nyuudo</Link>
+          <span className="align-text-top text-[0.5rem]">SRC</span> by{" "}
+          <Link href="https://nyuudo.com/">@nyuudo</Link>
         </p>
       </div>
     </footer>

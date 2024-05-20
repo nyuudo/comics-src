@@ -6,7 +6,7 @@ export default async function WebComicIssue() {
   const latestComics = webComicIssue?.reverse().slice(0, 3);
 
   return (
-    <section className=" bg-background_02 bg-auto bg-bottom bg-no-repeat px-5 py-20 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <section className="bg-background_02 bg-auto bg-bottom bg-no-repeat px-5 py-20 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
       <div className="relative mb-4 flex items-center justify-center">
         <h3 className="z-10 my-4 mb-10 text-center text-2xl font-bold text-csrclight after:absolute after:left-2/4 after:top-2/4 after:-z-10 after:h-[94px] after:w-[320px] after:-translate-x-2/4 after:-translate-y-2/4 after:bg-bubble_flag after:bg-no-repeat md:text-3xl">
           Latest WebComics

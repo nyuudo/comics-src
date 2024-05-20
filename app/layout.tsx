@@ -4,6 +4,7 @@ import { Gabarito } from "next/font/google";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import Providers from "@/store/Provider";
+import { Toaster } from "react-hot-toast";
 
 const gabarito = Gabarito({
   weight: ["400", "700"],
@@ -29,6 +30,22 @@ export default function RootLayout({
     <html lang="en" className={gabarito.className}>
       <body>
         <Providers>
+          <Toaster
+            toastOptions={{
+              success: {
+                style: {
+                  background: "#def6ff",
+                  color: "#00a4de",
+                },
+              },
+              error: {
+                style: {
+                  background: "#ff4757",
+                  color: "#def6ff",
+                },
+              },
+            }}
+          />
           <Header />
           {children}
           <Footer />

@@ -23,7 +23,7 @@ const SearchResults = () => {
     <main className="absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded bg-csrclight/75 shadow-lg md:top-20">
       {data.slice(0, 3).map((result) => (
         <a
-          className="group flex p-4 hover:bg-gradient-to-t hover:from-csrcblue hover:via-csrcblue hover:via-50%"
+          className="group flex p-4 transition delay-150 hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue hover:via-50%"
           key={result.product_id}
           href={`/catalog/${result.product_id}`}
         >
@@ -35,10 +35,10 @@ const SearchResults = () => {
             height={266}
           ></Image>
           <div className="flex flex-col pl-3">
-            <h2 className="text-[0.6875rem] font-bold leading-5 text-csrcdark group-hover:text-csrcblue">
+            <h2 className="text-[0.6875rem] font-bold leading-5 text-csrcdark group-hover:text-csrcyellow">
               {result.product_title}
             </h2>
-            <p className="leading-0 text-[0.6875rem] font-normal text-csrcblue group-hover:text-csrclight">
+            <p className="leading-0 line-clamp-6 text-[0.6875rem] font-normal text-csrcblue group-hover:text-csrclight">
               {result.product_description?.substring(0, 200)}...
             </p>
           </div>

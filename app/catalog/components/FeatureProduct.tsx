@@ -1,4 +1,4 @@
-import Button from "@/components/shared/buttons/Button";
+import ButtonRight from "@/components/shared/buttons/ButtonRight";
 import Link from "next/link";
 export default async function FeatureProduct() {
   return (
@@ -10,7 +10,7 @@ export default async function FeatureProduct() {
         Description of the plot or main features of the featured comic
       </p>
       <Link href="/catalog/3">
-        <Button>More Info</Button>
+        <ButtonRight>More Info</ButtonRight>
       </Link>
     </section>
   );

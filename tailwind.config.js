@@ -20,7 +20,10 @@ module.exports = {
       backgroundImage: {
         search: "url('/assets/icons/comics-src-search.svg')",
         search_area: "url('/assets/images/comics-src-search-area.svg')",
-        bubble_button: "url('/assets/images/comics-src-bubble-button.svg')",
+        bubble_button_left:
+          "url('/assets/images/comics-src-bubble-button-left.svg')",
+        bubble_button_right:
+          "url('/assets/images/comics-src-bubble-button-right.svg')",
         bubble_main: "url('/assets/images/comics-src-bubble-main.svg')",
         bubble_small: "url('/assets/images/comics-src-bubble-small.svg')",
         bubble_electric: "url('/assets/images/comics-src-bubble-electric.svg')",
