@@ -1,17 +1,9 @@
 // This is a primary function to fetch data (client side) from the database
 
-import { useMemo } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 
-export function getSupabaseBrowserClient() {
-  return createBrowserClient(
+export const createClient = () =>
+  createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
-}
-
-function useSupabaseClient() {
-  return useMemo(getSupabaseBrowserClient, []);
-}
-
-export default useSupabaseClient;

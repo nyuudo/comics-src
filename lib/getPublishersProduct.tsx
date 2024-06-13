@@ -1,5 +1,5 @@
 /* To retrieve all Comics without filters */
-import client from "@/database/client";
+import client from "@/utils/client";
 export default async function getPublishersProduct() {
   const { data, error } = await client
     .from("Publishers Product")

@@ -1,7 +1,7 @@
 /* This is the search API route */
 
 import { NextResponse } from "next/server";
-import createClient from "@/database/client";
+import createClient from "@/utils/client";
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
@@ -10,7 +10,7 @@ export async function GET(req: Request) {
     const comics = data?.filter((comic) =>
       comic.product_title
         .toLowerCase()
-        .includes(product_title?.toLowerCase() ?? "")
+        .includes(product_title?.toLowerCase() ?? ""),
     );
     return NextResponse.json(comics?.slice(0, 10));
   } catch (error) {

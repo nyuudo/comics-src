@@ -92,7 +92,7 @@ const ModalForSignIn = (onClose: ModalForSignInProps) => {
                 per-release basis, and a whole lot more.
               </p>
               <ModalButton onClick={handleCloseModal}>
-                <Link href="/sign-up/publisher">Expand Your Business</Link>
+                <Link href="/sign-up/publisher">Reach New Customers</Link>
               </ModalButton>
             </article>
           </div>

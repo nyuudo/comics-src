@@ -1,4 +1,4 @@
-import client from "@/database/client";
+import client from "@/utils/client";
 
 export default async function getAllProducts() {
   const { data: publishersData } = await client

@@ -27,7 +27,7 @@ export default async function WebComicIssue() {
               alt={issue.webcomic_title}
               width={190}
               height={304}
-              className="mx-auto h-[304px] w-[190px] py-4 group-hover:drop-shadow-md"
+              className="mx-auto py-4 group-hover:drop-shadow-md"
             ></Image>
             <p className="my-4 font-bold text-csrcdark group-hover:text-white">
               {issue.author?.author_username}

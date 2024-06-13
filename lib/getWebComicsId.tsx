@@ -1,5 +1,5 @@
 /* To retrieve all webComics with an ID filter */
-import client from "@/database/client";
+import client from "@/utils/client";
 
 export default async function getWebComicsId(webcomicId: string) {
   const { data, error } = await client

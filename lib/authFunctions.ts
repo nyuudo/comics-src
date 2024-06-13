@@ -1,7 +1,11 @@
 "use server";
 
-import createSupabaseServerClient from "@/database/server";
-import { TSLogInSchema, TSCreateUserSchema } from "@/types/comics-src-types";
+import { createClient } from "@/utils/server";
+import {
+  TSCreateUserSchema,
+  TSLogInSchema,
+  TSResetPasswordSchema,
+} from "@/types/comics-src-types";
 
 export async function signUpWithEmailAndPassword({
   data,
@@ -10,45 +14,52 @@ export async function signUpWithEmailAndPassword({
   data: TSCreateUserSchema;
   emailRedirectTo?: string;
 }) {
-  const supabase = await createSupabaseServerClient();
-  const result = await supabase.auth.signUp({
-    email: data.email,
-    password: data.password,
-    options: {
-      emailRedirectTo,
-    },
-  });
-  return JSON.stringify(result);
+  try {
+    const supabase = createClient();
+    const result = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+      options: {
+        emailRedirectTo,
+      },
+    });
+    return JSON.stringify(result);
+  } catch (error) {
+    return JSON.stringify({ error });
+  }
 }
 
 export async function signInWithEmailAndPassword(data: TSLogInSchema) {
-  const supabase = await createSupabaseServerClient();
-  const result = await supabase.auth.signInWithPassword({
-    email: data.email,
-    password: data.password,
-  });
-  return JSON.stringify(result);
+  try {
+    const supabase = createClient();
+    const result = await supabase.auth.signInWithPassword({
+      email: data.email,
+      password: data.password,
+    });
+    return JSON.stringify(result);
+  } catch (error) {
+    return JSON.stringify({ error });
+  }
 }
 
-/* 
-export async function signUpWithEmailAndPassword(data: {
-  email: string;
-  password: string;
-  confirmPassword: string;
-}) {
-  const supabase = await createSupabaseServerClient();
-  const result = await supabase.auth.signUp({
-    email: data.email,
-    password: data.password,
-  });
-  return JSON.stringify(result);
+export async function logOutUser() {
+  try {
+    const supabase = createClient();
+    const result = await supabase.auth.signOut();
+    return result;
+  } catch (error) {
+    return { error };
+  }
 }
 
-export async function signInWithEmailAndPassword(data: {
-  email: string;
-  password: string;
-}) {
-  const supabase = await createSupabaseServerClient();
-  const result = await supabase.auth.signInWithPassword(data);
-  return JSON.stringify(result);
-} */
+export async function resetPassword(data: TSResetPasswordSchema) {
+  try {
+    const supabase = createClient();
+    const result = await supabase.auth.resetPasswordForEmail(data.email, {
+      redirectTo: "/confirm",
+    });
+    return JSON.stringify(result);
+  } catch (error) {
+    return JSON.stringify({ error });
+  }
+}

@@ -15,16 +15,15 @@ export default function About() {
           <p className="z-10 max-w-[590px] break-words text-center">
             Comics are one of the most <strong>versatile</strong> and{" "}
             <strong>dynamic</strong> forms of expression in our culture, getting
-            more and more attention every year. Recently classic or new comics
+            more and more attention every year. Recently classic and new comics
             have become one of the <strong>key factors</strong> in the creation
             of original media.
           </p>
           <p className="z-10 max-w-[590px] break-words text-center">
             Despite what seems to be an inexhaustible source of content for
-            culture, society and also markets, what authors receive as
-            compensation is <strong>disproportionately less</strong> than their
-            contribution. This project aims to correct that in association with
-            technology.
+            culture, society and markets, what authors receive as compensation
+            is <strong>disproportionately less</strong> than their contribution.
+            This project aims to correct that.
           </p>
           <p className="z-10 max-w-[590px] break-words text-center">
             This is{" "}
@@ -32,7 +31,10 @@ export default function About() {
               href="/catalog"
               className="z-10 py-4 font-bold text-csrcblue hover:text-csrcdark"
             >
-              COMICS/src
+              COMICS/
+              <span className="align-text-top text-[0.66666666666875rem]">
+                SRC
+              </span>
             </Link>{" "}
             : comics closer to source.
           </p>

@@ -1,5 +1,5 @@
 /* To retrieve all webComics without filters */
-import client from "@/database/client";
+import client from "@/utils/client";
 
 export default async function getWebComics() {
   const { data, error } = await client

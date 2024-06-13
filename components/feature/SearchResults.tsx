@@ -23,7 +23,7 @@ const SearchResults = () => {
     <main className="absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded bg-csrclight/75 shadow-lg md:top-20">
       {data.slice(0, 3).map((result) => (
         <a
-          className="group flex p-4 transition delay-150 hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue hover:via-50%"
+          className="group flex rounded p-4 transition delay-150 hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue hover:via-50%"
           key={result.product_id}
           href={`/catalog/${result.product_id}`}
         >

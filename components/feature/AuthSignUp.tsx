@@ -27,16 +27,14 @@ export default function AuthSignUp() {
         data: values,
         emailRedirectTo: `${location.origin}/api/callback`,
       });
-      const { error } = JSON.parse(result);
-      if (error?.message) {
-        toast.error(error.message);
-        console.log("Error message", error.message);
+      const { data, error } = JSON.parse(result);
+      if (error) {
+        toast.error("Failed to Sign Up");
         reset({ password: "" });
         return;
       }
 
-      toast.success("registered successfully");
-      console.log("registered successfully");
+      toast.success("Registered Successfully");
       router.push("/");
     });
   };
@@ -89,7 +87,7 @@ export default function AuthSignUp() {
       <button
         disabled={isPending}
         type="submit"
-        className="after: relative inline-block rounded bg-csrcblue py-2 font-bold text-csrclight transition delay-150 duration-300 after:absolute after:-inset-2 after:left-1 after:top-1 after:-z-10 after:block after:bg-mock_offset_02 hover:bg-csrcdark hover:delay-150 hover:after:hidden disabled:bg-csrcdark/50"
+        className="after: relative inline-block rounded bg-csrcblue py-2 font-bold text-csrclight transition delay-150 duration-300 after:absolute after:-inset-2 after:left-1 after:top-1 after:-z-10 after:block after:bg-mock_offset_02 hover:bg-csrcdark hover:delay-150 hover:after:hidden disabled:bg-csrcdark disabled:text-csrcblue"
       >
         {isPending ? "Signing Up..." : "SIGN UP"}
       </button>

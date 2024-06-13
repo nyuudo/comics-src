@@ -9,6 +9,7 @@ export const Logo = () => {
         alt="COMICS SRC Logo"
         width={185}
         height={32}
+        priority={true}
       ></Image>
     </Link>
   );
