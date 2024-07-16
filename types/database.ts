@@ -6,32 +6,34 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       Author: {
         Row: {
-          author_email: string
           author_id: string
-          author_password: string
-          author_username: string
+          author_username: string | null
           created_at: string | null
         }
         Insert: {
-          author_email: string
           author_id?: string
-          author_password: string
-          author_username: string
+          author_username?: string | null
           created_at?: string | null
         }
         Update: {
-          author_email?: string
           author_id?: string
-          author_password?: string
-          author_username?: string
+          author_username?: string | null
           created_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "Author_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       "Authors WebComics": {
         Row: {
@@ -71,40 +73,44 @@ export interface Database {
           {
             foreignKeyName: "Authors WebComics_webcomic_author_fkey"
             columns: ["webcomic_author"]
+            isOneToOne: false
             referencedRelation: "Author"
             referencedColumns: ["author_id"]
           },
           {
             foreignKeyName: "Authors WebComics_webcomic_genre_fkey"
             columns: ["webcomic_genre"]
+            isOneToOne: false
             referencedRelation: "Genres"
             referencedColumns: ["genre_id"]
-          }
+          },
         ]
       }
       Fan: {
         Row: {
           created_at: string | null
-          fan_email: string
           fan_id: string
-          fan_password: string
-          fan_username: string
+          fan_username: string | null
         }
         Insert: {
           created_at?: string | null
-          fan_email: string
           fan_id?: string
-          fan_password: string
-          fan_username: string
+          fan_username?: string | null
         }
         Update: {
           created_at?: string | null
-          fan_email?: string
           fan_id?: string
-          fan_password?: string
-          fan_username?: string
+          fan_username?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "Fan_fan_id_fkey"
+            columns: ["fan_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       "Fans Collection": {
         Row: {
@@ -132,21 +138,24 @@ export interface Database {
           {
             foreignKeyName: "Fans Collection_collected_product_fkey"
             columns: ["collected_product"]
+            isOneToOne: true
             referencedRelation: "Publishers Product"
             referencedColumns: ["product_id"]
           },
           {
             foreignKeyName: "Fans Collection_collected_webcomic_fkey"
             columns: ["collected_webcomic"]
+            isOneToOne: true
             referencedRelation: "Authors WebComics"
             referencedColumns: ["webcomic_id"]
           },
           {
             foreignKeyName: "Fans Collection_fan_collector_fkey"
             columns: ["fan_collector"]
+            isOneToOne: false
             referencedRelation: "Fan"
             referencedColumns: ["fan_id"]
-          }
+          },
         ]
       }
       Genres: {
@@ -167,26 +176,28 @@ export interface Database {
       Publisher: {
         Row: {
           created_at: string | null
-          publisher_email: string
           publisher_id: string
-          publisher_name: string
-          publisher_password: string
+          publisher_name: string | null
         }
         Insert: {
           created_at?: string | null
-          publisher_email: string
           publisher_id?: string
-          publisher_name: string
-          publisher_password: string
+          publisher_name?: string | null
         }
         Update: {
           created_at?: string | null
-          publisher_email?: string
           publisher_id?: string
-          publisher_name?: string
-          publisher_password?: string
+          publisher_name?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "Publisher_publisher_id_fkey"
+            columns: ["publisher_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       "Publishers Product": {
         Row: {
@@ -223,15 +234,17 @@ export interface Database {
           {
             foreignKeyName: "Publishers Product_product_genre_fkey"
             columns: ["product_genre"]
+            isOneToOne: false
             referencedRelation: "Genres"
             referencedColumns: ["genre_id"]
           },
           {
             foreignKeyName: "Publishers Product_product_publisher_fkey"
             columns: ["product_publisher"]
+            isOneToOne: false
             referencedRelation: "Publisher"
             referencedColumns: ["publisher_id"]
-          }
+          },
         ]
       }
     }
@@ -249,3 +262,85 @@ export interface Database {
     }
   }
 }
+
+type PublicSchema = Database[Extract<keyof Database, "public">]
+
+export type Tables<
+  PublicTableNameOrOptions extends
+    | keyof (PublicSchema["Tables"] & PublicSchema["Views"])
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+        Database[PublicTableNameOrOptions["schema"]]["Views"])
+    : never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+      Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : PublicTableNameOrOptions extends keyof (PublicSchema["Tables"] &
+        PublicSchema["Views"])
+    ? (PublicSchema["Tables"] &
+        PublicSchema["Views"])[PublicTableNameOrOptions] extends {
+        Row: infer R
+      }
+      ? R
+      : never
+    : never
+
+export type TablesInsert<
+  PublicTableNameOrOptions extends
+    | keyof PublicSchema["Tables"]
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
+    ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
+        Insert: infer I
+      }
+      ? I
+      : never
+    : never
+
+export type TablesUpdate<
+  PublicTableNameOrOptions extends
+    | keyof PublicSchema["Tables"]
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
+    ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
+        Update: infer U
+      }
+      ? U
+      : never
+    : never
+
+export type Enums<
+  PublicEnumNameOrOptions extends
+    | keyof PublicSchema["Enums"]
+    | { schema: keyof Database },
+  EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
+> = PublicEnumNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
+    ? PublicSchema["Enums"][PublicEnumNameOrOptions]
+    : never

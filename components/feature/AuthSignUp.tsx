@@ -1,14 +1,18 @@
 "use client";
 
 import { signUpWithEmailAndPassword } from "@/lib/authFunctions";
-import { TSCreateUserSchema, createUserSchema } from "@/types/comics-src-types";
+import {
+  TSCreateUserSchema,
+  createUserSchema,
+  AuthSignUpProps,
+} from "@/types/comics-src-types";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-export default function AuthSignUp() {
+export default function AuthSignUp({ userRole }: AuthSignUpProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
@@ -34,7 +38,7 @@ export default function AuthSignUp() {
         return;
       }
 
-      toast.success("Registered Successfully");
+      toast.success("Check Your Confirmation Email");
       router.push("/");
     });
   };
@@ -45,15 +49,7 @@ export default function AuthSignUp() {
       className="flex flex-col gap-y-2 py-2"
       role="form"
     >
-      <input
-        {...register("name")}
-        type="text"
-        placeholder="Name"
-        className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
-      />
-      {errors.name ? (
-        <p className="text-csrcdanger">{errors.name.message}</p>
-      ) : null}
+      <input type="hidden" value={userRole} {...register("userRole")} />
       <input
         {...register("email")}
         type="email"

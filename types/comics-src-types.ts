@@ -4,14 +4,10 @@ import { z } from "zod";
 /* Create User Schema */
 export const createUserSchema = z
   .object({
-    name: z
-      .string({ required_error: "Name is required" })
-      .min(1, "Name is required"),
     email: z
       .string({ required_error: "Email is required" })
       .min(1, "Email is required")
       .email("Invalid email"),
-    photo: z.string().optional(),
     password: z
       .string({ required_error: "Password is required" })
       .min(1, "Password is required")
@@ -25,6 +21,7 @@ export const createUserSchema = z
         required_error: "Please confirm your password",
       })
       .min(1, "Please confirm your password"),
+    userRole: z.string().optional(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
     path: ["passwordConfirm"],
@@ -32,6 +29,10 @@ export const createUserSchema = z
   });
 
 export type TSCreateUserSchema = z.infer<typeof createUserSchema>;
+
+export type AuthSignUpProps = {
+  userRole: string;
+};
 
 /* Log-in Schema  */
 export const logInSchema = z.object({

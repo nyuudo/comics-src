@@ -20,7 +20,7 @@ const SignUp = ({ params }: SignUpProps) => {
         <h1 className="text-center text-2xl font-bold">
           Create an Account as {params.role.toUpperCase()}
         </h1>
-        <AuthSignUp />
+        <AuthSignUp userRole={params.role} />
         <div className="flex flex-col gap-3 py-4">
           <Link
             href="/login"

@@ -1,5 +1,3 @@
-// This is a primary function to fetch data (client side) from the database
-
 import { createBrowserClient } from "@supabase/ssr";
 
 export const createClient = () =>

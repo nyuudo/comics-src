@@ -21,6 +21,9 @@ export async function signUpWithEmailAndPassword({
       password: data.password,
       options: {
         emailRedirectTo,
+        data: {
+          user_role: data.userRole,
+        },
       },
     });
     return JSON.stringify(result);

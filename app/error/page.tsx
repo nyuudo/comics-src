@@ -2,10 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Not Found",
+  title: "Error",
 };
-
-export default function NotFound() {
+export default function ErrorPage() {
   return (
     <main className="flex flex-col items-center justify-center gap-2 bg-csrcdark py-16">
       <div className="w-[17.3125rem]">
@@ -14,14 +13,12 @@ export default function NotFound() {
           alt="Not Found"
           width={320}
           height={326}
-          className="animate-fade-left pb-8 animate-once animate-ease-in-out"
+          className="-ml-2 animate-fade-left pb-8 animate-once animate-ease-in-out"
         ></Image>
         <h1 className="text-center text-2xl font-bold text-csrcyellow">
-          Page Not Found
+          Sorry
         </h1>
-        <p className="text-center text-csrclight">
-          Could not find requested resource
-        </p>
+        <p className="text-center text-csrclight">Something went wrong</p>
       </div>
       <Link
         href="/"
