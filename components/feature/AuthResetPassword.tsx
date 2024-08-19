@@ -5,13 +5,11 @@ import {
   TSResetPasswordSchema,
   resetPasswordSchema,
 } from "@/types/comics-src-types";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function AuthResetPassword() {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const {
@@ -27,14 +25,8 @@ export default function AuthResetPassword() {
     values,
   ) => {
     startTransition(async () => {
-      const result = await resetPassword(values);
-      const { data, error } = JSON.parse(result);
-      if (error) {
-        reset({ email: "" });
-        return;
-      }
-
-      router.push("/confirm");
+      await resetPassword(values);
+      reset({ email: "" });
     });
   };
 

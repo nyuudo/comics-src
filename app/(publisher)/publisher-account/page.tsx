@@ -1,10 +1,12 @@
-export default function PublisherWelcome() {
-  return (
-    <main className="flex h-[520px] justify-center gap-4 bg-csrcyellow p-4">
-      <h1>this is Main Publishing Company Welcome Page</h1>
-      <h3 className="text-red-500">
-        this content is available by private access
-      </h3>
-    </main>
-  );
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/server";
+
+export default async function PublisherAccount() {
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect("/login");
+  }
+
+  return <p>Hello {data.user.email}</p>;
 }

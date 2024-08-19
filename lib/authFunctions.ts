@@ -1,50 +1,49 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { createClient } from "@/utils/server";
 import {
   TSCreateUserSchema,
   TSLogInSchema,
   TSResetPasswordSchema,
+  TSUpdatePasswordSchema,
 } from "@/types/comics-src-types";
 
-export async function signUpWithEmailAndPassword({
-  data,
-  emailRedirectTo,
-}: {
-  data: TSCreateUserSchema;
-  emailRedirectTo?: string;
-}) {
-  try {
-    const supabase = createClient();
-    const result = await supabase.auth.signUp({
-      email: data.email,
-      password: data.password,
-      options: {
-        emailRedirectTo,
-        data: {
-          user_role: data.userRole,
-        },
-      },
-    });
-    return JSON.stringify(result);
-  } catch (error) {
-    return JSON.stringify({ error });
+// SIGN-UP function with SSR
+
+export async function signUpWithEmailAndPassword(data: TSCreateUserSchema) {
+  const supabase = createClient();
+  const { error } = await supabase.auth.signUp({
+    email: data.email,
+    password: data.password,
+    options: { data: { user_role: data.userRole } },
+  });
+
+  if (error) {
+    redirect("/error");
   }
+  revalidatePath("/", "layout");
+  redirect("/confirm/confirm-your-email");
 }
+
+// LOG-IN function with SSR
 
 export async function signInWithEmailAndPassword(data: TSLogInSchema) {
-  try {
-    const supabase = createClient();
-    const result = await supabase.auth.signInWithPassword({
-      email: data.email,
-      password: data.password,
-    });
-    return JSON.stringify(result);
-  } catch (error) {
-    return JSON.stringify({ error });
+  const supabase = createClient();
+  const { error } = await supabase.auth.signInWithPassword({
+    email: data.email,
+    password: data.password,
+  });
+
+  if (error) {
+    redirect("/error");
   }
+  revalidatePath("/", "layout");
+  redirect("/");
 }
 
+// LOG-OUT function
 export async function logOutUser() {
   try {
     const supabase = createClient();
@@ -55,14 +54,26 @@ export async function logOutUser() {
   }
 }
 
+// RESET PASSWORD function with SSR
 export async function resetPassword(data: TSResetPasswordSchema) {
-  try {
-    const supabase = createClient();
-    const result = await supabase.auth.resetPasswordForEmail(data.email, {
-      redirectTo: "/confirm",
-    });
-    return JSON.stringify(result);
-  } catch (error) {
-    return JSON.stringify({ error });
+  const supabase = createClient();
+  const { error } = await supabase.auth.resetPasswordForEmail(data.email);
+
+  if (error) {
+    redirect("/error");
+  }
+  revalidatePath("/", "layout");
+  redirect("/confirm/password-reset");
+}
+
+// UPDATE USER PASSWORD function
+
+export async function updatePassword(data: TSUpdatePasswordSchema) {
+  const supabase = createClient();
+  const { error } = await supabase.auth.updateUser({
+    password: data.password,
+  });
+  if (error) {
+    redirect("/error");
   }
 }

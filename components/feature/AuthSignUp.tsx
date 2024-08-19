@@ -6,14 +6,11 @@ import {
   createUserSchema,
   AuthSignUpProps,
 } from "@/types/comics-src-types";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 
 export default function AuthSignUp({ userRole }: AuthSignUpProps) {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const {
@@ -25,21 +22,10 @@ export default function AuthSignUp({ userRole }: AuthSignUpProps) {
     resolver: zodResolver(createUserSchema),
   });
 
-  const onSubmitHandler: SubmitHandler<TSCreateUserSchema> = (values) => {
+  const onSubmitHandler: SubmitHandler<TSCreateUserSchema> = async (values) => {
     startTransition(async () => {
-      const result = await signUpWithEmailAndPassword({
-        data: values,
-        emailRedirectTo: `${location.origin}/api/callback`,
-      });
-      const { data, error } = JSON.parse(result);
-      if (error) {
-        toast.error("Failed to Sign Up");
-        reset({ password: "" });
-        return;
-      }
-
-      toast.success("Check Your Confirmation Email");
-      router.push("/");
+      await signUpWithEmailAndPassword(values);
+      reset({ password: "" });
     });
   };
 

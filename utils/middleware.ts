@@ -44,6 +44,7 @@ export async function updateSession(request: NextRequest) {
     "/fan-dashboard",
     "/publisher-account",
     "/publisher-dashboard",
+    /* "/update-password", */
   ];
 
   if (!user && allowedPathnames.includes(request.nextUrl.pathname)) {

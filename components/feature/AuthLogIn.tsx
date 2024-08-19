@@ -2,13 +2,10 @@
 
 import { signInWithEmailAndPassword } from "@/lib/authFunctions";
 import { TSLogInSchema, logInSchema } from "@/types/comics-src-types";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 export default function AuthLogIn() {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const {
@@ -22,18 +19,8 @@ export default function AuthLogIn() {
 
   const onSubmitHandler: SubmitHandler<TSLogInSchema> = async (values) => {
     startTransition(async () => {
-      const result = await signInWithEmailAndPassword(values);
-
-      const { data, error } = JSON.parse(result);
-
-      if (error) {
-        toast.error("Failed to Log In");
-        reset({ password: "" });
-        return;
-      }
-
-      toast.success("Successfully Logged In");
-      router.push("/");
+      await signInWithEmailAndPassword(values);
+      reset({ password: "" });
     });
   };
 

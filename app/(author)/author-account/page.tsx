@@ -1,8 +1,12 @@
-import { cookies } from "next/headers";
-import type { Database } from "@/types/database";
-//import type { Author } from "@/types/comics-src-types";
-/* import AccountForm from "@/components/feature/AccountForm"; */
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/server";
 
 export default async function AuthorAccount() {
-  return;
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect("/login");
+  }
+
+  return <p>Hello {data.user.email}</p>;
 }

@@ -8,9 +8,9 @@ export default async function AuthButtons() {
   const { data } = await getUserSession();
   return (
     <div className="order-1 flex items-stretch justify-evenly md:order-2 md:items-center md:justify-between md:gap-4">
-      {data.session ? (
+      {data.user ? (
         <>
-          <UserButton email={data.session.user.email} /> <AuthLogOut />
+          <UserButton email={data.user.email} /> <AuthLogOut />
         </>
       ) : (
         <>
