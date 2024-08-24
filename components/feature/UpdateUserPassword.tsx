@@ -1,34 +1,17 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useTransition } from "react";
 import { updatePassword } from "@/lib/authFunctions";
-import { createClient } from "@/utils/browser";
+
 import {
   TSUpdatePasswordSchema,
   updatePasswordSchema,
 } from "@/types/comics-src-types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 
 export default function UpdateUserPassword() {
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    const supabase = createClient();
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (event === "PASSWORD_RECOVERY") {
-          console.log("Password recovery found");
-        } else {
-          console.log("Password recovery not found");
-        }
-      },
-    );
-    return () => {
-      authListener;
-    };
-  }, []);
 
   const {
     register,
@@ -40,10 +23,10 @@ export default function UpdateUserPassword() {
   });
 
   const onSubmitHandler: SubmitHandler<TSUpdatePasswordSchema> = async (
-    values,
+    data,
   ) => {
     startTransition(async () => {
-      await updatePassword(values);
+      await updatePassword(data);
       reset({ password: "", passwordConfirm: "" });
     });
   };

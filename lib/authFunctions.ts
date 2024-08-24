@@ -19,7 +19,6 @@ export async function signUpWithEmailAndPassword(data: TSCreateUserSchema) {
     password: data.password,
     options: { data: { user_role: data.userRole } },
   });
-
   if (error) {
     redirect("/error");
   }
@@ -31,10 +30,7 @@ export async function signUpWithEmailAndPassword(data: TSCreateUserSchema) {
 
 export async function signInWithEmailAndPassword(data: TSLogInSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.signInWithPassword({
-    email: data.email,
-    password: data.password,
-  });
+  const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
     redirect("/error");
@@ -70,10 +66,9 @@ export async function resetPassword(data: TSResetPasswordSchema) {
 
 export async function updatePassword(data: TSUpdatePasswordSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.updateUser({
-    password: data.password,
-  });
+  const { error } = await supabase.auth.updateUser(data);
   if (error) {
     redirect("/error");
   }
+  redirect("/");
 }

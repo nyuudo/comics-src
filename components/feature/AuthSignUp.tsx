@@ -22,10 +22,10 @@ export default function AuthSignUp({ userRole }: AuthSignUpProps) {
     resolver: zodResolver(createUserSchema),
   });
 
-  const onSubmitHandler: SubmitHandler<TSCreateUserSchema> = async (values) => {
+  const onSubmitHandler: SubmitHandler<TSCreateUserSchema> = async (data) => {
     startTransition(async () => {
-      await signUpWithEmailAndPassword(values);
-      reset({ password: "" });
+      await signUpWithEmailAndPassword(data);
+      reset({ password: "", passwordConfirm: "" });
     });
   };
 
@@ -38,6 +38,7 @@ export default function AuthSignUp({ userRole }: AuthSignUpProps) {
       <input type="hidden" value={userRole} {...register("userRole")} />
       <input
         {...register("email")}
+        id="email"
         type="email"
         placeholder="Email"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
@@ -48,7 +49,9 @@ export default function AuthSignUp({ userRole }: AuthSignUpProps) {
 
       <input
         {...register("password")}
+        id="password"
         type="password"
+        name="password"
         placeholder="Password"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
@@ -58,7 +61,9 @@ export default function AuthSignUp({ userRole }: AuthSignUpProps) {
 
       <input
         {...register("passwordConfirm")}
+        id="passwordConfirm"
         type="password"
+        name="passwordConfirm"
         placeholder="Confirm Password"
         className="rounded border bg-csrcyellow/50 px-4 py-2 focus:border-csrcblue focus:bg-csrclight/50 focus:outline-none"
       />
