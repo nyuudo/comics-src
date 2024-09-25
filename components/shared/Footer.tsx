@@ -6,7 +6,7 @@ const currentYear = currentDate.getFullYear();
 
 export default function Footer() {
   return (
-    <footer className=" bg-csrcdark">
+    <footer className="bg-csrcdark">
       <div className="flex flex-col py-10 font-bold xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
         <div className="flex gap-6">
           <Link href="/">
@@ -18,24 +18,24 @@ export default function Footer() {
             ></Image>
           </Link>
           <ul className="flex flex-col gap-2 divide-y divide-dotted divide-csrclight/20">
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/about">About</Link>
             </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/catalog">Catalog</Link>
             </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/login">Login</Link>
             </li>
           </ul>
           <ul className="flex flex-col gap-2 divide-y divide-dotted divide-csrclight/20">
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/fan">Fan</Link>
             </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/author">Author</Link>
             </li>
-            <li className=" text-csrcyellow  hover:text-csrclight">
+            <li className="text-csrcyellow hover:text-csrclight">
               <Link href="/publisher">Publisher</Link>
             </li>
           </ul>

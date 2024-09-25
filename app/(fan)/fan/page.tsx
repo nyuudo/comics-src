@@ -25,10 +25,22 @@ export default function Fan() {
             like-minded fans.
           </p>
           <Link
-            className="z-10 font-bold text-csrcblue after:invisible after:inline-block after:h-[32px] after:w-[16.2px] after:pl-2 after:align-middle after:content-link hover:text-csrcdark hover:after:visible"
+            className="group z-10 flex items-center font-bold text-csrcblue transition duration-1000 ease-in-out"
             href="/sign-up/fan"
           >
-            CREATE ACCOUNT
+            <span className="group-hover:text-csrcdark">CREATE ACCOUNT</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 10.1 20"
+              fill="currentColor"
+              className="size-5 translate-x-2 opacity-0 duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+            >
+              <path
+                fillRule="evenodd"
+                d="m0 18.3 6.7-8.3-6.7-8.3 2.1-1.7 8 10-8 10z"
+                clipRule="evenodd"
+              />
+            </svg>
           </Link>
         </div>
       </section>

@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={gabarito.className}>
-      <body>
+      <body className="grid h-screen grid-rows-[auto_1fr_auto]">
         <Providers>
           <Toaster
             toastOptions={{

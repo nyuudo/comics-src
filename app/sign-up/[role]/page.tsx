@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/server";
 import type { SignUpProps } from "@/types/comics-src-types";
 import AuthSignUp from "@/components/feature/AuthSignUp";
 import Link from "next/link";
@@ -13,7 +15,12 @@ export async function generateStaticParams() {
     return { role };
   });
 }
-const SignUp = ({ params }: SignUpProps) => {
+export default async function SignUp({ params }: SignUpProps) {
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (!error || data?.user) {
+    redirect(`/dashboard/${data.user?.user_metadata.user_role}/account`);
+  }
   return (
     <main className="flex items-center justify-center py-16">
       <div className="w-[17.3125rem]">
@@ -32,6 +39,4 @@ const SignUp = ({ params }: SignUpProps) => {
       </div>
     </main>
   );
-};
-
-export default SignUp;
+}
