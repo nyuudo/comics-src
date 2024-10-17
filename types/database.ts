@@ -11,29 +11,24 @@ export type Database = {
     Tables: {
       Author: {
         Row: {
+          author_bio: string | null
           author_id: string
           author_username: string | null
           created_at: string | null
         }
         Insert: {
+          author_bio?: string | null
           author_id?: string
           author_username?: string | null
           created_at?: string | null
         }
         Update: {
+          author_bio?: string | null
           author_id?: string
           author_username?: string | null
           created_at?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "Author_author_id_fkey"
-            columns: ["author_id"]
-            isOneToOne: true
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       "Authors WebComics": {
         Row: {
@@ -86,31 +81,41 @@ export type Database = {
           },
         ]
       }
+      Community: {
+        Row: {
+          followed_id: string
+          follower_id: string
+        }
+        Insert: {
+          followed_id?: string
+          follower_id?: string
+        }
+        Update: {
+          followed_id?: string
+          follower_id?: string
+        }
+        Relationships: []
+      }
       Fan: {
         Row: {
           created_at: string | null
+          fan_bio: string | null
           fan_id: string
           fan_username: string | null
         }
         Insert: {
           created_at?: string | null
+          fan_bio?: string | null
           fan_id?: string
           fan_username?: string | null
         }
         Update: {
           created_at?: string | null
+          fan_bio?: string | null
           fan_id?: string
           fan_username?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "Fan_fan_id_fkey"
-            columns: ["fan_id"]
-            isOneToOne: true
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       "Fans Collection": {
         Row: {
@@ -176,28 +181,23 @@ export type Database = {
       Publisher: {
         Row: {
           created_at: string | null
+          publisher_bio: string | null
           publisher_id: string
           publisher_name: string | null
         }
         Insert: {
           created_at?: string | null
+          publisher_bio?: string | null
           publisher_id?: string
           publisher_name?: string | null
         }
         Update: {
           created_at?: string | null
+          publisher_bio?: string | null
           publisher_id?: string
           publisher_name?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "Publisher_publisher_id_fkey"
-            columns: ["publisher_id"]
-            isOneToOne: true
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       "Publishers Product": {
         Row: {
@@ -343,4 +343,19 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof PublicSchema["CompositeTypes"]
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
+    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never

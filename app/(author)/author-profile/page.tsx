@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FollowButton from "@/components/shared/buttons/FollowButton";
 
 export const metadata = {
   title: "Author Profile",
@@ -57,19 +58,9 @@ export default async function AuthorProfile() {
                 clipRule="evenodd"
               />
             </svg>
-            <span>Social Media Links</span>
+            <span>Social Media</span>
           </Link>
-          <button className="flex items-center justify-center gap-x-1 rounded border-2 border-csrcdark/50 bg-csrcblue px-2.5 py-1 font-bold tracking-wider transition delay-150 duration-300 hover:border-transparent hover:bg-csrcdark/50 hover:text-csrclight hover:delay-150">
-            <span>Follow</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="size-4"
-            >
-              <path d="M8.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 13c.552 0 1.01-.452.9-.994a5.002 5.002 0 0 0-9.802 0c-.109.542.35.994.902.994h8ZM12.5 3.5a.75.75 0 0 1 .75.75v1h1a.75.75 0 0 1 0 1.5h-1v1a.75.75 0 0 1-1.5 0v-1h-1a.75.75 0 0 1 0-1.5h1v-1a.75.75 0 0 1 .75-.75Z" />
-            </svg>
-          </button>
+          <FollowButton />
         </div>
         <p
           id="bio"

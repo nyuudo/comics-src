@@ -1,7 +1,9 @@
-export default function MyWorks() {
-  return (
-    <main className="mx-auto bg-transparent px-0 py-5 md:mx-0 md:px-10 md:py-10">
-      <h1 className="text-3xl text-csrcyellow">My Works</h1>
-    </main>
-  );
+import WorksForm from "./works-form";
+import { createClient } from "@/utils/server";
+export default async function MyWorks() {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return <WorksForm user={user} />;
 }

@@ -1,7 +1,11 @@
-export default function MyCollection() {
-  return (
-    <main className="mx-auto bg-transparent px-0 py-5 md:mx-0 md:px-10 md:py-10">
-      <h1 className="text-3xl text-csrcyellow">My Collection</h1>
-    </main>
-  );
+import CollectionForm from "./collection-form";
+import { createClient } from "@/utils/server";
+
+export default async function MyCollection() {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  return <CollectionForm user={user} />;
 }

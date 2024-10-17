@@ -7,7 +7,6 @@ import Providers from "@/store/Provider";
 import { Toaster } from "react-hot-toast";
 
 const gabarito = Gabarito({
-  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });

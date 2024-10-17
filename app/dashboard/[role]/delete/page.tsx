@@ -1,7 +1,9 @@
-export default function DeleteAccount() {
-  return (
-    <main className="mx-auto bg-transparent px-0 py-5 md:mx-0 md:px-10 md:py-10">
-      <h1 className="text-3xl text-csrcdanger">Delete Account</h1>
-    </main>
-  );
+import DeleteForm from "./delete-form";
+import { createClient } from "@/utils/server";
+export default async function DeleteAccount() {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return <DeleteForm user={user} />;
 }
