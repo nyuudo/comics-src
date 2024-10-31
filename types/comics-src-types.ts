@@ -155,3 +155,15 @@ export type Publisher = Database["public"]["Tables"]["Publisher"]["Row"];
 
 export type PublishersProducts =
   Database["public"]["Tables"]["Publishers Product"]["Row"];
+
+/* Thunks Related types */
+
+export type FanProfileState = {
+  fan_bio: string | null;
+  fan_profileImage: string | null;
+  fan_socialmedia: string | null;
+  fan_url: string | null;
+  fan_username: string | null;
+  loading: boolean;
+  error: string | null;
+};

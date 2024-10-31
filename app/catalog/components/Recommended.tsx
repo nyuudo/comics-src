@@ -6,11 +6,11 @@ export default async function Recommended() {
   const products = await publishersProduct;
   const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 4);
   return (
-    <section className="bg-csrcyellow">
+    <section className="bg-csrcyellow p-4">
       <h2 className="py-4 text-center text-2xl font-bold text-csrcblue">
         You may also like...
       </h2>
-      <div className="flex flex-wrap content-between items-center justify-center gap-12">
+      <div className="flex flex-wrap content-between items-center justify-center">
         {randomProducts?.map((result) => (
           <a
             className="p-4"

@@ -12,20 +12,38 @@ export type Database = {
       Author: {
         Row: {
           author_bio: string | null
+          author_collection: string[] | null
+          author_community: string[] | null
           author_id: string
+          author_profileImage: string | null
+          author_socialmedia: string | null
+          author_url: string | null
           author_username: string | null
+          author_works: string[] | null
           created_at: string | null
         }
         Insert: {
           author_bio?: string | null
+          author_collection?: string[] | null
+          author_community?: string[] | null
           author_id?: string
+          author_profileImage?: string | null
+          author_socialmedia?: string | null
+          author_url?: string | null
           author_username?: string | null
+          author_works?: string[] | null
           created_at?: string | null
         }
         Update: {
           author_bio?: string | null
+          author_collection?: string[] | null
+          author_community?: string[] | null
           author_id?: string
+          author_profileImage?: string | null
+          author_socialmedia?: string | null
+          author_url?: string | null
           author_username?: string | null
+          author_works?: string[] | null
           created_at?: string | null
         }
         Relationships: []
@@ -100,19 +118,34 @@ export type Database = {
         Row: {
           created_at: string | null
           fan_bio: string | null
+          fan_collection: string[] | null
+          fan_community: string[] | null
           fan_id: string
+          fan_profileImage: string | null
+          fan_socialmedia: string | null
+          fan_url: string | null
           fan_username: string | null
         }
         Insert: {
           created_at?: string | null
           fan_bio?: string | null
+          fan_collection?: string[] | null
+          fan_community?: string[] | null
           fan_id?: string
+          fan_profileImage?: string | null
+          fan_socialmedia?: string | null
+          fan_url?: string | null
           fan_username?: string | null
         }
         Update: {
           created_at?: string | null
           fan_bio?: string | null
+          fan_collection?: string[] | null
+          fan_community?: string[] | null
           fan_id?: string
+          fan_profileImage?: string | null
+          fan_socialmedia?: string | null
+          fan_url?: string | null
           fan_username?: string | null
         }
         Relationships: []
@@ -182,20 +215,35 @@ export type Database = {
         Row: {
           created_at: string | null
           publisher_bio: string | null
+          publisher_community: string[] | null
           publisher_id: string
           publisher_name: string | null
+          publisher_profileImage: string | null
+          publisher_publications: string[] | null
+          publisher_socialmedia: string | null
+          publisher_url: string | null
         }
         Insert: {
           created_at?: string | null
           publisher_bio?: string | null
+          publisher_community?: string[] | null
           publisher_id?: string
           publisher_name?: string | null
+          publisher_profileImage?: string | null
+          publisher_publications?: string[] | null
+          publisher_socialmedia?: string | null
+          publisher_url?: string | null
         }
         Update: {
           created_at?: string | null
           publisher_bio?: string | null
+          publisher_community?: string[] | null
           publisher_id?: string
           publisher_name?: string | null
+          publisher_profileImage?: string | null
+          publisher_publications?: string[] | null
+          publisher_socialmedia?: string | null
+          publisher_url?: string | null
         }
         Relationships: []
       }

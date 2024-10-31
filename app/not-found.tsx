@@ -20,7 +20,7 @@ export default function NotFound() {
           Page Not Found
         </h1>
         <p className="text-center text-csrclight">
-          Could not find requested resource
+          Could not find the requested resource
         </p>
       </div>
       <Link

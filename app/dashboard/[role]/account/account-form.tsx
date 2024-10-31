@@ -1,99 +1,66 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-import { createClient } from "@/utils/browser";
+import { useState, useEffect } from "react";
 import { type User } from "@supabase/supabase-js";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import { fetchFanProfile, updateFanProfile } from "@/store/fanProfileSlice";
+import { RootState, AppDispatch } from "@/store/store";
 import Image from "next/image";
 
+const useAppDispatch = () => useDispatch<AppDispatch>();
+const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
 export default function AccountForm({ user }: { user: User | null }) {
-  const supabase = createClient();
-  const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
 
-  /* getProfile */
-  const getProfile = useCallback(async () => {
-    try {
-      setLoading(true);
+  const { fan_bio, fan_socialmedia, fan_url, fan_username, loading, error } =
+    useTypedSelector((state) => state.fanProfile);
 
-      const {
-        data: fanData,
-        error: fanError,
-        status: fanStatus,
-      } = await supabase
-        .from("Fan")
-        .select("fan_username")
-        .eq("fan_id", user?.id)
-        .single();
+  const [editedFanBio, setEditedFanBio] = useState(fan_bio || "");
 
-      if (fanError && fanStatus !== 406) {
-        console.log(fanError);
-        throw fanError;
-      }
+  const [editedFanSocialMedia, setEditedFanSocialMedia] = useState(
+    fan_socialmedia || "",
+  );
+  const [editedFanUrl, setEditedFanUrl] = useState(fan_url || "");
+  const [editedFanUsername, setEditedFanUsername] = useState(
+    fan_username || "",
+  );
 
-      const {
-        data: authorData,
-        error: authorError,
-        status: authorStatus,
-      } = await supabase
-        .from("Author")
-        .select("author_username")
-        .eq("author_id", user?.id)
-        .single();
-
-      if (authorError && authorStatus !== 406) {
-        console.log(authorError);
-        throw authorError;
-      }
-
-      const {
-        data: publisherData,
-        error: publisherError,
-        status: publisherStatus,
-      } = await supabase
-        .from("Publisher")
-        .select("publisher_name")
-        .eq("publisher_id", user?.id)
-        .single();
-
-      if (publisherError && publisherStatus !== 406) {
-        console.log(publisherError);
-        throw publisherError;
-      }
-
-      if (fanData) {
-        setUsername(fanData.fan_username);
-      } else if (authorData) {
-        setUsername(authorData.author_username);
-      } else if (publisherData) {
-        setUsername(publisherData.publisher_name);
-      }
-    } catch (error) {
-      console.log("Error loading user data!");
-    } finally {
-      setLoading(false);
+  const handleUpdate = (updatedFields: { [key: string]: string }) => {
+    if (user?.id) {
+      dispatch(
+        updateFanProfile({
+          userId: user.id,
+          updatedData: updatedFields,
+        }),
+      );
     }
-  }, [user, supabase]);
-  /* useEffect */
+  };
+
+  const handleCancel = () => {
+    setEditedFanBio(fan_bio || "");
+    setEditedFanSocialMedia(fan_socialmedia || "");
+    setEditedFanUrl(fan_url || "");
+    setEditedFanUsername(fan_username || "");
+  };
+
   useEffect(() => {
-    getProfile();
-  }, [user, getProfile]);
-  /* updateProfile */
-  async function updateProfile({ username }: { username: string | null }) {
-    try {
-      setLoading(true);
-
-      const { error } = await supabase.from("Fan").upsert({
-        id: user?.id as string,
-        username,
-        updated_at: new Date().toISOString(),
-      });
-      if (error) throw error;
-      alert("Profile updated!");
-    } catch (error) {
-      alert("Error updating the data!");
-    } finally {
-      setLoading(false);
+    if (user?.id) {
+      dispatch(fetchFanProfile(user.id));
     }
-  }
+    // to render the value the first time
+    if (fan_bio) {
+      setEditedFanBio(fan_bio);
+    }
+    if (fan_socialmedia) {
+      setEditedFanSocialMedia(fan_socialmedia);
+    }
+    if (fan_url) {
+      setEditedFanUrl(fan_url);
+    }
+    if (fan_username) {
+      setEditedFanUsername(fan_username);
+    }
+  }, [user, dispatch, fan_bio, fan_socialmedia, fan_url, fan_username]);
 
   return (
     <main className="mx-auto bg-transparent px-0 py-5 md:mx-0 md:px-10 md:py-10">
@@ -101,16 +68,16 @@ export default function AccountForm({ user }: { user: User | null }) {
 
       <div className="flex flex-col gap-5 py-4">
         <div className="flex items-start gap-2">
-          {/* AVATAR */}
           <div className="flex flex-col items-center">
             <Image
+              id="profileImage"
               src="/assets/images/comics-src-profile-image.png"
               width={50}
               height={50}
               alt="Fan Profile Image"
             />
             <button className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
-              Update
+              Upload
             </button>
           </div>
           <p className="max-w-40 text-balance text-[10px] text-csrclight/50">
@@ -129,8 +96,9 @@ export default function AccountForm({ user }: { user: User | null }) {
           <input
             id="username"
             type="text"
-            value={username || ""}
-            onChange={(e) => setUsername(e.target.value)}
+            value={editedFanUsername}
+            placeholder={editedFanUsername}
+            onChange={(e) => setEditedFanUsername(e.target.value)}
             className="rounded-sm bg-csrclight/5 text-csrclight caret-csrcyellow focus:outline-none"
           />
         </div>
@@ -148,9 +116,12 @@ export default function AccountForm({ user }: { user: User | null }) {
         <div className="flex flex-col gap-3 text-csrcblue">
           <label htmlFor="about">About Me:</label>
           <textarea
+            id="bio"
             maxLength={250}
             className="block w-full rounded-sm bg-csrclight/5 p-2 text-sm text-csrclight placeholder-csrclight/50 caret-csrcyellow focus:outline-none"
             placeholder="Please, briefly introduce yourself to the community. 250 characters maximum"
+            value={editedFanBio}
+            onChange={(e) => setEditedFanBio(e.target.value)}
           ></textarea>
         </div>
         <hr className="border-csrcdark/35 mix-blend-multiply" />
@@ -159,9 +130,10 @@ export default function AccountForm({ user }: { user: User | null }) {
           <input
             id="website"
             type="text"
-            c
             className="block rounded-sm bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-none"
+            value={editedFanUrl}
             placeholder="mywebsite.com"
+            onChange={(e) => setEditedFanUrl(e.target.value)}
           >
             {}
           </input>
@@ -169,23 +141,34 @@ export default function AccountForm({ user }: { user: User | null }) {
         <div className="flex gap-3 text-csrcblue">
           <label htmlFor="social">Social Media:</label>
           <input
-            id="social media"
+            id="socialMedia"
             type="text"
             className="block rounded-sm bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-none"
             placeholder="@social-media-nickname"
-          >
-            {}
-          </input>
+            value={editedFanSocialMedia}
+            onChange={(e) => setEditedFanSocialMedia(e.target.value)}
+          ></input>
         </div>
         <hr className="border-csrcdark/35 mix-blend-multiply" />
 
         <div className="flex gap-2">
-          <button className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
+          <button
+            onClick={handleCancel}
+            className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150"
+          >
             <span>Cancel</span>
           </button>
           <button
             className="flex items-center justify-center gap-x-2 rounded bg-csrcyellow px-2.5 py-1 text-xs tracking-wider transition delay-150 duration-300 hover:bg-green-500 hover:text-csrclight hover:shadow-md hover:delay-150"
             disabled={loading}
+            onClick={() =>
+              handleUpdate({
+                fan_bio: editedFanBio,
+                fan_socialmedia: editedFanSocialMedia,
+                fan_url: editedFanUrl,
+                fan_username: editedFanUsername,
+              })
+            }
           >
             {loading ? "Loading..." : "Update"}
           </button>

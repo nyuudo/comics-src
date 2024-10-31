@@ -33,8 +33,8 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
   const products = await publishersProductId;
 
   return (
-    <>
-      <main className="flex flex-col justify-center gap-4 bg-white p-4 selection:bg-csrcblue selection:text-white xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-60">
+    <div className="flex flex-col justify-around align-middle md:flex-row">
+      <main className="flex bg-white selection:bg-csrcblue selection:text-white xs:px-5 sm:px-10 md:w-5/6 lg:w-1/2 md:lg:xl:px-[3.75rem]">
         <section>
           {products?.map((result) => (
             <div
@@ -88,6 +88,6 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
         </section>
       </main>
       <Recommended />
-    </>
+    </div>
   );
 }
