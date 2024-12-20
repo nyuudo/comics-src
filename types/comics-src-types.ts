@@ -167,3 +167,55 @@ export type FanProfileState = {
   loading: boolean;
   error: string | null;
 };
+
+export type AuthorProfileState = {
+  author_bio: string | null;
+  author_profileImage: string | null;
+  author_socialmedia: string | null;
+  author_url: string | null;
+  author_username: string | null;
+  loading: boolean;
+  error: string | null;
+};
+
+export type PublisherProfileState = {
+  publisher_bio: string | null;
+  publisher_name: string | null;
+  publisher_profileImage: string | null;
+  publisher_socialmedia: string | null;
+  publisher_url: string | null;
+  loading: boolean;
+  error: string | null;
+};
+
+export type FanProfile = {
+  fan_bio: string;
+  fan_socialmedia: string;
+  fan_url: string;
+  fan_username: string;
+  fan_profileImage: string;
+};
+
+export type AuthorProfile = {
+  author_bio: string;
+  author_socialmedia: string;
+  author_url: string;
+  author_username: string;
+  author_profileImage: string;
+};
+
+export type PublisherProfile = {
+  publisher_bio: string;
+  publisher_socialmedia: string;
+  publisher_url: string;
+  publisher_name: string;
+  publisher_profileImage: string;
+};
+
+export type EditedProfile = FanProfile | AuthorProfile | PublisherProfile;
+
+export type CommunityState = {
+  followers: [] | null;
+  loading: boolean;
+  error: string | null;
+};

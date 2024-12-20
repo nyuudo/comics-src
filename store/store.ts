@@ -3,6 +3,9 @@ import signupReducer from "./signupSlice";
 import modalReducer from "./modalSlice";
 import searchReducer from "./searchSlice";
 import fanProfileReducer from "./fanProfileSlice";
+import authorProfileReducer from "./authorProfileSlice";
+import publisherProfileReducer from "./publisherProfileSlice";
+import communityReducer from "./communitySlice";
 import { comicsSrcApi } from "./comicsSrcApi";
 
 const rootReducer = combineReducers({
@@ -10,6 +13,9 @@ const rootReducer = combineReducers({
   modal: modalReducer,
   search: searchReducer,
   fanProfile: fanProfileReducer,
+  authorProfile: authorProfileReducer,
+  publisherProfile: publisherProfileReducer,
+  community: communityReducer,
   comicsSrcApi: comicsSrcApi.reducer,
 });
 export const store = configureStore({
