@@ -4,7 +4,7 @@ import { UserButtonProps } from "@/types/comics-src-types";
 
 export default async function UserButton({ email }: UserButtonProps) {
   const supabase = createClient();
-  const { data, error } = await supabase.auth.getUser();
+  const { data, error } = await (await supabase).auth.getUser();
 
   return (
     <Link

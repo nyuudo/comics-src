@@ -1,7 +1,7 @@
 /* To retrieve all Comics with an ID filter */
 import client from "@/utils/client";
 
-export default async function getPublishersProductId(productId: string) {
+export default async function getPublishersProductId(productId: number) {
   const { data, error } = await client
     .from("Publishers Product")
     .select(

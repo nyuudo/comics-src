@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function NavBar() {
   const supabase = createClient();
-  const { data, error } = await supabase.auth.getUser();
+  const { data, error } = await (await supabase).auth.getUser();
 
   const links = [
     {

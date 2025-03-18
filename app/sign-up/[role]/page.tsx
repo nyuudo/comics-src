@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 }
 export default async function SignUp({ params }: SignUpProps) {
   const supabase = createClient();
-  const { data, error } = await supabase.auth.getUser();
+  const { data, error } = await (await supabase).auth.getUser();
   if (!error || data?.user) {
     redirect(`/dashboard/${data.user?.user_metadata.user_role}/account`);
   }

@@ -4,6 +4,6 @@ export default async function Publications() {
   const supabase = createClient();
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await (await supabase).auth.getUser();
   return <PublicationsForm user={user} />;
 }

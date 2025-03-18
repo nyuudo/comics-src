@@ -14,7 +14,7 @@ import {
 
 export async function signUpWithEmailAndPassword(data: TSCreateUserSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.signUp({
+  const { error } = await (await supabase).auth.signUp({
     email: data.email,
     password: data.password,
     options: { data: { user_role: data.userRole } },
@@ -30,7 +30,7 @@ export async function signUpWithEmailAndPassword(data: TSCreateUserSchema) {
 
 export async function signInWithEmailAndPassword(data: TSLogInSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.signInWithPassword(data);
+  const { error } = await (await supabase).auth.signInWithPassword(data);
 
   if (error) {
     redirect("/error");
@@ -43,7 +43,7 @@ export async function signInWithEmailAndPassword(data: TSLogInSchema) {
 export async function logOutUser() {
   try {
     const supabase = createClient();
-    const result = await supabase.auth.signOut();
+    const result = await (await supabase).auth.signOut();
     return result;
   } catch (error) {
     return { error };
@@ -53,7 +53,7 @@ export async function logOutUser() {
 // RESET PASSWORD function with SSR
 export async function resetPassword(data: TSResetPasswordSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.resetPasswordForEmail(data.email);
+  const { error } = await (await supabase).auth.resetPasswordForEmail(data.email);
 
   if (error) {
     redirect("/error");
@@ -66,7 +66,7 @@ export async function resetPassword(data: TSResetPasswordSchema) {
 
 export async function updatePassword(data: TSUpdatePasswordSchema) {
   const supabase = createClient();
-  const { error } = await supabase.auth.updateUser(data);
+  const { error } = await (await supabase).auth.updateUser(data);
   if (error) {
     redirect("/error");
   }

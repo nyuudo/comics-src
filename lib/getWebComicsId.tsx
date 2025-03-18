@@ -1,7 +1,7 @@
 /* To retrieve all webComics with an ID filter */
 import client from "@/utils/client";
 
-export default async function getWebComicsId(webcomicId: string) {
+export default async function getWebComicsId(webcomicId: number) {
   const { data, error } = await client
     .from("Authors WebComics")
     .select()
