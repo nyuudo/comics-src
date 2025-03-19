@@ -17,7 +17,7 @@ export default async function Products() {
       <div className="grid auto-rows-auto grid-cols-1 gap-4 md:grid-cols-2">
         {latestProducts?.map((result) => (
           <Link
-            className="group relative flex flex-col gap-4 rounded bg-white p-6 transition duration-300 ease-in-out after:absolute after:-inset-2 after:left-2 after:top-2 after:-z-10 after:hidden after:bg-mock_offset_02 hover:bg-csrcblue hover:after:block"
+            className="group relative flex flex-col gap-4 rounded-sm bg-white p-6 transition duration-300 ease-in-out after:absolute after:-inset-2 after:left-2 after:top-2 after:-z-10 after:hidden after:bg-mock_offset_02 hover:bg-csrcblue hover:after:block"
             key={result.product_id}
             href={`/catalog/${result.product_id}`}
           >

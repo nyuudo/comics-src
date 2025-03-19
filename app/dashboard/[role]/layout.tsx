@@ -16,7 +16,7 @@ export default async function DashboardLayout({
   }
 
   return (
-    <section className="flex flex-col bg-csrcdark bg-gradient-to-t from-black/10 xs:px-5 sm:px-10 md:flex-row md:lg:px-[3.75rem] xl:px-20">
+    <section className="flex flex-col bg-csrcdark bg-linear-to-t from-black/10 xs:px-5 sm:px-10 md:flex-row md:lg:px-[3.75rem] xl:px-20">
       <NavBar />
       {children}
     </section>

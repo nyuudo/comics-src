@@ -8,7 +8,7 @@ export default function Author() {
   return (
     <main className="bg-csrcyellow px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
       <section className="relative flex min-h-[520px] items-center justify-center">
-        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-[307px] after:w-[344px] after:bg-bubble_idea after:bg-cover after:bg-no-repeat after:md:h-[384px] after:md:w-[430px]">
+        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-[307px] after:w-[344px] after:bg-bubble_idea after:bg-cover after:bg-no-repeat md:after:h-[384px] md:after:w-[430px]">
           <h1 className="z-10 text-center text-4xl font-bold text-csrcblue md:w-[590px] md:text-5xl">
             Author
           </h1>

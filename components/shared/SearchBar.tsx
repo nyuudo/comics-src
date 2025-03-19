@@ -34,7 +34,7 @@ const SearchBar = () => {
         <span className="bg-100% absolute top-2 h-5 w-5 animate-pulse bg-search bg-no-repeat animate-twice animate-ease-in-out"></span>
         <input
           type="search"
-          className="h-9 w-[17.3125rem] rounded-sm bg-csrcblue/5 pl-6 pr-2 text-csrcdark placeholder-csrclight caret-csrcyellow focus:border-csrcblue focus:outline-none focus:ring-1 focus:ring-csrcblue"
+          className="h-9 w-[17.3125rem] rounded-xs bg-csrcblue/5 pl-6 pr-2 text-csrcdark placeholder-csrclight caret-csrcyellow focus:border-csrcblue focus:outline-hidden focus:ring-1 focus:ring-csrcblue"
           placeholder="Search for Comics..."
           value={search}
           onChange={(e) => dispatch(setSearch(e.target.value))}

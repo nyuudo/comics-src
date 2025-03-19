@@ -230,7 +230,7 @@ export default function AccountForm({ user }: { user: User | null }) {
               height={50}
               alt="Fan Profile Image"
             />
-            <button className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
+            <button className="flex items-center justify-center gap-x-2 rounded-sm border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
               Upload
             </button>
           </div>
@@ -278,7 +278,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                     : "publisher_name"]: e.target.value,
               }))
             }
-            className="rounded-sm bg-csrclight/5 text-csrclight caret-csrcyellow focus:outline-none"
+            className="rounded-xs bg-csrclight/5 text-csrclight caret-csrcyellow focus:outline-hidden"
           />
         </div>
         <div className="flex gap-3 text-csrcblue">
@@ -287,7 +287,7 @@ export default function AccountForm({ user }: { user: User | null }) {
         </div>
         <div className="flex gap-3 text-csrcblue">
           Password:
-          <button className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
+          <button className="flex items-center justify-center gap-x-2 rounded-sm border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150">
             <span>Reset Password</span>
           </button>
         </div>
@@ -297,7 +297,7 @@ export default function AccountForm({ user }: { user: User | null }) {
           <textarea
             id="bio"
             maxLength={250}
-            className="block w-full rounded-sm bg-csrclight/5 p-2 text-sm text-csrclight placeholder-csrclight/50 caret-csrcyellow focus:outline-none"
+            className="block w-full rounded-xs bg-csrclight/5 p-2 text-sm text-csrclight placeholder-csrclight/50 caret-csrcyellow focus:outline-hidden"
             placeholder="Please, briefly introduce yourself to the community. 250 characters maximum"
             value={
               isFanProfile(editedProfile)
@@ -326,7 +326,7 @@ export default function AccountForm({ user }: { user: User | null }) {
           <input
             id="website"
             type="text"
-            className="block rounded-sm bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-none"
+            className="block rounded-xs bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-hidden"
             value={
               isFanProfile(editedProfile)
                 ? editedProfile.fan_url
@@ -354,7 +354,7 @@ export default function AccountForm({ user }: { user: User | null }) {
           <input
             id="socialMedia"
             type="text"
-            className="block rounded-sm bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-none"
+            className="block rounded-xs bg-csrclight/5 text-sm text-csrclight caret-csrcyellow focus:outline-hidden"
             placeholder="@social-media-nickname"
             value={
               isFanProfile(editedProfile)
@@ -382,12 +382,12 @@ export default function AccountForm({ user }: { user: User | null }) {
         <div className="flex gap-2">
           <button
             onClick={handleCancel}
-            className="flex items-center justify-center gap-x-2 rounded border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150"
+            className="flex items-center justify-center gap-x-2 rounded-sm border border-csrclight/75 px-2.5 py-1 text-xs tracking-wider text-csrclight/75 transition delay-150 duration-300 hover:border-transparent hover:bg-csrclight/75 hover:text-csrcdark hover:delay-150"
           >
             <span>Cancel</span>
           </button>
           <button
-            className="flex items-center justify-center gap-x-2 rounded bg-csrcyellow px-2.5 py-1 text-xs tracking-wider transition delay-150 duration-300 hover:bg-green-500 hover:text-csrclight hover:shadow-md hover:delay-150"
+            className="flex items-center justify-center gap-x-2 rounded-sm bg-csrcyellow px-2.5 py-1 text-xs tracking-wider transition delay-150 duration-300 hover:bg-green-500 hover:text-csrclight hover:shadow-md hover:delay-150"
             disabled={loading}
             onClick={() => handleUpdate(editedProfile)}
           >

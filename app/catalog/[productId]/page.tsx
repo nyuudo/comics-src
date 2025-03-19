@@ -38,7 +38,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
         <section>
           {products?.map((result) => (
             <div
-              className="flex flex-col gap-4 rounded p-6"
+              className="flex flex-col gap-4 rounded-sm p-6"
               key={result.product_id}
             >
               <h1 className="text-2xl font-bold text-csrcblue md:text-3xl">
@@ -64,7 +64,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                     <p className="text-xs font-bold text-csrcdark">
                       {result.product_year}
                     </p>
-                    <button className="flex max-w-[200px] items-center justify-center gap-x-2 rounded bg-csrcblue py-2 font-bold tracking-wider text-csrclight transition delay-150 duration-300 hover:bg-csrcdark hover:delay-150 disabled:bg-csrcdark/50">
+                    <button className="flex max-w-[200px] items-center justify-center gap-x-2 rounded-sm bg-csrcblue py-2 font-bold tracking-wider text-csrclight transition delay-150 duration-300 hover:bg-csrcdark hover:delay-150 disabled:bg-csrcdark/50">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"

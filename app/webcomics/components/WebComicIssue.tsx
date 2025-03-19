@@ -15,7 +15,7 @@ export default async function WebComicIssue() {
       <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-3">
         {latestComics?.map((issue) => (
           <a
-            className="group relative rounded bg-white p-8 transition duration-300 ease-in-out after:absolute after:-inset-2 after:left-2 after:top-2 after:-z-10 after:hidden after:bg-mock_offset_02 hover:bg-csrcblue hover:after:block"
+            className="group relative rounded-sm bg-white p-8 transition duration-300 ease-in-out after:absolute after:-inset-2 after:left-2 after:top-2 after:-z-10 after:hidden after:bg-mock_offset_02 hover:bg-csrcblue hover:after:block"
             key={issue.webcomic_id}
             href={`/webcomics/${issue.webcomic_id}`}
           >

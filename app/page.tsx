@@ -6,14 +6,14 @@ import Image from "next/image";
 export default async function Home() {
   return (
     <main>
-      <section className="relative flex h-[325px] flex-col items-center justify-center gap-4 bg-csrclight bg-background_05 bg-cover bg-center px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
-        <div className="flex h-[249px] w-[360px] animate-fade flex-col items-start justify-center gap-3 animate-once animate-ease-in-out after:absolute after:-bottom-0 after:h-[249px] after:w-[360px] after:bg-bubble_electric after:bg-cover after:bg-no-repeat sm:h-[302px] sm:w-[436px] after:sm:-bottom-6 after:sm:h-[302px] after:sm:w-[436px] md:h-[526px] md:w-[760px] after:md:-bottom-12 after:md:h-[526px] after:md:w-[760px]">
-          <h1 className="z-10 w-[300px] pl-12 pt-8 text-[1.5rem] leading-6 text-csrcdark sm:w-[380px] sm:pl-14 sm:text-3xl md:w-[590px] md:pb-8 md:pl-28 md:text-5xl">
+      <section className="bg-csrclight bg-background_05 relative flex h-[325px] flex-col items-center justify-center gap-4 bg-cover bg-center px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
+        <div className="animate-fade animate-once animate-ease-in-out after:bg-bubble_electric flex h-[249px] w-[360px] flex-col items-start justify-center gap-3 after:absolute after:-bottom-0 after:h-[249px] after:w-[360px] after:bg-cover after:bg-no-repeat sm:h-[302px] sm:w-[436px] sm:after:-bottom-6 sm:after:h-[302px] sm:after:w-[436px] md:h-[526px] md:w-[760px] md:after:-bottom-12 md:after:h-[526px] md:after:w-[760px]">
+          <h1 className="text-csrcdark z-10 w-[300px] pt-8 pl-12 text-[1.5rem] leading-none sm:w-[380px] sm:pl-14 sm:text-3xl md:w-[590px] md:pb-8 md:pl-28 md:text-5xl">
             Discover <strong>new comics</strong> and <strong>directly</strong>{" "}
             support the artists who make it
           </h1>
           <Link
-            className="group z-10 flex items-center pl-12 font-bold text-csrcblue transition duration-1000 ease-in-out sm:pl-14 md:pl-28"
+            className="group text-csrcblue z-10 flex items-center pl-12 font-bold transition duration-1000 ease-in-out sm:pl-14 md:pl-28"
             href="/catalog"
           >
             <span className="group-hover:text-csrcdark">CHECK OUR CATALOG</span>
@@ -39,13 +39,13 @@ export default async function Home() {
           className="invisible absolute bottom-[0px] sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
         ></Image>
       </section>
-      <section className="flex h-[325px] flex-col justify-center bg-csrcblue bg-right bg-no-repeat px-5 py-4 sm:bg-background_03 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcblue sm:bg-background_03 flex h-[325px] flex-col justify-center bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
-            <h1 className="text-2xl text-csrcyellow sm:text-3xl md:text-5xl">
+            <h1 className="text-csrcyellow text-2xl sm:text-3xl md:text-5xl">
               Your <strong>definitive source</strong> for independent comics
             </h1>
-            <p className="text-sm text-csrcdark md:w-[434px] md:text-base">
+            <p className="text-csrcdark text-sm md:w-[434px] md:text-base">
               As a fan, stay up to date about your favorite authors and purchase
               exclusive merchandise, get access to original art and of course,
               comics!
@@ -65,14 +65,14 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex h-[325px] flex-col justify-center bg-csrcyellow bg-left bg-no-repeat px-5 py-4 sm:bg-background_07 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcyellow sm:bg-background_07 flex h-[325px] flex-col justify-center bg-left bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="order-2 flex flex-col items-end gap-4 md:w-3/5 md:gap-6">
-            <h1 className="text-right text-2xl text-csrcblue sm:text-3xl md:w-[590px] md:text-5xl">
+            <h1 className="text-csrcblue text-right text-2xl sm:text-3xl md:w-[590px] md:text-5xl">
               A showcase for art that didn&apos;t earn in{" "}
               <strong>exposure</strong>
             </h1>
-            <p className="text-right text-sm text-csrcdark md:w-[434px] md:text-base">
+            <p className="text-csrcdark text-right text-sm md:w-[434px] md:text-base">
               As an author create the right marketplace for your works with
               total control over your art, merchandise and pricing.
             </p>
@@ -91,13 +91,13 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="flex h-[325px] flex-col justify-center gap-4 bg-csrcblue bg-right bg-no-repeat px-5 py-4 sm:bg-background_09 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcblue sm:bg-background_09 flex h-[325px] flex-col justify-center gap-4 bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
-            <h1 className="text-2xl text-csrcyellow sm:text-3xl md:max-w-[530px] md:text-5xl">
+            <h1 className="text-csrcyellow text-2xl sm:text-3xl md:max-w-[530px] md:text-5xl">
               A <strong>specialised</strong> niche market selling point
             </h1>
-            <p className="text-sm text-csrcdark md:w-[434px] md:text-base">
+            <p className="text-csrcdark text-sm md:w-[434px] md:text-base">
               Diversify the scope of your products with customers that are
               closer to the authors and already willing to support their work.
             </p>

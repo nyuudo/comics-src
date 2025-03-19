@@ -52,7 +52,7 @@ export default function DeleteForm({ user }: { user: User | null }) {
           </p>
         </div>
       </div>
-      <button className="flex items-center justify-center gap-x-2 rounded bg-csrcdanger px-2.5 py-1 text-xs tracking-wider text-csrclight transition delay-150 duration-300 hover:bg-csrclight/15 hover:shadow-md hover:delay-150">
+      <button className="flex items-center justify-center gap-x-2 rounded-sm bg-csrcdanger px-2.5 py-1 text-xs tracking-wider text-csrclight transition delay-150 duration-300 hover:bg-csrclight/15 hover:shadow-md hover:delay-150">
         Delete
       </button>
     </main>

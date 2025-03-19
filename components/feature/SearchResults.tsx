@@ -12,7 +12,7 @@ const SearchResults = () => {
   if (!data) {
     return (
       <div className="relative">
-        <div className="absolute left-6 text-red-800 placeholder-csrcdark">
+        <div className="placeholder-csrcdark absolute left-6 text-red-800">
           No results found
         </div>
       </div>
@@ -20,25 +20,25 @@ const SearchResults = () => {
   }
 
   return (
-    <main className="absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded bg-csrclight/75 shadow-lg md:top-20">
+    <main className="bg-csrclight/75 absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded-sm shadow-lg md:top-20">
       {data.slice(0, 3).map((result) => (
         <a
-          className="group flex rounded p-4 transition delay-150 hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue hover:via-50%"
+          className="group hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue flex rounded-sm p-4 transition delay-150 hover:via-50%"
           key={result.product_id}
           href={`/catalog/${result.product_id}`}
         >
           <Image
             src={result.product_cover}
             alt={result.product_title}
-            className="h-[133px] w-[80px] rounded group-hover:scale-[.98]"
+            className="h-[133px] w-[80px] rounded-sm group-hover:scale-[.98]"
             width={160}
             height={266}
           ></Image>
           <div className="flex flex-col pl-3">
-            <h2 className="text-[0.6875rem] font-bold leading-5 text-csrcdark group-hover:text-csrcyellow">
+            <h2 className="text-csrcdark group-hover:text-csrcyellow text-[0.6875rem] leading-5 font-bold">
               {result.product_title}
             </h2>
-            <p className="leading-0 line-clamp-6 text-[0.6875rem] font-normal text-csrcblue group-hover:text-csrclight">
+            <p className="text-csrcblue group-hover:text-csrclight line-clamp-6 text-[0.6875rem]">
               {result.product_description?.substring(0, 200)}...
             </p>
           </div>

@@ -64,7 +64,7 @@ export default async function NavBar() {
           <li key={index} className="mb-0 px-2 md:py-2">
             <Link
               href={`/dashboard/${data.user?.user_metadata.user_role}/${transformLinkText(linkText).toLowerCase()}`}
-              className={`${transformLinkURL(linkText)} relative my-3 ml-7 flex flex-col items-center gap-4 text-csrclight transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:text-csrcblue before:hover:scale-90 hover:before:opacity-75 before:hover:duration-500 focus:text-csrcblue active:text-csrcblue md:ml-0 md:flex-row`}
+              className={`${transformLinkURL(linkText)} relative my-3 ml-7 flex flex-col items-center gap-4 text-csrclight transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:text-csrcblue hover:before:scale-90 hover:before:opacity-75 hover:before:duration-500 focus:text-csrcblue active:text-csrcblue md:ml-0 md:flex-row`}
             >
               {linkText}
             </Link>
