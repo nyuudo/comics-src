@@ -6,7 +6,7 @@ import getWebComicsId from "@/lib/getWebComicsId";
 
 export default async function WebComic({ params }: WebComicsProps) {
   const { webcomicId } = params;
-  const webComcicId = getWebComicsId(webcomicId);
+  const webComcicId = getWebComicsId(Number(webcomicId));
   const webComics = await webComcicId;
 
   return (

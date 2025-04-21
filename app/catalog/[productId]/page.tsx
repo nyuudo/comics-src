@@ -9,7 +9,7 @@ export async function generateMetadata({
   params,
 }: CatalogProductProps): Promise<Metadata> {
   const { productId } = params;
-  const publishersProductId = getPublishersProductId(productId);
+  const publishersProductId = getPublishersProductId(Number(productId));
   const products = await publishersProductId;
   const product = products?.find((item) => item.product_id);
   return {
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 export default async function CatalogProduct({ params }: CatalogProductProps) {
   const { productId } = params;
-  const publishersProductId = getPublishersProductId(productId);
+  const publishersProductId = getPublishersProductId(Number(productId));
   const products = await publishersProductId;
 
   return (

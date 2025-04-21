@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 export default async function SignUp({ params }: SignUpProps) {
   const supabase = createClient();
   const { data, error } = await (await supabase).auth.getUser();
-  if (!error || data?.user) {
+  if (!error && data?.user) {
     redirect(`/dashboard/${data.user?.user_metadata.user_role}/account`);
   }
   return (
@@ -31,7 +31,7 @@ export default async function SignUp({ params }: SignUpProps) {
         <div className="flex flex-col gap-3 py-4">
           <Link
             href="/login"
-            className="text-center text-xs text-csrcblue underline hover:text-csrcdark"
+            className="text-csrcblue hover:text-csrcdark text-center text-xs underline"
           >
             Already have an account? Please, Log-In!
           </Link>

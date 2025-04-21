@@ -5,6 +5,15 @@ export default async function NavBar() {
   const supabase = createClient();
   const { data, error } = await (await supabase).auth.getUser();
 
+  const icons = {
+    "My Account": "/assets/icons/comics-src-dashboard-00.svg",
+    "My Works": "/assets/icons/comics-src-dashboard-01.svg",
+    "My Collection": "/assets/icons/comics-src-dashboard-02.svg",
+    Publications: "/assets/icons/comics-src-dashboard-03.svg",
+    "My Community": "/assets/icons/comics-src-dashboard-04.svg",
+    Delete: "/assets/icons/comics-src-dashboard-05.svg",
+  };
+
   const links = [
     {
       role: "fan",
@@ -58,15 +67,22 @@ export default async function NavBar() {
   };
 
   return (
-    <nav className="border-b border-dotted border-csrclight/25 py-4 text-xs md:border-b-0 md:border-r md:py-10 md:pr-5">
-      <ul className="flex flex-wrap content-start items-start justify-center divide-x divide-y-0 divide-dotted divide-csrclight/25 md:flex-col md:gap-0 md:divide-x-0 md:divide-y">
+    <nav className="border-csrclight/25 border-b border-dotted py-4 text-xs md:border-r md:border-b-0 md:py-10 md:pr-5">
+      <ul className="divide-csrclight/25 flex content-center items-center justify-center divide-x-0 divide-y-0 md:flex-col md:flex-wrap md:content-start md:items-start md:gap-0 md:divide-x-0 md:divide-y md:divide-dotted">
         {userLinks.map((linkText, index) => (
-          <li key={index} className="mb-0 px-2 md:py-2">
+          <li key={index} className="md:px-2 md:py-2">
             <Link
               href={`/dashboard/${data.user?.user_metadata.user_role}/${transformLinkText(linkText).toLowerCase()}`}
-              className={`${transformLinkURL(linkText)} relative my-3 ml-7 flex flex-col items-center gap-4 text-csrclight transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:text-csrcblue hover:before:scale-90 hover:before:opacity-75 hover:before:duration-500 focus:text-csrcblue active:text-csrcblue md:ml-0 md:flex-row`}
+              className={`${transformLinkURL(linkText)} text-csrclight md:hover:text-csrcblue md:focus:text-csrcblue md:active:text-csrcblue relative mx-3 my-3 flex flex-col items-center gap-4 transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:scale-125 hover:before:scale-90 hover:before:opacity-75 hover:before:duration-500 focus:scale-125 active:scale-125 md:ml-0 md:flex-row md:hover:scale-100 md:focus:scale-100 md:active:scale-100`}
             >
-              {linkText}
+              <span className="md:hidden">
+                <img
+                  src={icons[linkText as keyof typeof icons]}
+                  alt={`${linkText} icon`}
+                  className="h-6 w-6"
+                />
+              </span>
+              <span className="hidden md:block">{linkText}</span>
             </Link>
           </li>
         ))}
