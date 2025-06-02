@@ -4,10 +4,10 @@ import getPublishersProduct from "@/lib/getPublishersProduct";
 export default async function Recommended() {
   const publishersProduct = getPublishersProduct();
   const products = await publishersProduct;
-  const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 4);
+  const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 3);
   return (
-    <section className="bg-csrcyellow p-4">
-      <h2 className="py-4 text-center text-2xl font-bold text-csrcblue">
+    <section className="bg-csrcyellow p-2 md:p-4">
+      <h2 className="text-csrcblue py-4 text-center text-2xl font-bold">
         You may also like...
       </h2>
       <div className="flex flex-wrap content-between items-center justify-center">

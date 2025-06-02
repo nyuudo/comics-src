@@ -4,13 +4,13 @@ import getWebComics from "@/lib/getWebComics";
 export default async function RecommendedWebComic() {
   const webComics = getWebComics();
   const products = await webComics;
-  const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 4);
+  const randomProducts = products?.sort(() => Math.random() - 0.5).slice(0, 3);
   return (
     <section className="bg-csrcyellow">
-      <h2 className="py-4 text-center text-2xl font-bold text-csrcblue">
+      <h2 className="text-csrcblue py-4 text-center text-2xl font-bold">
         You may also like...
       </h2>
-      <div className="flex flex-wrap content-between items-center justify-center gap-12">
+      <div className="flex flex-wrap content-between items-center justify-center gap-1">
         {randomProducts?.map((result) => (
           <a
             className="p-4"

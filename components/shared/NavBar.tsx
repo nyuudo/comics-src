@@ -73,7 +73,7 @@ export default async function NavBar() {
           <li key={index} className="md:px-2 md:py-2">
             <Link
               href={`/dashboard/${data.user?.user_metadata.user_role}/${transformLinkText(linkText).toLowerCase()}`}
-              className={`${transformLinkURL(linkText)} text-csrclight md:hover:text-csrcblue md:focus:text-csrcblue md:active:text-csrcblue relative mx-3 my-3 flex flex-col items-center gap-4 transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:scale-125 hover:before:scale-90 hover:before:opacity-75 hover:before:duration-500 focus:scale-125 active:scale-125 md:ml-0 md:flex-row md:hover:scale-100 md:focus:scale-100 md:active:scale-100`}
+              className={`${transformLinkURL(linkText)} text-csrclight md:hover:text-csrcblue md:focus:text-csrcblue md:active:text-csrcblue relative mx-3 my-3 flex flex-col items-center gap-4 transition delay-150 duration-300 before:absolute before:-left-7 before:size-6 hover:scale-125 hover:before:scale-90 hover:before:opacity-75 hover:before:duration-500 focus:scale-125 focus:opacity-50 active:scale-125 active:opacity-50 md:ml-0 md:flex-row md:hover:scale-100 md:focus:scale-100 md:focus:opacity-100 md:active:scale-100 md:active:opacity-100`}
             >
               <span className="md:hidden">
                 <img

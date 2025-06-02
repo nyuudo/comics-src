@@ -3,6 +3,7 @@ import RecommendedWebComic from "../components/RecommendedWebComic";
 
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
+import AddButton from "@/components/shared/buttons/AddButton";
 
 export default async function WebComic({ params }: WebComicsProps) {
   const { webcomicId } = params;
@@ -12,7 +13,7 @@ export default async function WebComic({ params }: WebComicsProps) {
   return (
     <>
       <main className="px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
-        <section className="flex flex-col items-center justify-center">
+        <section className="flex flex-col items-center-safe justify-center pb-18">
           {webComics?.map((issue) => (
             <div key={issue.webcomic_id}>
               <Image
@@ -32,6 +33,7 @@ export default async function WebComic({ params }: WebComicsProps) {
               ))}
             </div>
           ))}
+          <AddButton />
         </section>
       </main>
       <RecommendedWebComic />
