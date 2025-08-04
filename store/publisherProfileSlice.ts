@@ -29,7 +29,7 @@ export const fetchPublisherProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to fetch publisher profile");
     }
   },
@@ -55,7 +55,7 @@ export const updatePublisherProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to update publisher profile");
     }
   },
@@ -75,7 +75,7 @@ export const deletePublisherProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to delete publisher profile");
     }
   },

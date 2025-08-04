@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { createClient } from "@/utils/browser";
-import { AuthorProfileState } from "@/types/comics-src-types";
+import type { AuthorProfileState } from "@/types/comics-src-types";
 
 const supabase = createClient();
 
@@ -29,7 +29,7 @@ export const fetchAuthorProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to fetch author profile");
     }
   },
@@ -55,7 +55,7 @@ export const updateAuthorProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to update author profile");
     }
   },
@@ -75,7 +75,7 @@ export const deleteAuthorProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to delete author profile");
     }
   },

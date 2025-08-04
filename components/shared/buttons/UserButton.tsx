@@ -9,7 +9,7 @@ export default async function UserButton({ email }: UserButtonProps) {
   return (
     <Link
       href={`/dashboard/${data.user?.user_metadata.user_role}/account`}
-      className="animate-jump text-csrcyellow underline decoration-dotted underline-offset-4 transition delay-150 duration-300 animate-delay-[2000ms] animate-normal animate-duration-1000 animate-fill-both animate-once animate-ease-out hover:text-csrcdark hover:delay-150"
+      className="text-csrcyellow animate-normal hover:text-csrcdark underline decoration-dotted underline-offset-4 transition delay-150 duration-300 hover:delay-150"
     >
       {email}
     </Link>

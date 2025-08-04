@@ -31,9 +31,9 @@ export default async function WebComic({ params }: WebComicsProps) {
                   height={1280}
                 />
               ))}
+              <AddButton productId={issue.webcomic_id} />
             </div>
           ))}
-          <AddButton />
         </section>
       </main>
       <RecommendedWebComic />

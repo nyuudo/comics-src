@@ -1,3 +1,4 @@
+import Fan from "@/app/(fan)/fan/page";
 import type { Database } from "./database";
 import { z } from "zod";
 
@@ -5,23 +6,16 @@ import { z } from "zod";
 
 export const createUserSchema = z
   .object({
-    email: z
-      .string({ required_error: "Email is required" })
-      .min(1, "Email is required")
-      .email("Invalid email"),
+    email: z.string().min(1, "Email is required").email("Invalid email"),
     password: z
-      .string({ required_error: "Password is required" })
+      .string()
       .min(8, "Password must be at least 8 characters")
       .max(32, "Password must be less than 32 characters")
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/,
         "Password must include uppercase, lowercase, number, and special character",
       ),
-    passwordConfirm: z
-      .string({
-        required_error: "Please confirm your password",
-      })
-      .min(1, "Please confirm your password"),
+    passwordConfirm: z.string().min(1, "Please confirm your password"),
     userRole: z.string().optional(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
@@ -38,13 +32,8 @@ export type AuthSignUpProps = {
 /* Log-in Schema  */
 
 export const logInSchema = z.object({
-  email: z
-    .string({ required_error: "Email is required" })
-    .min(1, "Email is required")
-    .email("Invalid email"),
-  password: z
-    .string({ required_error: "Password is required" })
-    .min(8, "Password must be at least 8 characters"),
+  email: z.string().min(1, "Email is required").email("Invalid email"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
 export type TSLogInSchema = z.infer<typeof logInSchema>;
@@ -52,10 +41,7 @@ export type TSLogInSchema = z.infer<typeof logInSchema>;
 /* Reset Password Schema */
 
 export const resetPasswordSchema = z.object({
-  email: z
-    .string({ required_error: "A user email is required" })
-    .min(1, "A user email is required")
-    .email("Invalid email"),
+  email: z.string().min(1, "A user email is required").email("Invalid email"),
 });
 
 export type TSResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
@@ -65,18 +51,14 @@ export type TSResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
 export const updatePasswordSchema = z
   .object({
     password: z
-      .string({ required_error: "New password is required" })
+      .string()
       .min(8, "Password must be at least 8 characters")
       .max(32, "Password must be less than 32 characters")
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/,
         "Password must include uppercase, lowercase, number, and special character",
       ),
-    passwordConfirm: z
-      .string({
-        required_error: "Please confirm your new password",
-      })
-      .min(1, "Please confirm your new password"),
+    passwordConfirm: z.string().min(1, "Please confirm your new password"),
   })
   .refine((data) => data.password === data.passwordConfirm, {
     path: ["passwordConfirm"],
@@ -219,3 +201,25 @@ export type CommunityState = {
   loading: boolean;
   error: string | null;
 };
+
+export type FanCollectionState = {
+  fan_collection: string[] | null;
+  loading: boolean;
+  error: string | null;
+};
+
+export type AuthorCollectionState = {
+  author_collection: string[] | null;
+  loading: boolean;
+  error: string | null;
+};
+
+export type FanCollection = {
+  fan_collection: string[];
+};
+
+export type AuthorCollection = {
+  author_collection: string[];
+};
+
+export type EditedCollection = FanCollection | AuthorCollection;

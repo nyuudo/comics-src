@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { createClient } from "@/utils/browser";
-import { FanProfileState } from "@/types/comics-src-types";
+import type { FanProfileState } from "@/types/comics-src-types";
 
 const supabase = createClient();
 
@@ -29,7 +29,7 @@ export const fetchFanProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to fetch fan profile");
     }
   },
@@ -55,7 +55,7 @@ export const updateFanProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to update fan profile");
     }
   },
@@ -75,7 +75,7 @@ export const deleteFanProfile = createAsyncThunk(
       }
 
       return data;
-    } catch (err) {
+    } catch (error) {
       return thunkAPI.rejectWithValue("Failed to delete fan profile");
     }
   },
