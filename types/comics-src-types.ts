@@ -194,6 +194,12 @@ export type PublisherProfile = {
   publisher_profileImage: string;
 };
 
+export type AvatarState = {
+  url: string | null;
+  loading: boolean;
+  error: string | null;
+};
+
 export type EditedProfile = FanProfile | AuthorProfile | PublisherProfile;
 
 export type CommunityState = {

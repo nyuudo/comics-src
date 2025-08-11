@@ -7,6 +7,7 @@ import authorProfileReducer from "./authorProfileSlice";
 import publisherProfileReducer from "./publisherProfileSlice";
 import fanCollectionReducer from "./fanCollectionSlice";
 import authorCollectionReducer from "./authorCollectionSlice";
+import uploadAvatarReducer from "./uploadAvatarSlice";
 import communityReducer from "./communitySlice";
 import { comicsSrcApi } from "./comicsSrcApi";
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   publisherProfile: publisherProfileReducer,
   fanCollection: fanCollectionReducer,
   authorCollection: authorCollectionReducer,
+  avatar: uploadAvatarReducer,
   community: communityReducer,
   comicsSrcApi: comicsSrcApi.reducer,
 });
