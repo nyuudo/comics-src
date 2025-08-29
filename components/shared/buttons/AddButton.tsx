@@ -1,32 +1,67 @@
 "use client";
+import { useEffect } from "react";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import {
+  addToFanCollection,
+  resetFanCollectionStatus,
+} from "@/store/addToFanCollection";
+import {
+  addToAuthorCollection,
+  resetAuthorCollectionStatus,
+} from "@/store/addToAuthorCollection";
+import type { AddButtonProps } from "@/types/comics-src-types";
+import { RootState, AppDispatch } from "@/store/store";
 
-import insertCollection from "@/lib/insertCollection";
+const useAppDispatch = () => useDispatch<AppDispatch>();
+const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-export default function AddButton({ productId }: { productId: number }) {
-  const handleAddToCollection = async () => {
-    const collectionId = "exampleCollectionId"; // Replace with actual collectionId
-    const fanCollector = "exampleFanCollector"; // Replace with actual fan_collector
-    const collectedProduct = productId;
+export default function AddButton({ productId, userId, role }: AddButtonProps) {
+  const dispatch = useAppDispatch();
 
-    const result = await insertCollection(
-      collectionId,
-      fanCollector,
-      collectedProduct,
-    );
+  const collectionState = useTypedSelector((state) =>
+    role === "fan" ? state.fanCollection : state.authorCollection,
+  );
+  const { loading, error, success, alreadyExists } = collectionState;
 
-    if (result) {
-      console.log("Data inserted successfully:", result);
+  const isLoggedIn = Boolean(userId);
+
+  useEffect(() => {
+    if (success || error || alreadyExists) {
+      setTimeout(() => {
+        if (role === "fan") {
+          dispatch(resetFanCollectionStatus());
+        } else {
+          dispatch(resetAuthorCollectionStatus());
+        }
+      }, 2000);
+    }
+  }, [success, error, alreadyExists, dispatch, role]);
+
+  const handleAdd = () => {
+    if (role === "fan") {
+      dispatch(addToFanCollection({ productId, userId }));
     } else {
-      console.error("Failed to insert data.");
+      dispatch(addToAuthorCollection({ productId, userId }));
     }
   };
 
   return (
     <button
-      onClick={handleAddToCollection}
-      className="bg-csrcblue text-csrclight hover:bg-csrcdark disabled:bg-csrcdark/50 flex min-w-52 items-center justify-center gap-x-2 rounded-sm py-2 font-bold tracking-wider transition delay-150 duration-300 hover:delay-150"
+      onClick={handleAdd}
+      disabled={loading || !isLoggedIn}
+      className="bg-csrcblue hover:bg-csrcdark disabled:bg-csrcdark/75 rounded px-2 py-2 font-bold text-white transition delay-150 duration-300 ease-in-out disabled:cursor-not-allowed"
+      title={!isLoggedIn ? "LOGIN TO ADD" : ""}
     >
-      <span>ADD TO COLLECTION</span>
+      {!isLoggedIn
+        ? "LOGIN TO ADD"
+        : loading
+          ? "ADDING..."
+          : alreadyExists
+            ? "ALREADY ADDED"
+            : success
+              ? "ADDED!"
+              : "ADD TO COLLECTION"}
+      {error && <span className="text-csrcdanger ml-2">{error}</span>}
     </button>
   );
 }

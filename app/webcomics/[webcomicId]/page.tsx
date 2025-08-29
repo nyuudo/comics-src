@@ -3,7 +3,6 @@ import RecommendedWebComic from "../components/RecommendedWebComic";
 
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
-import AddButton from "@/components/shared/buttons/AddButton";
 
 export default async function WebComic({ params }: WebComicsProps) {
   const { webcomicId } = params;
@@ -31,7 +30,6 @@ export default async function WebComic({ params }: WebComicsProps) {
                   height={1280}
                 />
               ))}
-              <AddButton productId={issue.webcomic_id} />
             </div>
           ))}
         </section>

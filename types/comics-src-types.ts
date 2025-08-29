@@ -229,3 +229,9 @@ export type AuthorCollection = {
 };
 
 export type EditedCollection = FanCollection | AuthorCollection;
+
+export type AddButtonProps = {
+  productId: number;
+  userId: string | undefined;
+  role: "fan" | "author";
+};

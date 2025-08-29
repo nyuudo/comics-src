@@ -299,6 +299,7 @@ export default function AccountForm({ user }: { user: User | null }) {
               src={profileImageUrl}
               width={50}
               height={50}
+              className="mb-3 rounded-full"
               alt="Profile Image"
             />
             <button

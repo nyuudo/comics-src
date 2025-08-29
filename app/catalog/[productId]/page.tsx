@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import getUserSession from "@/lib/getUserSession";
 import type { CatalogProductProps } from "@/types/comics-src-types";
 import getPublishersProductId from "@/lib/getPublishersProductId";
 import getPublishersProduct from "@/lib/getPublishersProduct";
@@ -32,6 +33,11 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
   const { productId } = params;
   const publishersProductId = getPublishersProductId(Number(productId));
   const products = await publishersProductId;
+  const { data } = await getUserSession();
+  const userId = data.user?.id;
+  const role = data.user?.user_metadata?.user_role;
+
+  console.log("BEFORE AddButton", { productId, userId, role });
 
   return (
     <div className="flex flex-col justify-between md:flex-row">
@@ -56,16 +62,20 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                 <div className="flex flex-col md:justify-between">
                   <p className="text-csrcdark">{result.product_description}</p>
                   <div className="flex flex-col gap-2">
-                    <p className="text-csrcdark text-xs">
+                    <p className="text-csrcblue text-xs">
                       {result.genre?.genre_name}
                     </p>
-                    <p className="text-csrcdark text-sm">
+                    <p className="text-csrcdark/35 text-sm">
                       {result.publisher?.publisher_name}
                     </p>
-                    <p className="text-csrcdark text-xs font-bold">
+                    <p className="text-csrcdark/50 text-xs font-bold">
                       {result.product_year}
                     </p>
-                    <AddButton productId={result.product_id} />
+                    <AddButton
+                      productId={result.product_id}
+                      userId={userId}
+                      role={role}
+                    />
                   </div>
                 </div>
               </div>

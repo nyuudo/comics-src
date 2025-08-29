@@ -5,9 +5,10 @@ import searchReducer from "./searchSlice";
 import fanProfileReducer from "./fanProfileSlice";
 import authorProfileReducer from "./authorProfileSlice";
 import publisherProfileReducer from "./publisherProfileSlice";
-import fanCollectionReducer from "./fanCollectionSlice";
-import authorCollectionReducer from "./authorCollectionSlice";
 import uploadAvatarReducer from "./uploadAvatarSlice";
+import fanCollectionReducer from "./addToFanCollection";
+import authorCollectionReducer from "./addToAuthorCollection";
+import userCollectionReducer from "./userCollectionSlice";
 import communityReducer from "./communitySlice";
 import { comicsSrcApi } from "./comicsSrcApi";
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   fanCollection: fanCollectionReducer,
   authorCollection: authorCollectionReducer,
   avatar: uploadAvatarReducer,
+  userCollection: userCollectionReducer,
   community: communityReducer,
   comicsSrcApi: comicsSrcApi.reducer,
 });
