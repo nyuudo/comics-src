@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createClient } from "@/utils/browser";
+import type { CollectionResponse } from "@/types/comics-src-types";
+import getPublishersProductIds from "@/lib/getPublishersProductIds";
 
 const supabase = createClient();
 
@@ -12,7 +14,7 @@ export const fetchUserCollection = createAsyncThunk(
     try {
       if (!userId || !role) throw new Error("Missing userId or role");
       let table = "";
-      let column = "";
+      let column: keyof CollectionResponse;
       let idColumn = "";
 
       if (role === "fan") {
@@ -27,26 +29,31 @@ export const fetchUserCollection = createAsyncThunk(
         throw new Error("Invalid role");
       }
 
+      console.log(
+        `Fetching collection from table: ${table}, column: ${column}`,
+      );
+
       const { data, error } = await supabase
         .from(table)
         .select(column)
         .eq(idColumn, userId)
-        .maybeSingle();
+        .maybeSingle<CollectionResponse>();
 
       if (error) throw error;
       if (!data) return [];
 
-      const collectionIds = (data[column] as string[]) || [];
-      if (collectionIds.length === 0) return [];
+      const collectionIds = (data[column] ?? []) as string[];
+      console.log("Collection IDs:", collectionIds);
+      const productIds = collectionIds.map((id) => Number(id));
+      console.log("prodcutIds:", productIds);
+      const publishersProductsIds = await getPublishersProductIds(productIds);
 
-      const { data: products, error: prodError } = await supabase
-        .from("Publishers Product")
-        .select("product_id, product_cover")
-        .in("product_id", collectionIds);
+      const productCovers = (publishersProductsIds ?? []).map(
+        (product) => product.product_cover,
+      );
+    
 
-      if (prodError) throw prodError;
-
-      return (products || []).map((p: any) => p.product_cover as string);
+      return productCovers;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);
     }

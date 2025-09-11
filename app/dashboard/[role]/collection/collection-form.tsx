@@ -45,7 +45,7 @@ export default function CollectionForm({ user }: { user: User | null }) {
               />
             </li>
           ) : (
-            items.map((cover, idx) => (
+            items.map((cover: string, idx: number) => (
               <li key={cover + idx}>
                 <Image
                   src={cover}

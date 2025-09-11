@@ -235,3 +235,13 @@ export type AddButtonProps = {
   userId: string | undefined;
   role: "fan" | "author";
 };
+
+export type CollectionResponse = {
+  fan_collection?: string[] | null;
+  author_collection?: string[] | null;
+};
+
+export type ProductCollection = {
+  product_id: number;
+  product_cover: string;
+};
