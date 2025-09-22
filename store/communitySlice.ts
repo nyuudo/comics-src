@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createClient } from "@/utils/browser";
 import type { CommunityState } from "@/types/comics-src-types";
 
@@ -12,20 +12,71 @@ const initialState: CommunityState = {
 
 export const fetchCommunity = createAsyncThunk(
   "community/fetchCommunity",
-  async (userId: string, thunkAPI) => {
+  async (
+    { userId, role }: { userId: string | undefined; role: string | undefined },
+    thunkAPI,
+  ) => {
     try {
+      if (!userId || !role) throw new Error("Missing userId or role");
       const { data, error } = await supabase
         .from("Community")
-        .select("folowed_id")
-        .eq("folower_id", userId)
-        .single();
+        .select("followed_id")
+        .eq("follower_id", userId);
+
       if (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
 
-      return data;
+      // Retrieve followed IDs
+      return data?.map((row) => row.followed_id) ?? [];
     } catch (err) {
       return thunkAPI.rejectWithValue("failed to fetch Community of Followers");
+    }
+  },
+);
+
+export const addFollower = createAsyncThunk(
+  "community/addFollower",
+  async (
+    { followerId, followedId }: { followerId: string; followedId: string },
+    thunkAPI,
+  ) => {
+    try {
+      const { error } = await supabase
+        .from("Community")
+        .insert([{ follower_id: followerId, followed_id: followedId }]);
+
+      if (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+
+      return followedId;
+    } catch (err) {
+      return thunkAPI.rejectWithValue("failed to add Follower");
+    }
+  },
+);
+
+export const removeFollower = createAsyncThunk(
+  "community/removeFollower",
+  async (
+    { followerId, followedId }: { followerId: string; followedId: string },
+    thunkAPI,
+  ) => {
+    try {
+      const { error } = await supabase
+        .from("Community")
+        .delete()
+        .eq("follower_id", followerId)
+        .eq("followed_id", followedId);
+
+      if (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+
+      return followedId;
+    } catch (err) {
+      return thunkAPI.rejectWithValue("failed to remove Follower");
     }
   },
 );
@@ -42,7 +93,8 @@ const communitySlice = createSlice({
       })
       .addCase(fetchCommunity.fulfilled, (state, action) => {
         state.loading = false;
-        state.followers = action.payload.folowed_id;
+        state.followers = action.payload as string[];
+        state.error = null;
       })
       .addCase(fetchCommunity.rejected, (state, action) => {
         state.loading = false;

@@ -203,7 +203,7 @@ export type AvatarState = {
 export type EditedProfile = FanProfile | AuthorProfile | PublisherProfile;
 
 export type CommunityState = {
-  followers: [] | null;
+  followers: string[] | null;
   loading: boolean;
   error: string | null;
 };
@@ -239,9 +239,4 @@ export type AddButtonProps = {
 export type CollectionResponse = {
   fan_collection?: string[] | null;
   author_collection?: string[] | null;
-};
-
-export type ProductCollection = {
-  product_id: number;
-  product_cover: string;
 };
