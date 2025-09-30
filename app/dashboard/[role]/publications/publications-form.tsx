@@ -26,28 +26,6 @@ export default function PublicationsForm({ user }: { user: User | null }) {
               />
             </Link>
           </li>
-          <li>
-            <Link href="#">
-              <Image
-                className="opacity-50"
-                src={"/assets/images/comics-src-collection-no-item.svg"}
-                alt={"No Items Found"}
-                width={80}
-                height={133}
-              />
-            </Link>
-          </li>
-          <li>
-            <Link href="#">
-              <Image
-                className="opacity-50"
-                src={"/assets/images/comics-src-collection-no-item.svg"}
-                alt={"No Items Found"}
-                width={80}
-                height={133}
-              />
-            </Link>
-          </li>
         </ul>
       </div>
     </main>

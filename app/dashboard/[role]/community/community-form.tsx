@@ -5,7 +5,6 @@ import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
 import {
   fetchCommunity,
-  addFollower,
   removeFollower,
 } from "@/store/communitySlice";
 import Image from "next/image";

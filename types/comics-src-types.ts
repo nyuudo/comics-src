@@ -240,3 +240,9 @@ export type CollectionResponse = {
   fan_collection?: string[] | null;
   author_collection?: string[] | null;
 };
+
+export type LikedByCommunityState = {
+  avatars: string[] | null;
+  loading: boolean;
+  error: string | null;
+};

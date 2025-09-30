@@ -6,6 +6,8 @@ import getPublishersProductId from "@/lib/getPublishersProductId";
 import getPublishersProduct from "@/lib/getPublishersProduct";
 import Recommended from "../components/Recommended";
 import AddButton from "@/components/shared/buttons/AddButton";
+import LikedByCommunity from "@/components/feature/LikedByCommunity";
+import { addFollower } from "@/store/communitySlice";
 
 export async function generateMetadata({
   params,
@@ -41,17 +43,17 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
 
   return (
     <div className="flex flex-col justify-between md:flex-row">
-      <main className="selection:bg-csrcblue xs:px-5 flex bg-white selection:text-white sm:px-10 md:w-5/6 lg:w-1/2 md:lg:xl:px-[3.75rem]">
+      <main className="selection:bg-csrcblue flex bg-white px-5 selection:text-white md:w-5/6 lg:w-1/2 md:lg:px-[3.75rem] xl:px-20">
         <section>
           {products?.map((result) => (
             <div
-              className="flex flex-col gap-4 rounded-sm p-6"
+              className="flex flex-col gap-4 rounded-sm py-6"
               key={result.product_id}
             >
               <h1 className="text-csrcblue text-2xl font-bold md:text-3xl">
                 {result.product_title}
               </h1>
-              <div className="flex flex-col gap-4 md:flex-row">
+              <div className="flex flex-col gap-4 pb-2 md:flex-row">
                 <Image
                   src={result.product_cover}
                   alt={result.product_title}
@@ -60,8 +62,10 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                   className="h-[266px] w-[160px]"
                 ></Image>
                 <div className="flex flex-col md:justify-between">
-                  <p className="text-csrcdark">{result.product_description}</p>
-                  <div className="flex flex-col gap-2">
+                  <p className="text-csrcdark text-sm wrap-normal">
+                    {result.product_description}
+                  </p>
+                  <div className="flex flex-col gap-1 py-2">
                     <p className="text-csrcblue text-xs">
                       {result.genre?.genre_name}
                     </p>
@@ -71,14 +75,16 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                     <p className="text-csrcdark/50 text-xs font-bold">
                       {result.product_year}
                     </p>
-                    <AddButton
-                      productId={result.product_id}
-                      userId={userId}
-                      role={role}
-                    />
                   </div>
+                  <AddButton
+                    productId={result.product_id}
+                    userId={userId}
+                    role={role}
+                  />
                 </div>
               </div>
+              <hr className="border-csrcdark/15 border-1" />
+              <LikedByCommunity productId={result.product_id.toString()} />
             </div>
           ))}
         </section>

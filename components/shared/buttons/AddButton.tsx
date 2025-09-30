@@ -49,11 +49,11 @@ export default function AddButton({ productId, userId, role }: AddButtonProps) {
     <button
       onClick={handleAdd}
       disabled={loading || !isLoggedIn}
-      className="bg-csrcblue hover:bg-csrcdark disabled:bg-csrcdark/75 rounded px-2 py-2 font-bold text-white transition delay-150 duration-300 ease-in-out disabled:cursor-not-allowed"
-      title={!isLoggedIn ? "LOGIN TO ADD" : ""}
+      className="bg-csrcblue hover:bg-csrcdark disabled:bg-csrcdark/75 max-w-48 rounded px-2 py-2 text-sm font-bold text-white transition delay-150 duration-300 ease-in-out disabled:cursor-not-allowed"
+      title={!isLoggedIn ? "ADD ITEM" : ""}
     >
       {!isLoggedIn
-        ? "LOGIN TO ADD"
+        ? "LOGIN TO ADD ITEM"
         : loading
           ? "ADDING..."
           : alreadyExists
