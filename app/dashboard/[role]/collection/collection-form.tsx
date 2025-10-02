@@ -45,14 +45,16 @@ export default function CollectionForm({ user }: { user: User | null }) {
               />
             </li>
           ) : (
-            items.map((cover: string, idx: number) => (
-              <li key={cover + idx}>
-                <Image
-                  src={cover}
-                  alt={`Collection Item ${idx + 1}`}
-                  width={80}
-                  height={133}
-                />
+            items.map((item) => (
+              <li key={item.product_id}>
+                <Link href={`/catalog/${item.product_id}`}>
+                  <Image
+                    src={item.product_cover}
+                    alt={`Collection Item ${item.product_id}`}
+                    width={80}
+                    height={133}
+                  />
+                </Link>
               </li>
             ))
           )}

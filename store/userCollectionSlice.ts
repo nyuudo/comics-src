@@ -48,10 +48,10 @@ export const fetchUserCollection = createAsyncThunk(
       console.log("prodcutIds:", productIds);
       const publishersProductsIds = await getPublishersProductIds(productIds);
 
-      const productCovers = (publishersProductsIds ?? []).map(
-        (product) => product.product_cover,
-      );
-    
+      const productCovers = (publishersProductsIds ?? []).map((product) => ({
+        product_id: product.product_id,
+        product_cover: product.product_cover,
+      }));
 
       return productCovers;
     } catch (err: any) {
@@ -65,7 +65,7 @@ const userCollectionSlice = createSlice({
   initialState: {
     loading: false,
     error: null as string | null,
-    items: [] as string[],
+    items: [] as { product_id: number; product_cover: string }[],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -76,7 +76,10 @@ const userCollectionSlice = createSlice({
       })
       .addCase(fetchUserCollection.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload as string[];
+        state.items = action.payload as {
+          product_id: number;
+          product_cover: string;
+        }[];
       })
       .addCase(fetchUserCollection.rejected, (state, action) => {
         state.loading = false;
