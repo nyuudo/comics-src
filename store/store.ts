@@ -11,6 +11,7 @@ import authorCollectionReducer from "./addToAuthorCollection";
 import userCollectionReducer from "./userCollectionSlice";
 import communityReducer from "./communitySlice";
 import fetchLikedByCommunityreducer from "./fetchedLikedByCommunity";
+import communityUsersReducer from "./communityUsersSlice";
 import { comicsSrcApi } from "./comicsSrcApi";
 
 const rootReducer = combineReducers({
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   userCollection: userCollectionReducer,
   community: communityReducer,
   likedByCommunity: fetchLikedByCommunityreducer,
+  communityUsers: communityUsersReducer,
   comicsSrcApi: comicsSrcApi.reducer,
 });
 export const store = configureStore({

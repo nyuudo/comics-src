@@ -246,3 +246,14 @@ export type LikedByCommunityState = {
   loading: boolean;
   error: string | null;
 };
+
+export type CommunityUser = {
+  username: string;
+  profileImage: string | null;
+};
+
+export type CommunityUsersState = {
+  users: CommunityUser[];
+  loading: boolean;
+  error: string | null;
+};
