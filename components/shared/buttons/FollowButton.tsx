@@ -18,13 +18,13 @@ export default function FollowButton() {
 
   return (
     <button
-      className={`flex items-center justify-center gap-x-1 rounded border-2 border-csrcdark/50 bg-csrcblue px-2.5 py-1 font-bold tracking-wider transition delay-150 duration-300 hover:delay-150 ${
+      className={`bg-csrcblue text-csrcdark flex items-center justify-center gap-x-1 rounded px-2.5 py-1 font-bold tracking-wider transition delay-150 duration-300 hover:delay-150 ${
         followState === "Follow"
           ? "hover:border-csrclight hover:text-csrclight"
           : followState === "Following" && !isHovered
-            ? "border-transparent bg-csrcdark/50 text-csrclight"
+            ? "bg-csrclight/15 text-csrclight"
             : followState === "Following" && isHovered
-              ? "border-transparent bg-csrcdanger text-csrclight"
+              ? "bg-csrcdanger text-csrclight"
               : ""
       } `}
       onClick={handleFollowClick}

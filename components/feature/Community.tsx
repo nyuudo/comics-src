@@ -23,11 +23,11 @@ export default function Community() {
         Community
       </h1>
       <p className="text-csrcdark text-center break-words">
-        Likeminded people who create, publish or just enjoy comics. <br></br>A
-        place where you could stay in contact with them and maybe support your
-        favorite authors.
+        <span className="font-bold">Likeminded</span> people who create, publish
+        or just enjoy comics. <br></br>A place where you could stay in contact
+        with them and maybe support your favorite authors.
       </p>
-      <ul className="flex flex-row flex-wrap gap-2 py-4 lg:gap-6">
+      <ul className="grid grid-flow-row grid-cols-3 md:grid-cols-4">
         {loading ? (
           <li>Loading...</li>
         ) : (

@@ -98,6 +98,10 @@ export type MessageProps = {
   params: { message: string };
 };
 
+export type ProfileProps = {
+  params: { userName: string };
+};
+
 export type SearchState = {
   search: string;
   startupComics: PublishersProducts[];

@@ -41,7 +41,9 @@ export default function About() {
           </p>
         </div>
       </section>
-      <Community />
+      <section id="community">
+        <Community />
+      </section>
     </main>
   );
 }
