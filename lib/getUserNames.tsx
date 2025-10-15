@@ -1,31 +1,33 @@
 import client from "@/utils/client";
 
 export default async function getUserNames(userName: string) {
-  // Query Fan table
-  const { data: fanData, error: fanError } = await client
+  const { data: fanUserData, error: fanError } = await client
     .from("Fan")
-    .select("fan_username, fan_profileImage, fan_bio, fan_collection")
+    .select("*")
     .eq("fan_username", userName)
-    .single();
+    .maybeSingle();
 
-  // Query Author table
-  const { data: authorData, error: authorError } = await client
+  const { data: authorUserData, error: authorError } = await client
     .from("Author")
-    .select(
-      "author_username, author_profileImage, author_bio, author_collection",
-    )
+    .select("*")
     .eq("author_username", userName)
-    .single();
+    .maybeSingle();
 
-  if (fanError) {
-    console.error(fanError);
-  }
-  if (authorError) {
-    console.error(authorError);
+  if (fanError || authorError) {
+    const errors = [];
+    if (fanError) {
+      console.error(fanError);
+      errors.push(fanError);
+    }
+    if (authorError) {
+      console.error(authorError);
+      errors.push(authorError);
+    }
+    throw new Error(`Failed to retrieve user data: ${errors.join(", ")}`);
   }
 
   return {
-    fan: fanData || null,
-    author: authorData || null,
+    fan: fanUserData || null,
+    author: authorUserData || null,
   };
 }
