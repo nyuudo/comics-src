@@ -23,7 +23,7 @@ export default async function SignUp({ params }: SignUpProps) {
   }
   return (
     <main className="flex items-center justify-center py-16">
-      <div className="w-[17.3125rem]">
+      <div className="w-69.25">
         <h1 className="text-center text-2xl font-bold">
           Create an Account as {params.role.toUpperCase()}
         </h1>

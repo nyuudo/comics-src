@@ -6,23 +6,23 @@ export const metadata = {
 };
 export default function ErrorPage() {
   return (
-    <main className="flex flex-col items-center justify-center gap-2 bg-csrcdark py-16">
-      <div className="w-[17.3125rem]">
+    <main className="bg-csrcdark flex flex-col items-center justify-center gap-2 py-16">
+      <div className="w-69.25">
         <Image
           src="/assets/images/comics-src-not-found.svg"
           alt="Not Found"
           width={320}
           height={326}
-          className="-ml-2 animate-fade-left pb-8 animate-once animate-ease-in-out"
+          className="animate-fade-left animate-once animate-ease-in-out -ml-2 pb-8"
         ></Image>
-        <h1 className="text-center text-2xl font-bold text-csrcyellow">
+        <h1 className="text-csrcyellow text-center text-2xl font-bold">
           Sorry
         </h1>
-        <p className="text-center text-csrclight">Something went wrong</p>
+        <p className="text-csrclight text-center">Something went wrong</p>
       </div>
       <Link
         href="/"
-        className="text-center text-xs text-csrcblue hover:text-csrclight"
+        className="text-csrcblue hover:text-csrclight text-center text-xs"
       >
         Back to Home
       </Link>

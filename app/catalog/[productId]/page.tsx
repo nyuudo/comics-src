@@ -43,7 +43,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
 
   return (
     <div className="flex flex-col justify-between md:flex-row">
-      <main className="selection:bg-csrcblue flex bg-white px-5 selection:text-white md:w-5/6 lg:w-1/2 md:lg:px-[3.75rem] xl:px-20">
+      <main className="selection:bg-csrcblue flex bg-white px-5 selection:text-white md:w-5/6 lg:w-1/2 md:lg:px-15 xl:px-20">
         <section>
           {products?.map((result) => (
             <div
@@ -83,7 +83,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                   />
                 </div>
               </div>
-              <hr className="border-csrcdark/15 border-1" />
+              <hr className="border-csrcdark/15 border" />
               <LikedByCommunity productId={result.product_id.toString()} />
             </div>
           ))}

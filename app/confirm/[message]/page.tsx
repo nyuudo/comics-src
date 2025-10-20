@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 export default function Confirm({ params }: MessageProps) {
   return (
     <main className="flex items-center justify-center py-16">
-      <div className="my-20 w-[17.3125rem]">
+      <div className="my-20 w-69.25">
         <h1 className="text-center text-2xl font-bold text-csrcblue">
           {params.message.toUpperCase().replace(/-/g, " ")}:
         </h1>

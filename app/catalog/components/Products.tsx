@@ -7,7 +7,7 @@ export default async function Products() {
   const products = await publishersProduct;
   const latestProducts = products?.reverse().slice(0, products.length - 1);
   return (
-    <section className="relative z-10 flex w-full flex-col items-center bg-background_01 bg-no-repeat py-20 xs:px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <section className="relative z-10 flex w-full flex-col items-center bg-background_01 bg-no-repeat py-20 xs:px-5 sm:px-10 md:lg:px-15 xl:px-20">
       <div className="relative mb-4 flex items-center justify-center">
         <h3 className="z-10 my-4 mb-10 text-center text-2xl font-bold text-csrclight after:absolute after:left-2/4 after:top-2/4 after:-z-10 after:h-[94px] after:w-[320px] after:-translate-x-2/4 after:-translate-y-2/4 after:bg-bubble_flag after:bg-no-repeat md:text-3xl">
           Latest Comics

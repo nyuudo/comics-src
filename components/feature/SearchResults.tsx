@@ -12,7 +12,7 @@ const SearchResults = () => {
   if (!data) {
     return (
       <div className="relative">
-        <div className="placeholder-csrcdark absolute left-6 text-red-800">
+        <div className="placeholder-csrcdark absolute left-6 text-csrcdanger">
           No results found
         </div>
       </div>
@@ -20,7 +20,7 @@ const SearchResults = () => {
   }
 
   return (
-    <main className="bg-csrclight/75 absolute top-40 z-20 flex w-[17.3125rem] flex-col items-center justify-center rounded-sm shadow-lg md:top-20">
+    <main className="bg-csrclight/75 absolute top-40 z-20 flex w-69.25 flex-col items-center justify-center rounded-sm shadow-lg md:top-20">
       {data.slice(0, 3).map((result) => (
         <a
           className="group hover:bg-csrcblue hover:from-csrcblue hover:via-csrcblue flex rounded-sm p-4 transition delay-150 hover:via-50%"

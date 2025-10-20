@@ -11,7 +11,7 @@ export default async function WebComic({ params }: WebComicsProps) {
 
   return (
     <>
-      <main className="px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+      <main className="px-5 sm:px-10 md:lg:px-15 xl:px-20">
         <section className="flex flex-col items-center-safe justify-center pb-18">
           {webComics?.map((issue) => (
             <div key={issue.webcomic_id}>

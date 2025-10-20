@@ -33,7 +33,7 @@ export default function UpdateUserPassword() {
 
   return (
     <main className="flex items-center justify-center py-16">
-      <div className="w-[17.3125rem]">
+      <div className="w-69.25">
         <h1 className="text-center text-2xl font-bold">Update Password</h1>
         <p className="text-center text-csrcdark">
           Please submit your new password

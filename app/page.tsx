@@ -6,8 +6,8 @@ import Image from "next/image";
 export default async function Home() {
   return (
     <main>
-      <section className="bg-csrclight bg-background_05 relative flex h-[325px] flex-col items-center justify-center gap-4 bg-cover bg-center px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-20">
-        <div className="animate-fade animate-once animate-ease-in-out after:bg-bubble_electric flex h-[249px] w-[360px] flex-col items-start justify-center gap-3 after:absolute after:-bottom-0 after:h-[249px] after:w-[360px] after:bg-cover after:bg-no-repeat sm:h-[302px] sm:w-[436px] sm:after:-bottom-6 sm:after:h-[302px] sm:after:w-[436px] md:h-[526px] md:w-[760px] md:after:-bottom-12 md:after:h-[526px] md:after:w-[760px]">
+      <section className="bg-csrclight bg-background_05 relative flex h-[325px] flex-col items-center justify-center gap-4 bg-cover bg-center px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-15 xl:px-20">
+        <div className="animate-fade animate-once animate-ease-in-out after:bg-bubble_electric flex h-[249px] w-[360px] flex-col items-start justify-center gap-3 after:absolute after:bottom-0 after:h-[249px] after:w-[360px] after:bg-cover after:bg-no-repeat sm:h-[302px] sm:w-[436px] sm:after:-bottom-6 sm:after:h-[302px] sm:after:w-[436px] md:h-[526px] md:w-[760px] md:after:-bottom-12 md:after:h-[526px] md:after:w-[760px]">
           <h1 className="text-csrcdark z-10 w-[300px] pt-8 pl-12 text-[1.5rem] leading-none sm:w-[380px] sm:pl-14 sm:text-3xl md:w-[590px] md:pb-8 md:pl-28 md:text-5xl">
             Discover <strong>new comics</strong> and <strong>directly</strong>{" "}
             support the artists who make it
@@ -36,10 +36,10 @@ export default async function Home() {
           alt="Fan-Hero"
           width={280}
           height={350}
-          className="invisible absolute bottom-[0px] sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
+          className="invisible absolute bottom-0 sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
         ></Image>
       </section>
-      <section className="bg-csrcblue sm:bg-background_03 flex h-[325px] flex-col justify-center bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcblue sm:bg-background_03 flex h-[325px] flex-col justify-center bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-15 xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-csrcyellow text-2xl sm:text-3xl md:text-5xl">
@@ -65,7 +65,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-csrcyellow sm:bg-background_07 flex h-[325px] flex-col justify-center bg-left bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcyellow sm:bg-background_07 flex h-[325px] flex-col justify-center bg-left bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-15 xl:px-60">
         <div className="flex items-center">
           <div className="order-2 flex flex-col items-end gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-csrcblue text-right text-2xl sm:text-3xl md:w-[590px] md:text-5xl">
@@ -91,7 +91,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-csrcblue sm:bg-background_09 flex h-[325px] flex-col justify-center gap-4 bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-[3.75rem] xl:px-60">
+      <section className="bg-csrcblue sm:bg-background_09 flex h-[325px] flex-col justify-center gap-4 bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-15 xl:px-60">
         <div className="flex items-center">
           <div className="flex flex-col gap-4 md:w-3/5 md:gap-6">
             <h1 className="text-csrcyellow text-2xl sm:text-3xl md:max-w-[530px] md:text-5xl">

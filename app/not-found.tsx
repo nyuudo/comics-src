@@ -8,7 +8,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <main className="flex flex-col items-center justify-center gap-2 bg-csrcdark py-16">
-      <div className="w-[17.3125rem]">
+      <div className="w-69.25">
         <Image
           src="/assets/images/comics-src-not-found.svg"
           alt="Not Found"

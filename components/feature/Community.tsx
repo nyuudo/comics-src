@@ -22,7 +22,7 @@ export default function Community() {
       <h1 className="text-csrcyellow py-4 text-center text-3xl font-bold">
         Community
       </h1>
-      <p className="text-csrcdark text-center break-words">
+      <p className="text-csrcdark text-center wrap-break-word">
         <span className="font-bold">Likeminded</span> people who create, publish
         or just enjoy comics. <br></br>A place where you could stay in contact
         with them and maybe support your favorite authors.

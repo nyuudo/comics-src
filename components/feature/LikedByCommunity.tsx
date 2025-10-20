@@ -51,12 +51,14 @@ export default function LikedByCommunity({ productId }: Props) {
               key={idx}
               className="clip-followers border grayscale transition duration-1000 ease-in-out hover:grayscale-0"
             >
-              <Image
-                src={avatarUrl}
-                alt={"Profile Pic"}
-                width={32}
-                height={32}
-              />
+              <Link href="/about#community">
+                <Image
+                  src={avatarUrl}
+                  alt={"Profile Pic"}
+                  width={32}
+                  height={32}
+                />
+              </Link>
             </li>
           ))
         )}

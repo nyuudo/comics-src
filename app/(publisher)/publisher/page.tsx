@@ -6,7 +6,7 @@ export const metadata = {
 };
 export default function Publisher() {
   return (
-    <main className="bg-csrcyellow px-5 sm:px-10 md:lg:px-[3.75rem] xl:px-20">
+    <main className="bg-csrcyellow px-5 sm:px-10 md:lg:px-15 xl:px-20">
       <section className="relative flex min-h-[520px] items-center justify-center">
         <Image
           src="/assets/images/comics-src-publisher-page.svg"
