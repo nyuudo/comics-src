@@ -30,7 +30,7 @@ export default async function Products() {
                 alt={result.product_title}
                 width={160}
                 height={266}
-                className="mx-auto h-[266px] w-[160px] group-hover:drop-shadow-md"
+                className="mx-auto h-[266px] w-40 group-hover:drop-shadow-md"
               ></Image>
               <div className="flex flex-col md:justify-between">
                 <p className="text-sm text-csrcdark/50 group-hover:text-white group-hover:drop-shadow-[0_1px_0_rgba(0,0,0,0.25)]">

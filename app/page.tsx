@@ -36,7 +36,7 @@ export default async function Home() {
           alt="Fan-Hero"
           width={280}
           height={350}
-          className="invisible absolute bottom-0 sm:visible sm:right-[28px] sm:h-[200px] md:right-[10px] md:h-[350px] lg:right-[120px] xl:right-[242px]"
+          className="invisible absolute bottom-0 sm:visible sm:right-7 sm:h-[200px] md:right-2.5 md:h-[350px] lg:right-[120px] xl:right-[242px]"
         ></Image>
       </section>
       <section className="bg-csrcblue sm:bg-background_03 flex h-[325px] flex-col justify-center bg-right bg-no-repeat px-5 py-4 sm:px-10 md:h-[520px] md:lg:px-15 xl:px-60">

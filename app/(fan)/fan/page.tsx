@@ -15,7 +15,7 @@ export default function Fan() {
           height={360}
           className="hidden basis-1/2 self-end lg:block lg:h-[360px] lg:w-[294px]"
         ></Image>
-        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-[320px] after:w-[344px] after:bg-bubble_double after:bg-cover after:bg-no-repeat md:after:h-[400px] md:after:w-[430px]">
+        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-80 after:w-[344px] after:bg-bubble_double after:bg-cover after:bg-no-repeat md:after:h-[400px] md:after:w-[430px]">
           <h1 className="z-10 text-center text-4xl font-bold text-csrcblue md:w-[590px] md:text-5xl">
             Fan
           </h1>
