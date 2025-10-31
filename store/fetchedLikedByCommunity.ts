@@ -17,8 +17,10 @@ export const fetchLikedByCommunity = createAsyncThunk(
       const [authorRes, fanRes] = await Promise.all([
         supabase
           .from("Author")
-          .select("author_collection, author_profileImage"),
-        supabase.from("Fan").select("fan_collection, fan_profileImage"),
+          .select("author_collection, author_profileImage, author_username"),
+        supabase
+          .from("Fan")
+          .select("fan_collection, fan_profileImage, fan_username"),
       ]);
 
       if (authorRes.error) throw authorRes.error;
@@ -30,7 +32,10 @@ export const fetchLikedByCommunity = createAsyncThunk(
             Array.isArray(author.author_collection) &&
             author.author_collection.includes(productId),
         )
-        .map((author: any) => author.author_profileImage);
+        .map((author: any) => ({
+          url: author.author_profileImage,
+          username: author.author_username,
+        }));
 
       const fanAvatars = (fanRes.data || [])
         .filter(
@@ -38,7 +43,10 @@ export const fetchLikedByCommunity = createAsyncThunk(
             Array.isArray(fan.fan_collection) &&
             fan.fan_collection.includes(productId),
         )
-        .map((fan: any) => fan.fan_profileImage);
+        .map((fan: any) => ({
+          url: fan.fan_profileImage,
+          username: fan.fan_username,
+        }));
 
       return [...authorAvatars, ...fanAvatars];
     } catch (err: any) {

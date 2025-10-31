@@ -1,14 +1,11 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
-// types from Redux
 import type { TypedUseSelectorHook } from "react-redux";
 
-// functions from the store
 import { RootState, AppDispatch } from "@/store/store";
 import { setSearch, setShowSearchResults } from "@/store/searchSlice";
 import { useRouter } from "next/navigation";
-// hooks from React
 import { useCallback } from "react";
 import type { FormEvent } from "react";
 
@@ -23,7 +20,6 @@ const SearchBar = () => {
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      // Hide any UI-level inline results (we now use a dedicated page)
       dispatch(setShowSearchResults(false));
       const trimmed = search.trim();
       if (trimmed.length) {

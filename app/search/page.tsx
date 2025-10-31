@@ -9,14 +9,13 @@ const SearchPage = () => {
   const searchParams = useSearchParams();
   const q = searchParams?.get("q") ?? "";
 
-  // Skip the request if q is empty
   const { data, isLoading, isError } = useSearchQuery(q, {
     skip: q.trim() === "",
   });
 
   if (q.trim() === "") {
     return (
-      <main className="p-6">
+      <main className="flex flex-col items-center p-6">
         <h1 className="text-csrcblue text-xl font-bold">Search</h1>
         <p className="text-csrcdark/75 mt-4">
           Please, enter a search term to find comics.
@@ -27,7 +26,7 @@ const SearchPage = () => {
 
   if (isLoading) {
     return (
-      <main className="p-6">
+      <main className="flex flex-col items-center p-6">
         <h1 className="text-csrcblue text-xl font-bold">Searching for "{q}"</h1>
         <p className="mt-4">Loading results…</p>
       </main>
@@ -36,17 +35,24 @@ const SearchPage = () => {
 
   if (isError || !data || (Array.isArray(data) && data.length === 0)) {
     return (
-      <main className="p-6">
+      <main className="bg-csrcdark/95 flex flex-col items-center p-6">
         <h1 className="text-csrcblue text-xl font-bold">
-          Search results for <span className="text-csrcdark">"{q}"</span>
+          Search results for <span className="text-csrclight">"{q}"</span>
         </h1>
+        <Image
+          src="/assets/images/comics-src-not-found.svg"
+          alt="Not Found"
+          width={160}
+          height={163}
+          className="animate-fade-left animate-once animate-ease-in-out m-4"
+        ></Image>
         <p className="text-csrcdanger mt-4">No results found.</p>
       </main>
     );
   }
 
   return (
-    <main className="p-6">
+    <main className="flex flex-col items-center p-6">
       <h1 className="text-csrcblue mb-4 text-xl font-bold">
         Search results for <span className="text-csrcdark">"{q}"</span>
       </h1>

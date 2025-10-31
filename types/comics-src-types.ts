@@ -245,8 +245,13 @@ export type CollectionResponse = {
   author_collection?: string[] | null;
 };
 
+export type AvatarItem = {
+  url: string;
+  username: string;
+};
+
 export type LikedByCommunityState = {
-  avatars: string[] | null;
+  avatars: AvatarItem[] | null;
   loading: boolean;
   error: string | null;
 };

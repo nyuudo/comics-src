@@ -13,6 +13,11 @@ type Props = {
   productId: string;
 };
 
+type AvatarItem = {
+  url: string;
+  username: string;
+};
+
 export default function LikedByCommunity({ productId }: Props) {
   const dispatch = useAppDispatch();
   const { avatars, loading } = useTypedSelector(
@@ -36,7 +41,7 @@ export default function LikedByCommunity({ productId }: Props) {
       <ul className="flex flex-wrap gap-2">
         {loading ? (
           <li>Loading...</li>
-        ) : avatars?.length === 0 ? (
+        ) : (avatars as AvatarItem[])?.length === 0 ? (
           <li className="clip-followers border grayscale transition duration-1000 ease-in-out hover:grayscale-0">
             <Image
               src={"/assets/images/comics-src-profile-image.png"}
@@ -46,21 +51,32 @@ export default function LikedByCommunity({ productId }: Props) {
             />
           </li>
         ) : (
-          avatars?.map((avatarUrl: string, idx: number) => (
-            <li
-              key={idx}
-              className="clip-followers border grayscale transition duration-1000 ease-in-out hover:grayscale-0"
-            >
-              <Link href="/about#community">
-                <Image
-                  src={avatarUrl}
-                  alt={"Profile Pic"}
-                  width={32}
-                  height={32}
-                />
-              </Link>
-            </li>
-          ))
+          (avatars as AvatarItem[])?.map((avatar, idx) => {
+            const href = avatar?.username
+              ? `/profile/${avatar.username}`
+              : "/about#community";
+            const imgSrc =
+              avatar?.url || "/assets/images/comics-src-profile-image.png";
+            return (
+              <li
+                key={idx}
+                className="clip-followers border grayscale transition duration-1000 ease-in-out hover:grayscale-0"
+              >
+                <Link href={href}>
+                  <Image
+                    src={imgSrc}
+                    alt={
+                      avatar?.username
+                        ? `${avatar.username} Profile Pic`
+                        : "Profile Pic"
+                    }
+                    width={32}
+                    height={32}
+                  />
+                </Link>
+              </li>
+            );
+          })
         )}
       </ul>
     </div>
