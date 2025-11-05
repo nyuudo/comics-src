@@ -26,8 +26,7 @@ export const fetchCommunity = createAsyncThunk(
       if (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
-
-      // Retrieve followed IDs
+      
       return data?.map((row: { followed_id: string }) => row.followed_id) ?? [];
     } catch (err) {
       return thunkAPI.rejectWithValue("failed to fetch Community of Followers");

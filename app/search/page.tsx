@@ -17,6 +17,7 @@ const SearchPage = () => {
     return (
       <main className="flex flex-col items-center p-6">
         <h1 className="text-csrcblue text-xl font-bold">Search</h1>
+        <hr className="border-csrcdark/15 border" />
         <p className="text-csrcdark/75 mt-4">
           Please, enter a search term to find comics.
         </p>
@@ -28,6 +29,7 @@ const SearchPage = () => {
     return (
       <main className="flex flex-col items-center p-6">
         <h1 className="text-csrcblue text-xl font-bold">Searching for "{q}"</h1>
+        <hr className="border-csrcdark/15 border" />
         <p className="mt-4">Loading results…</p>
       </main>
     );
@@ -56,6 +58,7 @@ const SearchPage = () => {
       <h1 className="text-csrcblue mb-4 text-xl font-bold">
         Search results for <span className="text-csrcdark">"{q}"</span>
       </h1>
+      <hr className="border-csrcdark/15 border" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {data.map((result: any) => (
           <Link

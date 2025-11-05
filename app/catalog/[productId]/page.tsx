@@ -7,7 +7,6 @@ import getPublishersProduct from "@/lib/getPublishersProduct";
 import Recommended from "../components/Recommended";
 import AddButton from "@/components/shared/buttons/AddButton";
 import LikedByCommunity from "@/components/feature/LikedByCommunity";
-import { addFollower } from "@/store/communitySlice";
 
 export async function generateMetadata({
   params,

@@ -1,18 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import { addFollower, removeFollower } from "@/store/communitySlice";
+import { RootState, AppDispatch } from "@/store/store";
 
-export default function FollowButton() {
+const useAppDispatch = () => useDispatch<AppDispatch>();
+const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export default function FollowButton({
+  followerId,
+  followedId,
+}: {
+  followerId: string;
+  followedId: string;
+}) {
+  const dispatch = useAppDispatch();
+  const followers = useTypedSelector((state) => state.community.followers);
+
   const [followState, setFollowState] = useState("Follow");
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    setFollowState(followers?.includes(followedId) ? "Following" : "Follow");
+  }, [followers, followedId]);
 
   const handleFollowClick = () => {
     if (followState === "Follow") {
       setFollowState("Following");
-      // Add logic to add profile
+      dispatch(addFollower({ followerId, followedId }));
     } else if (followState === "Following") {
       setFollowState("Follow");
-      // Add logic to remove profile
+      dispatch(removeFollower({ followerId, followedId }));
     }
   };
 

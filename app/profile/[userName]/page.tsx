@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import getUserSession from "@/lib/getUserSession";
 import type { ProfileProps } from "@/types/comics-src-types";
 import getUserNames from "@/lib/getUserNames";
 import getPublishersProductId from "@/lib/getPublishersProductId";
@@ -30,6 +31,8 @@ export default async function Profile({ params }: ProfileProps) {
   const decodedUserName = decodeURIComponent(userName);
   const { fan, author } = await getUserNames(decodedUserName);
   const profile = fan || author;
+  const { data } = await getUserSession();
+  const followerId = data.user?.id;
 
   if (!profile) {
     return (
@@ -38,6 +41,7 @@ export default async function Profile({ params }: ProfileProps) {
   }
 
   const isFan = fan;
+  const followedId = isFan ? fan?.fan_id : author?.author_id;
 
   const collectionIds =
     (isFan ? fan?.fan_collection : author?.author_collection) ?? [];
@@ -64,7 +68,9 @@ export default async function Profile({ params }: ProfileProps) {
             width={128}
             height={128}
           ></Image>
-          <FollowButton />
+          {followerId && followedId && (
+            <FollowButton followerId={followerId} followedId={followedId} />
+          )}
         </div>
         <div className="flex max-w-64 flex-col gap-4">
           <h1 className="text-csrcyellow text-3xl">
