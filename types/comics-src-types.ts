@@ -207,7 +207,7 @@ export type AvatarState = {
 export type EditedProfile = FanProfile | AuthorProfile | PublisherProfile;
 
 export type CommunityState = {
-  followers: string[] | null;
+  followers: string[];
   loading: boolean;
   error: string | null;
 };
@@ -263,6 +263,19 @@ export type CommunityUser = {
 
 export type CommunityUsersState = {
   users: CommunityUser[];
+  loading: boolean;
+  error: string | null;
+};
+
+export type CommunityDetail = {
+  id: string;
+  username: string;
+  profileImage: string | null;
+  role: "author" | "fan";
+};
+
+export type CommunityDetailsState = {
+  users: CommunityDetail[];
   loading: boolean;
   error: string | null;
 };

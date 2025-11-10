@@ -3,11 +3,10 @@ import { type User } from "@supabase/supabase-js";
 import { useEffect } from "react";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
-import {
-  fetchCommunity,
-  removeFollower,
-} from "@/store/communitySlice";
+import { fetchCommunity } from "@/store/communitySlice";
+import { fetchFollowedUsers } from "@/store/communityDetailsSlice";
 import Image from "next/image";
+import Link from "next/link";
 
 const useAppDispatch = () => useDispatch<AppDispatch>();
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -16,13 +15,23 @@ export default function CommunityForm({ user }: { user: User | null }) {
   const dispatch = useAppDispatch();
   const role = user?.user_metadata.user_role;
   const userId = user?.id;
-  const { followers, loading } = useTypedSelector((state) => state.community);
+  const { followers: followerIds, loading: loadingIds } = useTypedSelector(
+    (state) => state.community,
+  );
+  const { users, loading: loadingDetails } = useTypedSelector(
+    (state) => state.communityDetails,
+  );
 
+  // fetch the ids (existing behavior)
   useEffect(() => {
     if (userId && role) {
       dispatch(fetchCommunity({ userId, role }));
+      // fetch the detailed user objects (avatars + username)
+      dispatch(fetchFollowedUsers({ userId, role }));
     }
   }, [userId, role, dispatch]);
+
+  const loading = loadingIds || loadingDetails;
 
   return (
     <main className="mx-auto bg-transparent px-0 py-5 md:mx-0 md:px-10 md:py-10">
@@ -36,7 +45,7 @@ export default function CommunityForm({ user }: { user: User | null }) {
         <ul className="flex flex-wrap gap-2">
           {loading ? (
             <li>Loading...</li>
-          ) : followers?.length === 0 ? (
+          ) : users.length === 0 ? (
             <li className="clip-followers border transition duration-1000 ease-in-out">
               <Image
                 src={"/assets/images/comics-src-profile-image.png"}
@@ -46,17 +55,22 @@ export default function CommunityForm({ user }: { user: User | null }) {
               />
             </li>
           ) : (
-            followers?.map((followerId: string) => (
+            users.map((u) => (
               <li
-                key={followerId}
+                key={u.id}
                 className="clip-followers border transition duration-1000 ease-in-out"
               >
-                <Image
-                  src={"/assets/images/comics-src-profile-image.png"}
-                  alt={"Dummy Profile Pic"}
-                  width={32}
-                  height={32}
-                />
+                <Link href={`/profile/${encodeURIComponent(u.username)}`}>
+                  <Image
+                    src={
+                      u.profileImage ||
+                      "/assets/images/comics-src-profile-image.png"
+                    }
+                    alt={`${u.username}'s profile`}
+                    width={32}
+                    height={32}
+                  />
+                </Link>
               </li>
             ))
           )}

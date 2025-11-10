@@ -26,7 +26,7 @@ export const fetchCommunity = createAsyncThunk(
       if (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
-      
+
       return data?.map((row: { followed_id: string }) => row.followed_id) ?? [];
     } catch (err) {
       return thunkAPI.rejectWithValue("failed to fetch Community of Followers");
@@ -41,12 +41,72 @@ export const addFollower = createAsyncThunk(
     thunkAPI,
   ) => {
     try {
-      const { error } = await supabase
+      const { error: insertError } = await supabase
         .from("Community")
         .insert([{ follower_id: followerId, followed_id: followedId }]);
 
-      if (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      if (insertError) {
+        return thunkAPI.rejectWithValue(insertError.message);
+      }
+
+      // Try to update the followed user's community array (author_community or fan_community)
+      try {
+        // Check Author first
+        const { data: authorData, error: authorError } = await supabase
+          .from("Author")
+          .select("author_id, author_community")
+          .eq("author_id", followedId)
+          .maybeSingle();
+
+        if (authorError) {
+          // continue, not fatal for the whole operation
+          console.error("author lookup error", authorError);
+        }
+
+        if (authorData) {
+          const current: string[] = authorData.author_community || [];
+          if (!current.includes(followerId)) {
+            const updated = [...current, followerId];
+            const { error: updateError } = await supabase
+              .from("Author")
+              .update({ author_community: updated })
+              .eq("author_id", followedId);
+            if (updateError)
+              console.error("author community update error", updateError);
+          }
+        } else {
+          // Not an author; check Fan
+          const { data: fanData, error: fanError } = await supabase
+            .from("Fan")
+            .select("fan_id, fan_community")
+            .eq("fan_id", followedId)
+            .maybeSingle();
+
+          if (fanError) {
+            console.error("fan lookup error", fanError);
+          }
+
+          if (fanData) {
+            const current: string[] = fanData.fan_community || [];
+            if (!current.includes(followerId)) {
+              const updated = [...current, followerId];
+              const { error: updateError } = await supabase
+                .from("Fan")
+                .update({ fan_community: updated })
+                .eq("fan_id", followedId);
+              if (updateError)
+                console.error("fan community update error", updateError);
+            }
+          } else {
+            // followedId is not found in Author or Fan - that's odd but not fatal
+            console.warn(
+              "followedId not found in Author or Fan tables:",
+              followedId,
+            );
+          }
+        }
+      } catch (err) {
+        console.error("Failed to update user community array", err);
       }
 
       return followedId;
@@ -63,14 +123,67 @@ export const removeFollower = createAsyncThunk(
     thunkAPI,
   ) => {
     try {
-      const { error } = await supabase
+      const { error: deleteError } = await supabase
         .from("Community")
         .delete()
         .eq("follower_id", followerId)
         .eq("followed_id", followedId);
 
-      if (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      if (deleteError) {
+        return thunkAPI.rejectWithValue(deleteError.message);
+      }
+
+      // Remove followerId from followed user's community array
+      try {
+        const { data: authorData, error: authorError } = await supabase
+          .from("Author")
+          .select("author_id, author_community")
+          .eq("author_id", followedId)
+          .maybeSingle();
+
+        if (authorError) {
+          console.error("author lookup error", authorError);
+        }
+
+        if (authorData) {
+          const current: string[] = authorData.author_community || [];
+          const updated = current.filter((id) => id !== followerId);
+          const { error: updateError } = await supabase
+            .from("Author")
+            .update({ author_community: updated })
+            .eq("author_id", followedId);
+          if (updateError)
+            console.error("author community update error", updateError);
+        } else {
+          // Not an author; check Fan
+          const { data: fanData, error: fanError } = await supabase
+            .from("Fan")
+            .select("fan_id, fan_community")
+            .eq("fan_id", followedId)
+            .maybeSingle();
+
+          if (fanError) {
+            console.error("fan lookup error", fanError);
+          }
+
+          if (fanData) {
+            const current: string[] = fanData.fan_community || [];
+            const updated = current.filter((id) => id !== followerId);
+            const { error: updateError } = await supabase
+              .from("Fan")
+              .update({ fan_community: updated })
+              .eq("fan_id", followedId);
+            if (updateError)
+              console.error("fan community update error", updateError);
+          } else {
+            console.warn(
+              "followedId not found in Author or Fan tables:",
+              followedId,
+            );
+          }
+        }
+      } catch (err) {
+        console.error("Failed to update user community array on remove", err);
       }
 
       return followedId;
