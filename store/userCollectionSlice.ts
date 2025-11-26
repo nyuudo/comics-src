@@ -29,10 +29,6 @@ export const fetchUserCollection = createAsyncThunk(
         throw new Error("Invalid role");
       }
 
-      console.log(
-        `Fetching collection from table: ${table}, column: ${column}`,
-      );
-
       const { data, error } = await supabase
         .from(table)
         .select(column)
@@ -43,9 +39,7 @@ export const fetchUserCollection = createAsyncThunk(
       if (!data) return [];
 
       const collectionIds = (data[column] ?? []) as string[];
-      console.log("Collection IDs:", collectionIds);
       const productIds = collectionIds.map((id) => Number(id));
-      console.log("prodcutIds:", productIds);
       const publishersProductsIds = await getPublishersProductIds(productIds);
 
       const productCovers = (publishersProductsIds ?? []).map((product) => ({

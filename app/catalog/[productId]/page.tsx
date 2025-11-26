@@ -38,8 +38,6 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
   const userId = data.user?.id;
   const role = data.user?.user_metadata?.user_role;
 
-  console.log("BEFORE AddButton", { productId, userId, role });
-
   return (
     <div className="flex flex-col justify-between md:flex-row">
       <main className="selection:bg-csrcblue flex bg-white px-5 selection:text-white md:w-5/6 lg:w-1/2 md:lg:px-15 xl:px-20">

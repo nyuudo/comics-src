@@ -26,12 +26,9 @@ export default function LikedByCommunity({ productId }: Props) {
 
   useEffect(() => {
     if (productId) {
-      console.log("LikedByCommunity productId:", productId, typeof productId);
       dispatch(fetchLikedByCommunity(productId));
     }
   }, [dispatch, productId]);
-
-  console.log("LikedByCommunity raw data:", avatars);
 
   return (
     <div className="flex flex-col gap-3">

@@ -39,6 +39,8 @@ module.exports = {
         background_05: "url('/assets/images/comics-src-background-05.svg')",
         background_07: "url('/assets/images/comics-src-background-07.svg')",
         background_09: "url('/assets/images/comics-src-background-09.svg')",
+        product_highlight:
+          "url('https://muyocmrtggaomnsberas.supabase.co/storage/v1/object/public/comics/cover/comics-src-sample-highlight.webp')",
       },
       content: {
         my_account: "url('/assets/icons/comics-src-dashboard-00.svg')",
