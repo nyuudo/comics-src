@@ -54,6 +54,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Factset_spyderbot", disallow: "/" },
       { userAgent: "FirecrawlAgent", disallow: "/" },
     ],
-    sitemap: "https://comics-src.vercel.app/sitemap.xml",
+    sitemap: "https://comics-src-git-main-nyuudos-projects.vercel.app/sitemap.xml",
   };
 }
