@@ -9,20 +9,11 @@ import Recommended from "../components/Recommended";
 import AddButton from "@/components/shared/buttons/AddButton";
 import LikedByCommunity from "@/components/feature/LikedByCommunity";
 
-/**
- * Notes:
- * - Next may give `params` as a Promise. We `await params` before destructuring.
- * - We validate numeric id conversions and bail with `notFound()` if invalid to avoid sending NaN to the DB.
- * - `generateMetadata` also awaits `params` and performs safe lookup for title/description.
- */
-
 export async function generateMetadata({
   params,
 }: CatalogProductProps): Promise<Metadata> {
-  // unwrap params (params may be a Promise)
   const { productId } = (await params) as { productId?: string };
 
-  // validate
   if (!productId) {
     return {
       title: "Product",
@@ -38,7 +29,6 @@ export async function generateMetadata({
     };
   }
 
-  // load the product list for metadata lookup (defensive)
   const publishersProductId = getPublishersProductId(id);
   const products = await publishersProductId;
   const product = products?.find((item) => item.product_id === id);
@@ -63,30 +53,24 @@ export async function generateStaticParams() {
 }
 
 export default async function CatalogProduct({ params }: CatalogProductProps) {
-  // unwrap params safely (params may be a Promise)
   const { productId } = (await params) as { productId?: string };
 
-  // Guard: missing or invalid productId
   if (!productId) {
     return notFound();
   }
 
   const id = Number(productId);
   if (Number.isNaN(id)) {
-    // prevents NaN going to the DB or downstream functions
     return notFound();
   }
 
-  // fetch products for this publisher/product id
   const publishersProductId = getPublishersProductId(id);
   const products = await publishersProductId;
 
-  // if nothing returned, 404
   if (!products || products.length === 0) {
     return notFound();
   }
 
-  // user session (may be undefined - handled by components)
   const { data } = await getUserSession();
   const userId = data?.user?.id;
   const role = data?.user?.user_metadata?.user_role;

@@ -1,13 +1,29 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import getUserSession from "@/lib/getUserSession";
 import RecommendedWebComic from "../components/RecommendedWebComic";
-
 import type { WebComicsProps } from "@/types/comics-src-types";
 import getWebComicsId from "@/lib/getWebComicsId";
 
 export default async function WebComic({ params }: WebComicsProps) {
-  const { webcomicId } = params;
-  const webComcicId = getWebComicsId(Number(webcomicId));
-  const webComics = await webComcicId;
+  const { webcomicId } = (await params) as { webcomicId?: string };
+
+  if (!webcomicId) {
+    return notFound();
+  }
+
+  const id = Number(webcomicId);
+  if (Number.isNaN(id)) {
+    return notFound();
+  }
+
+  const webComicsPromise = getWebComicsId(id);
+  const webComics = await webComicsPromise;
+
+  if (!webComics || webComics.length === 0) {
+    return notFound();
+  }
 
   return (
     <>
@@ -20,7 +36,7 @@ export default async function WebComic({ params }: WebComicsProps) {
                 alt={issue.webcomic_title}
                 width={800}
                 height={1280}
-              ></Image>
+              />
               {issue.webcomic_images.map((image, index) => (
                 <Image
                   key={index}

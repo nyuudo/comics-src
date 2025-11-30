@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Tables } from "@/types/database";
 import type { PublishersProducts } from "@/types/comics-src-types";
 
-const baseUrl = process.env.BASE_URL_API || "http://localhost:3000/api/";
+// Use a client-exposed env var. In Next.js this must be NEXT_PUBLIC_*, in Vite use VITE_*, etc.
+// Default to a relative path so same-origin APIs (e.g. Next.js API routes) work without CORS.
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL_API ?? "/api/";
 
 export const comicsSrcApi = createApi({
   reducerPath: "comicsSrcApi",
@@ -11,7 +13,8 @@ export const comicsSrcApi = createApi({
   endpoints: (builder) => ({
     // indicate the endpoint returns an array of PublishersProducts
     search: builder.query<PublishersProducts[], string>({
-      query: (q) => `search?product_title=${q}`,
+      // encode the query parameter to be safe with special characters
+      query: (q) => `search?product_title=${encodeURIComponent(q)}`,
       providesTags: (result, error, search) => [{ type: "comics", search }],
     }),
   }),
