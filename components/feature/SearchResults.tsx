@@ -30,7 +30,7 @@ const SearchResults = () => {
           <Image
             src={result.product_cover}
             alt={result.product_title}
-            className="h-[133px] w-20 rounded-sm group-hover:scale-[.98]"
+            className="h-33.25 w-20 rounded-sm group-hover:scale-[.98]"
             width={160}
             height={266}
           ></Image>

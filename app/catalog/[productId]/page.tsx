@@ -93,7 +93,7 @@ export default async function CatalogProduct({ params }: CatalogProductProps) {
                   alt={result.product_title}
                   width={160}
                   height={266}
-                  className="h-[266px] w-40"
+                  className="h-66.5 w-40"
                 />
                 <div className="flex flex-col md:justify-between">
                   <p className="text-csrcdark text-sm wrap-normal">

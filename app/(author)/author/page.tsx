@@ -7,12 +7,12 @@ export const metadata = {
 export default function Author() {
   return (
     <main className="bg-csrcyellow px-5 sm:px-10 md:lg:px-15 xl:px-20">
-      <section className="relative flex min-h-[520px] items-center justify-center">
-        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-[307px] after:w-[344px] after:bg-bubble_idea after:bg-cover after:bg-no-repeat md:after:h-96 md:after:w-[430px]">
-          <h1 className="z-10 text-center text-4xl font-bold text-csrcblue md:w-[590px] md:text-5xl">
+      <section className="relative flex min-h-130 items-center justify-center">
+        <div className="flex basis-1/2 flex-col items-center justify-center gap-4 after:absolute after:h-76.75 after:w-86 after:bg-bubble_idea after:bg-cover after:bg-no-repeat md:after:h-96 md:after:w-107.5">
+          <h1 className="z-10 text-center text-4xl font-bold text-csrcblue md:w-147.5 md:text-5xl">
             Author
           </h1>
-          <p className="z-10 w-[200px] text-center md:w-60">
+          <p className="z-10 w-50 text-center md:w-60">
             Sell directly to your fans with total control over your art and
             pricing. Easy access to real-time stats, comics chart reporting, and
             more.
@@ -41,7 +41,7 @@ export default function Author() {
           alt="Author-Page"
           width={374}
           height={348}
-          className="hidden basis-1/2 self-end lg:block lg:h-[348px] lg:w-[374px]"
+          className="hidden basis-1/2 self-end lg:block lg:h-87 lg:w-93.5"
         ></Image>
       </section>
     </main>
