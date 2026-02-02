@@ -29,7 +29,7 @@ export default function Community() {
       </p>
       <ul className="grid grid-flow-row grid-cols-3 md:grid-cols-4">
         {loading ? (
-          <li>Loading...</li>
+          <li className="text-csrclight font-bold">Loading...</li>
         ) : (
           users.map((user) => (
             <li
