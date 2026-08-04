@@ -374,7 +374,7 @@ export default function AccountForm({ user }: { user: User | null }) {
           <textarea
             id="bio"
             maxLength={250}
-            className="bg-csrclight/5 text-csrclight placeholder-csrclight/50 caret-csrcyellow block w-full rounded-xs p-2 text-sm focus:outline-hidden"
+            className="bg-csrclight/5 text-csrclight caret-csrcyellow block w-full rounded-xs p-2 text-sm focus:outline-hidden"
             placeholder="Please, briefly introduce yourself to the community. 250 characters maximum"
             value={
               isFanProfile(editedProfile)
