@@ -9,43 +9,41 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.7.1",
+    "@hookform/resolvers": "^5.9.1",
     "@reduxjs/toolkit": "^2.12.0",
-    "@supabase/ssr": "^0.12.4",
-    "@supabase/supabase-js": "^2.112.0",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
-    "eslint-config-next": "16.3.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint-config-next": "16.3.5",
     "nanoid": "^6.0.1",
-    "next": "16.3.0",
-    "postcss": "^8.5.25",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-hook-form": "^7.84.0",
+    "next": "16.3.5",
+    "postcss": "^8.5.28",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.88.0",
     "react-hot-toast": "^2.6.0",
     "react-redux": "^9.3.0",
     "redux": "^5.0.1",
     "tus": "^0.1.7",
-    "zod": "^4.4.3"
+    "zod": "^4.6.4"
   },
   "devDependencies": {
     "@prettier/plugin-xml": "^3.4.2",
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/node": "^26.1.2",
-    "baseline-browser-mapping": "^2.11.12",
-    "eslint": "^10.8.0",
+    "@types/node": "^26.5.1",
+    "baseline-browser-mapping": "^2.11.23",
+    "eslint": "^10.10.0",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "supabase": "^2.111.0",
+    "supabase": "^2.117.0",
     "tailwindcss": "^4.3.3",
     "tailwindcss-animated": "^2.1.0",
     "typescript": "^7.0.2"
   },
-  "packageManager": "pnpm@10.28.2+sha256.afa99b0b4b3d11c1dad2b472f9318ae2c78673829749ded527f89f09071479a7",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.18",
-      "@types/react-dom": "19.2.4"
-    }
+  "packageManager": "pnpm@11.20.0+sha512.9a6f330a95b66446ea088faf1521405a8a01f07fde7124cc9958dfed52d4bb436737e65b08f85f37b46fcba375092558ac51262b816844b22f63406ed166bfee",
+  "overrides": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4"
   }
 }
