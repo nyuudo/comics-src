@@ -111,11 +111,9 @@ const fanProfileSlice = createSlice({
       })
       .addCase(updateFanProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.fan_bio = action.payload;
-        state.fan_profileImage = action.payload;
-        state.fan_socialmedia = action.payload;
-        state.fan_url = action.payload;
-        state.fan_username = action.payload;
+        if (action.payload) {
+          Object.assign(state, action.payload);
+        }
       })
       .addCase(updateFanProfile.rejected, (state, action) => {
         state.loading = false;
@@ -126,17 +124,20 @@ const fanProfileSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
+      // Minor logic change
       .addCase(deleteFanProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.fan_bio = null;
-        state.fan_profileImage = null;
-        state.fan_socialmedia = null;
-        state.fan_url = null;
-        state.fan_username = null;
+        if (action.payload) {
+          state.fan_bio = null;
+          state.fan_profileImage = null;
+          state.fan_socialmedia = null;
+          state.fan_url = null;
+          state.fan_username = null;
+        }
       })
       .addCase(deleteFanProfile.rejected, (state, action) => {
-        state.loading = true;
-        state.error = null;
+        state.loading = false;
+        state.error = action.payload as string;
       });
   },
 });

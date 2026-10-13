@@ -111,11 +111,9 @@ const authorProfileSlice = createSlice({
       })
       .addCase(updateAuthorProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.author_bio = action.payload;
-        state.author_profileImage = action.payload;
-        state.author_socialmedia = action.payload;
-        state.author_url = action.payload;
-        state.author_username = action.payload;
+        if (action.payload) {
+          Object.assign(state, action.payload);
+        }
       })
       .addCase(updateAuthorProfile.rejected, (state, action) => {
         state.loading = false;
@@ -128,15 +126,17 @@ const authorProfileSlice = createSlice({
       })
       .addCase(deleteAuthorProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.author_bio = null;
-        state.author_profileImage = null;
-        state.author_socialmedia = null;
-        state.author_url = null;
-        state.author_username = null;
+        if (action.payload) {
+          state.author_bio = null;
+          state.author_profileImage = null;
+          state.author_socialmedia = null;
+          state.author_url = null;
+          state.author_username = null;
+        }
       })
       .addCase(deleteAuthorProfile.rejected, (state, action) => {
-        state.loading = true;
-        state.error = null;
+        state.loading = false;
+        state.error = action.payload as string;
       });
   },
 });
